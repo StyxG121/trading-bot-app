@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "23 Nov 2026, 22:45",
-  "as_of_iso": "2026-11-23T22:45:28+01:00",
+  "as_of_vienna": "23 Nov 2026, 23:05",
+  "as_of_iso": "2026-11-23T23:05:22+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 613.32h liq334983; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.002782,
-        "last_gross_pct": -22.8722,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.002776,
+        "last_gross_pct": -23.0385,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v4"
       },
       {
@@ -49,9 +49,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.009325,
-        "last_gross_pct": -6.3849,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.009242,
+        "last_gross_pct": -7.2182,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v4"
       },
       {
@@ -70,9 +70,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 691.31h liq344129; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.008298,
-        "last_gross_pct": 3.8548,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.008173,
+        "last_gross_pct": 2.2904,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v4"
       },
       {
@@ -91,9 +91,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 309.48h liq157627; rules_version=v4",
         "entry_buy_impact_pct": 1.607321,
-        "last_price_usd": 0.002688,
-        "last_gross_pct": 1.8182,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.002661,
+        "last_gross_pct": 0.7955,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v4"
       },
       {
@@ -112,9 +112,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 74.97h liq23944; rules_version=v5",
         "entry_buy_impact_pct": 2.059955,
-        "last_price_usd": 7.038e-05,
-        "last_gross_pct": -21.7217,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 7.422e-05,
+        "last_gross_pct": -17.4508,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v5"
       },
       {
@@ -133,9 +133,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.0007033,
-        "last_gross_pct": 21.2586,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.0006678,
+        "last_gross_pct": 15.1379,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v5"
       },
       {
@@ -154,9 +154,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 4.97h liq32965; rules_version=v5",
         "entry_buy_impact_pct": 1.862346,
-        "last_price_usd": 0.0001258,
-        "last_gross_pct": 6.3398,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.000111,
+        "last_gross_pct": -6.1708,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -176,9 +176,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1153.69h liq232258; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004376,
-        "last_gross_pct": 1.6729,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.004406,
+        "last_gross_pct": 2.3699,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -198,9 +198,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 47.41h liq40387; rules_version=v5",
         "entry_buy_impact_pct": 1.726612,
-        "last_price_usd": 0.0002452,
-        "last_gross_pct": -8.0615,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.0002675,
+        "last_gross_pct": 0.3,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -235,9 +235,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 834.62h liq197921; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001804,
-        "last_gross_pct": -2.3281,
-        "last_checked_at": "2026-11-23T21:45:27.853440+00:00",
+        "last_price_usd": 0.001808,
+        "last_gross_pct": -2.1115,
+        "last_checked_at": "2026-11-23T22:05:19.010471+00:00",
         "rules_version": "v5",
         "override_reason": ""
       }
@@ -309,8 +309,8 @@
       },
       {
         "label": "now",
-        "value": 9.528341,
-        "t": "2026-11-23T22:45:28+01:00",
+        "value": 9.503357,
+        "t": "2026-11-23T23:05:22+01:00",
         "kind": "now"
       }
     ],
@@ -612,8 +612,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "23 Nov 2026, 22:45",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.9%, CLAUDIA -6.4%, mihao +3.9%, Rings +1.8%, HUSS -21.7%, HOGE +21.3%, NINO +6.3%, CBUCKS +1.7%, SIDOOR -8.1%, DCTY -2.3% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:05",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -7.2%, mihao +2.3%, Rings +0.8%, HUSS -17.5%, HOGE +15.1%, NINO -6.2%, CBUCKS +2.4%, SIDOOR +0.3%, DCTY -2.1% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -621,8 +621,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:45",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.9%, CLAUDIA -6.4%, mihao +3.9%, Rings +1.8%, HUSS -21.7%, HOGE +21.3%, NINO +6.3%, CBUCKS +1.7%, SIDOOR -8.1%, DCTY -2.3% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:05",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -7.2%, mihao +2.3%, Rings +0.8%, HUSS -17.5%, HOGE +15.1%, NINO -6.2%, CBUCKS +2.4%, SIDOOR +0.3%, DCTY -2.1% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -630,8 +630,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.9%, CLAUDIA -6.4%, mihao +3.9%, Rings +1.8%, HUSS -21.7%, HOGE +21.3%, NINO +6.3%, CBUCKS +1.7%, SIDOOR -8.1%, DCTY -2.3% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:04",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -6.7%, mihao +1.7%, Rings +0.8%, HUSS -17.5%, HOGE +15.1%, NINO -9.6%, CBUCKS +2.4%, SIDOOR +0.3%, DCTY -1.4% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -639,8 +639,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.3%, mihao +3.5%, Rings +1.8%, HUSS -21.7%, HOGE +18.1%, NINO +16.9%, CBUCKS +1.7%, SIDOOR -7.9%, DCTY -0.2% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:04",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -6.7%, mihao +1.7%, Rings +0.8%, HUSS -17.5%, HOGE +15.1%, NINO -9.6%, CBUCKS +2.4%, SIDOOR +0.3%, DCTY -1.4% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -648,8 +648,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.3%, mihao +3.5%, Rings +1.8%, HUSS -21.7%, HOGE +18.1%, NINO +16.9%, CBUCKS +1.7%, SIDOOR -7.9%, DCTY -0.2% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:04",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -6.5%, mihao +1.1%, Rings +1.4%, HUSS -17.5%, HOGE +15.1%, NINO -7.9%, CBUCKS +3.5%, SIDOOR +0.0%, DCTY -2.7% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -657,8 +657,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.3%, mihao +3.5%, Rings +2.1%, HUSS -20.1%, HOGE +18.1%, NINO +19.9%, CBUCKS +1.7%, SIDOOR -7.7%, DCTY -0.7% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:04",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -6.5%, mihao +1.1%, Rings +1.4%, HUSS -17.5%, HOGE +15.1%, NINO -7.9%, CBUCKS +3.5%, SIDOOR +0.0%, DCTY -2.7% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -666,8 +666,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.3%, mihao +3.5%, Rings +2.1%, HUSS -20.1%, HOGE +18.1%, NINO +19.9%, CBUCKS +1.7%, SIDOOR -7.7%, DCTY -0.7% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:03",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.0%, CLAUDIA -6.5%, mihao +1.1%, Rings +1.4%, HUSS -17.5%, HOGE +15.1%, NINO -7.9%, CBUCKS +3.5%, SIDOOR +0.0%, DCTY -2.7% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -675,8 +675,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.3%, mihao +3.5%, Rings +2.1%, HUSS -20.1%, HOGE +18.1%, NINO +19.9%, CBUCKS +1.7%, SIDOOR -7.7%, DCTY -0.7% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:03",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.2%, CLAUDIA -5.9%, mihao +1.9%, Rings +1.4%, HUSS -17.5%, HOGE +15.1%, NINO -10.1%, CBUCKS +3.5%, SIDOOR -0.6%, DCTY -2.6% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -684,8 +684,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.2%, mihao +3.8%, Rings +2.0%, HUSS -21.6%, HOGE +20.7%, NINO +20.9%, CBUCKS +2.7%, SIDOOR -7.5%, DCTY +0.3% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:03",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.2%, CLAUDIA -5.9%, mihao +1.9%, Rings +1.4%, HUSS -17.5%, HOGE +15.1%, NINO -10.1%, CBUCKS +3.5%, SIDOOR -0.6%, DCTY -2.6% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -693,8 +693,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open FLOAT -22.8%, CLAUDIA -6.2%, mihao +3.8%, Rings +2.0%, HUSS -21.6%, HOGE +20.7%, NINO +20.9%, CBUCKS +2.7%, SIDOOR -7.5%, DCTY +0.3% | closest CATE 57.2 (bsr,margin), MCAT 56.1 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:03",
+        "raw": "monitor | entries 0 | exits 0 | open FLOAT -23.2%, CLAUDIA -5.9%, mihao +1.9%, Rings +1.4%, HUSS -17.5%, HOGE +15.1%, NINO -10.1%, CBUCKS +3.5%, SIDOOR -0.6%, DCTY -2.6% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -721,6 +721,12 @@
       "23 Nov midday: v4 loosened entry gates at the user's request to gather more paper-week learning trades. Hard safety gates stay on. Journal rows are tagged rules_version.",
       "FIONA (v3) hit the \u221225% stop at 21:09 Europe/Vienna, net \u221228.80% / \u22120.1440 SOL.",
       "History study (140 tokens, 112 memecoins): 59.8% rug or collapse; strongest flags are a peak in under 4h and no socials."
+    ],
+    "pattern_model_status": "Shadow (logging only)",
+    "pattern_model": [
+      "Model logit_dex trained on 2218 past decisions; held-out AUC 0.682 on v5-like entries",
+      "Held-out: baseline 25 trades, -10.1%/trade, DD 8.1% \u00b7 with gate 11 trades, -10.9%/trade, DD 4.4%",
+      "Gate stays off: held-out kept trades n=11 < 20; kept trades not profitable on held-out (exp -10.87%/trade)"
     ],
     "toptraders": [
       "62 wallets scored in the first reconstruction; later refresh added Lynk as copyable. Copy bonus still cannot override a FAIL.",
