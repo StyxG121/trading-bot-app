@@ -85,6 +85,32 @@ export type BookView = {
   chain: string | null
   plannedBudget: string | null
   leverageRules: string[]
+  closedTrades: ClosedTradeView[]
+  closedStats: ClosedStatsView
+}
+
+export type ExitCode = 'TP1' | 'TP2' | 'SL' | 'time' | 'exit'
+
+export type ClosedTradeView = {
+  id: string
+  token: string
+  netPct: number | null
+  netSol: number | null
+  exitLabel: string | null
+  exitAt: number | null
+  exitCode: ExitCode
+  rulesVersion: string | null
+  kind: 'full' | 'partial'
+  sizeSol: number | null
+}
+
+export type ClosedStatsView = {
+  count: number
+  winRatePct: number | null
+  netSol: number | null
+  bestNetSol: number | null
+  worstNetSol: number | null
+  avgNetSol: number | null
 }
 
 export type LearningView = {
@@ -153,6 +179,9 @@ type Trade = {
   netSol: number | null
   reason: string | null
   entryReason: string | null
+  rulesVersion: string | null
+  kind: 'full' | 'partial'
+  exitCode: ExitCode
 }
 
 type Activity = {
@@ -309,7 +338,74 @@ function readTrade(value: unknown, clock: Clock): Trade | null {
     netSol: num(row.net_sol),
     reason: str(row.reason),
     entryReason: str(row.entry_reason),
+    rulesVersion: str(row.rules_version),
+    kind: str(row.kind) === 'partial' ? 'partial' : 'full',
+    exitCode: exitCodeFromReason(str(row.reason), str(row.kind), str(row.exit_code)),
   }
+}
+
+const EXIT_CODES: ExitCode[] = ['TP1', 'TP2', 'SL', 'time', 'exit']
+
+export function exitCodeFromReason(reason: string | null, kind?: string | null, explicit?: string | null): ExitCode {
+  if (explicit && EXIT_CODES.includes(explicit as ExitCode)) return explicit as ExitCode
+  const textValue = (reason ?? '').toLowerCase()
+  if (/\btp1\b/.test(textValue) || kind === 'partial') {
+    if (/\btp2\b/.test(textValue) && !/\btp1\b/.test(textValue)) return 'TP2'
+    return 'TP1'
+  }
+  if (/\btp2\b/.test(textValue)) return 'TP2'
+  if (/\bsl\b/.test(textValue) || textValue.includes('stop-loss') || textValue.includes('stop loss')) return 'SL'
+  if (/\b(48h|time[- ]stop)\b/.test(textValue)) return 'time'
+  return 'exit'
+}
+
+export function emptyClosedStats(): ClosedStatsView {
+  return { count: 0, winRatePct: null, netSol: null, bestNetSol: null, worstNetSol: null, avgNetSol: null }
+}
+
+export function statsFromClosedTrades(trades: ClosedTradeView[]): ClosedStatsView {
+  const nets = trades.map((trade) => trade.netSol).filter((value): value is number => value != null && Number.isFinite(value))
+  const wins = nets.filter((value) => value > 0).length
+  const losses = nets.filter((value) => value < 0).length
+  const rated = wins + losses
+  return {
+    count: trades.length,
+    winRatePct: rated ? (wins / rated) * 100 : null,
+    netSol: nets.length ? nets.reduce((sum, value) => sum + value, 0) : null,
+    bestNetSol: nets.length ? Math.max(...nets) : null,
+    worstNetSol: nets.length ? Math.min(...nets) : null,
+    avgNetSol: nets.length ? nets.reduce((sum, value) => sum + value, 0) / nets.length : null,
+  }
+}
+
+function readClosedStats(value: unknown, fallback: ClosedTradeView[]): ClosedStatsView {
+  const row = obj(value)
+  if (!row) return statsFromClosedTrades(fallback)
+  return {
+    count: num(row.count) ?? fallback.length,
+    winRatePct: num(row.win_rate_pct),
+    netSol: num(row.net_sol),
+    bestNetSol: num(row.best_net_sol),
+    worstNetSol: num(row.worst_net_sol),
+    avgNetSol: num(row.avg_net_sol),
+  }
+}
+
+function toClosedTrades(trades: Trade[]): ClosedTradeView[] {
+  const items = trades.map((trade, index) => ({
+    id: `${trade.token}-${trade.exitAt ?? trade.exitLabel ?? index}-${trade.kind}`,
+    token: trade.token,
+    netPct: trade.netPct,
+    netSol: trade.netSol,
+    exitLabel: trade.exitLabel,
+    exitAt: trade.exitAt,
+    exitCode: trade.exitCode,
+    rulesVersion: trade.rulesVersion,
+    kind: trade.kind,
+    sizeSol: trade.size,
+  }))
+  items.sort((a, b) => (b.exitAt ?? 0) - (a.exitAt ?? 0))
+  return items
 }
 
 function readActivity(value: unknown, clock: Clock): Activity | null {
@@ -408,6 +504,8 @@ function emptyBook(): BookView {
     chain: null,
     plannedBudget: null,
     leverageRules: [],
+    closedTrades: [],
+    closedStats: emptyClosedStats(),
   }
 }
 
@@ -625,6 +723,8 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
   const trading = equity.length > 0 || trades.length > 0 || activity.length > 0 || opens.some((item) => obj(item))
   const anyNumber = [balance, start, gross, net, wins, losses, num(raw.days_left)].some((value) => value != null)
   const { agents, lastScanLabel } = buildAgents(activity, trades, openCount)
+  const closedTrades = toClosedTrades(trades)
+  const closedStats = readClosedStats(raw.closed_stats, closedTrades)
 
   return {
     live: trading || anyNumber || budget.length > 0,
@@ -650,6 +750,8 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
     chain: str(raw.chain),
     plannedBudget: str(raw.planned_budget_usd) ?? str(raw.planned_budget),
     leverageRules: strings(raw.leverage_rules),
+    closedTrades,
+    closedStats,
   }
 }
 

@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "23 Nov 2026, 13:02",
-  "as_of_iso": "2026-11-23T13:02:14+01:00",
+  "as_of_vienna": "23 Nov 2026, 13:35",
+  "as_of_iso": "2026-11-23T13:35:45+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 86.68h liq125787; rules_version=v4",
         "entry_buy_impact_pct": 1.649357,
-        "last_price_usd": 0.001688,
-        "last_gross_pct": 13.061,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 0.001628,
+        "last_gross_pct": 9.0422,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       },
       {
@@ -49,9 +49,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 613.32h liq334983; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.003532,
-        "last_gross_pct": -2.0793,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 0.003472,
+        "last_gross_pct": -3.7427,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       },
       {
@@ -70,9 +70,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.009775,
-        "last_gross_pct": -1.8673,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 0.009887,
+        "last_gross_pct": -0.7429,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       },
       {
@@ -91,9 +91,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 824.52h liq235504; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.002611,
-        "last_gross_pct": 1.5953,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 0.002518,
+        "last_gross_pct": -2.0233,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       },
       {
@@ -112,9 +112,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 691.31h liq344129; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.00799,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 0.00801,
+        "last_gross_pct": 0.2503,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       },
       {
@@ -133,9 +133,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 63.93h liq61149; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.0004705,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 0.0004647,
+        "last_gross_pct": -1.2327,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       },
       {
@@ -154,9 +154,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 31.44h liq21394; rules_version=v4",
         "entry_buy_impact_pct": 2.337486,
-        "last_price_usd": 7.032e-05,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-23T12:00:20.659784+00:00",
+        "last_price_usd": 6.771e-05,
+        "last_gross_pct": -3.7116,
+        "last_checked_at": "2026-11-23T12:35:32.494942+00:00",
         "rules_version": "v4"
       }
     ],
@@ -185,9 +185,22 @@
         "net_pct": -28.8,
         "net_sol": -0.144,
         "reason": "SL -25% hit (price -26.68%)",
-        "entry_reason": "WARN passed all entry filters; age 67.7h liq131k"
+        "entry_reason": "WARN passed all entry filters; age 67.7h liq131k",
+        "rules_version": "v3",
+        "exit_code": "SL",
+        "kind": "full"
       }
     ],
+    "closed_stats": {
+      "count": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate_pct": 0.0,
+      "net_sol": -0.144,
+      "best_net_sol": -0.144,
+      "worst_net_sol": -0.144,
+      "avg_net_sol": -0.144
+    },
     "budget_pnl": [
       {
         "bankroll_sol": 1,
@@ -220,115 +233,115 @@
     ],
     "activity": [
       {
+        "time_vienna": "23 Nov 2026, 13:35",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +9.0%, FLOAT -3.7%, CLAUDIA -0.7%, DCTY -2.0%, mihao +0.3%, Singularity -1.2%, snowball -3.7% | closest MCAT 64.7 (organic), mihao 58.5 (score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:31",
+        "raw": "scanned 35 | PASS 0 WARN 10 FAIL 25 | entries 0 | exits 0 | open FIONA +8.6%, FLOAT -3.6%, CLAUDIA -0.5%, DCTY -1.3%, mihao +0.8%, Singularity -2.0%, snowball -0.8% | closest MCAT 64.7 (organic), mihao 58.5 (score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "35",
+        "verdicts": "0 / 10 / 25",
+        "entries": "0",
+        "miss": "—",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:25",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +6.0%, FLOAT -2.7%, CLAUDIA -1.6%, DCTY +0.0%, mihao -0.0%, Singularity -1.1%, snowball -7.3% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:23",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +2.5%, FLOAT -2.7%, CLAUDIA -2.0%, DCTY +0.2%, mihao +0.4%, Singularity +2.0%, snowball -10.4% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:21",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +4.3%, FLOAT -2.7%, CLAUDIA -1.9%, DCTY +0.5%, mihao +0.6%, Singularity +2.4%, snowball -11.1% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:21",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +4.3%, FLOAT -2.7%, CLAUDIA -1.9%, DCTY +0.5%, mihao +0.6%, Singularity +2.4%, snowball -11.1% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:20",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +13.1%, FLOAT -2.1%, CLAUDIA -1.9%, DCTY +1.6%, mihao +0.0%, Singularity +0.0%, snowball +0.0% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:19",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +13.1%, FLOAT -2.1%, CLAUDIA -1.9%, DCTY +1.6%, mihao +0.0%, Singularity +0.0%, snowball +0.0% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | AI monitor paused; exit loop not alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 13:12",
+        "raw": "monitor | entries 0 | exits 0 | open FIONA +13.1%, FLOAT -2.1%, CLAUDIA -1.9%, DCTY +1.6%, mihao +0.0%, Singularity +0.0%, snowball +0.0% | closest FLOAT 58.9 (BSR,score), MCAT 56.7 (organic,score) | copy bonus no | monitor enabled | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
         "time_vienna": "23 Nov 2026, 13:00",
         "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 3 (mihao 63.5, Singularity 62.1, snowball 61.7) | exits 0 | open FIONA +13.1%, FLOAT -2.1%, CLAUDIA -1.9%, DCTY +1.6%, mihao +0.0%, Singularity +0.0%, snowball +0.0% | copy bonus no | monitor enabled",
         "scanned": "35",
         "verdicts": "0 / 11 / 24",
         "entries": "mihao 63.5, Singularity 62.1, snowball 61.7",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 12:56",
-        "raw": "monitor | entries 0 | exits 0 | open FIONA +0.0%, FLOAT +0.0%, CLAUDIA +0.0%, DCTY +0.0% | closest mihao 59.5 (BSR,score), HOGE 59.2 (VOL1H,BSR,score) | copy bonus no | monitor enabled | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 12:47",
-        "raw": "monitor | entries 0 | exits 0 | open FIONA +0.0%, FLOAT +0.0%, CLAUDIA +0.0%, DCTY +0.0% | closest mihao 59.5 (BSR,score), HOGE 59.2 (VOL1H,BSR,score) | copy bonus no | monitor enabled | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 12:33",
-        "raw": "scanned 35 | PASS 0 WARN 10 FAIL 25 | entries 4 (FIONA 71.8, FLOAT 69.9, CLAUDIA 64.4, DCTY 61.9) | exits 0 | open FIONA +0.0%, FLOAT +0.0%, CLAUDIA +0.0%, DCTY +0.0% | copy bonus no | monitor enabled",
-        "scanned": "35",
-        "verdicts": "0 / 10 / 25",
-        "entries": "FIONA 71.8, FLOAT 69.9, CLAUDIA 64.4, DCTY 61.9",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "",
-        "raw": "User requested more paper-week learning volume, so entry standards were lowered. Thresholds now live in config.json (score 60, liq $20k, vol $50k/$5k, age 1\u20131440h, BSR 0.85\u20134.0, 3% size, max 8, daily loss \u221220%, re-entry 6h). Hard safety gates stay on. Dry-run reuse-scan would have entered FIONA+CLAUDIA; full dry-run would have entered FIONA+FLOAT+DCTY+CLAUDIA (not written to the book). Next live scan_cycle will trade under v4 and tag journal rows rules_version=v4. Pre-v4 FIONA rows are tagged v3.",
-        "scanned": "\u2014",
-        "verdicts": "\u2014",
-        "entries": "\u2014",
-        "miss": "\u2014",
-        "kind": "other"
-      },
-      {
-        "time_vienna": "",
-        "raw": "## 2026-11-23 12:20 Europe/Vienna \u2014 rules v4 applied (paper only)",
-        "scanned": "\u2014",
-        "verdicts": "\u2014",
-        "entries": "\u2014",
-        "miss": "\u2014",
-        "kind": "other"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 12:08",
-        "raw": "scanned 35 | PASS 0 WARN 7 FAIL 28 | entries 0 | exits 0 | no open positions | FIONA 77.8 qualified but blocked: exited by SL 15.0h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
-        "scanned": "35",
-        "verdicts": "0 / 7 / 28",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 11:30",
-        "raw": "scanned 35 | PASS 1 WARN 9 FAIL 25 | entries 0 | exits 0 | no open positions | FIONA 77.7 qualified but blocked: exited by SL 14.4h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
-        "scanned": "35",
-        "verdicts": "1 / 9 / 25",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 11:07",
-        "raw": "scanned 35 | PASS 0 WARN 9 FAIL 26 | entries 0 | exits 0 | no open positions | FIONA 71.8 qualified but blocked: exited by SL 14.0h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
-        "scanned": "35",
-        "verdicts": "0 / 9 / 26",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 10:30",
-        "raw": "scanned 35 | PASS 0 WARN 8 FAIL 27 | entries 0 | exits 0 | no open positions | FIONA 68.6 qualified but blocked: exited by SL 13.4h ago (<24h re-entry block) | copy bonus no | monitor already paused",
-        "scanned": "35",
-        "verdicts": "0 / 8 / 27",
-        "entries": "0",
-        "miss": "\u2014",
+        "miss": "—",
         "kind": "scan"
       }
     ],
     "rules_version": "v4",
     "rules_date": "23 Nov 2026",
     "key_rules": [
-      "Liquidity \u2265 $20k and score \u2265 60",
-      "3% per trade, max 8 positions, daily loss limit \u221220%",
+      "Liquidity ≥ $20k and score ≥ 60",
+      "3% per trade, max 8 positions, daily loss limit −20%",
       "TP1 +40% sells 50% and moves the stop to breakeven; TP2 +100%; SL -25%; 48h time stop",
-      "Pool age 1\u20131440h; socials required if the token is under 7 days old",
-      "24h volume \u2265 $50,000, 1h volume \u2265 $5,000, 1h buy/sell ratio 0.85\u20134",
+      "Pool age 1–1440h; socials required if the token is under 7 days old",
+      "24h volume ≥ $50,000, 1h volume ≥ $5,000, 1h buy/sell ratio 0.85–4",
       "Organic and copycat filters auto-FAIL; mint/freeze/honeypot/RugCheck danger still hard-FAIL",
       "Re-entry cooldown 6h after a full exit (paper, rules v4)"
     ],
     "lessons": [
       "23 Nov midday: v4 loosened entry gates at the user's request to gather more paper-week learning trades. Hard safety gates stay on. Journal rows are tagged rules_version.",
-      "FIONA (v3) hit the \u221225% stop at 21:09 Europe/Vienna, net \u221228.80% / \u22120.1440 SOL.",
+      "FIONA (v3) hit the −25% stop at 21:09 Europe/Vienna, net −28.80% / −0.1440 SOL.",
       "History study (140 tokens, 112 memecoins): 59.8% rug or collapse; strongest flags are a peak in under 4h and no socials."
     ],
     "toptraders": [
       "62 wallets scored in the first reconstruction; later refresh added Lynk as copyable. Copy bonus still cannot override a FAIL.",
-      "v4 age window is 1\u20131440h for learning volume; the 12h fade-cut / TP0 proposals remain not applied."
+      "v4 age window is 1–1440h for learning volume; the 12h fade-cut / TP0 proposals remain not applied."
     ]
   },
   "real": {
@@ -336,13 +349,13 @@
     "wallet": "2q5aEdRPtgBSE1yjauJfz5KHL7Bea1sT1xGBLd2u4SA3",
     "chain": "Solana (Phantom)",
     "balance_sol": 0,
-    "planned_budget_usd": "$400\u2013500",
+    "planned_budget_usd": "$400–500",
     "leverage_rules": [
       "BTC, ETH, and SOL perps only; memecoins stay spot, never leveraged",
       "Isolated margin only, 2x default, 3x hard cap",
-      "Risk per trade \u2264 1% of the perps bankroll, counting the stop and both taker fees",
-      "Mandatory stop; liquidation at least 3\u00d7 the stop distance",
-      "Daily loss limit \u22123% of that day's starting perps bankroll",
+      "Risk per trade ≤ 1% of the perps bankroll, counting the stop and both taker fees",
+      "Mandatory stop; liquidation at least 3× the stop distance",
+      "Daily loss limit −3% of that day's starting perps bankroll",
       "Max two open perp positions; no adding to a loser"
     ]
   },

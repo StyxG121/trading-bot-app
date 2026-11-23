@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import snapshot from './fixtures/shipped-snapshot.json'
 import { formatSol, formatViennaClock } from './format.ts'
-import { defaultRange, normalizeSnapshot, pointsInRange } from './normalize.ts'
+import { defaultRange, exitCodeFromReason, normalizeSnapshot, pointsInRange } from './normalize.ts'
 
 describe('shipped snapshot', () => {
   const view = normalizeSnapshot(snapshot)
@@ -140,3 +140,77 @@ describe('vienna clock', () => {
     expect(formatSol(-0.144009)).toBe('−0.144009')
   })
 })
+
+describe('trade history', () => {
+  it('reads the shipped FIONA close as an SL row', () => {
+    const view = normalizeSnapshot(snapshot)
+    expect(view.paper.closedTrades).toHaveLength(1)
+    const row = view.paper.closedTrades[0]
+    expect(row?.token).toBe('FIONA')
+    expect(row?.exitCode).toBe('SL')
+    expect(row?.netSol).toBeCloseTo(-0.144, 3)
+    expect(row?.netPct).toBeCloseTo(-28.8, 2)
+    expect(row?.exitLabel).toBe('22 Nov 2026, 21:09')
+    expect(view.paper.closedStats.count).toBe(1)
+    expect(view.paper.closedStats.winRatePct).toBe(0)
+    expect(view.paper.closedStats.netSol).toBeCloseTo(-0.144, 3)
+    expect(view.paper.closedStats.bestNetSol).toBeCloseTo(-0.144, 3)
+    expect(view.paper.closedStats.worstNetSol).toBeCloseTo(-0.144, 3)
+  })
+
+  it('lists newest first and keeps a TP1 partial as its own row', () => {
+    const view = normalizeSnapshot({
+      as_of_iso: '2026-11-23T13:00:00+01:00',
+      paper: {
+        start_bankroll_sol: 10,
+        bankroll_sol: 10.1,
+        closed_trades: [
+          {
+            token: 'OLD',
+            exit_vienna: '22 Nov 2026, 12:00',
+            net_pct: 10,
+            net_sol: 0.05,
+            reason: 'TP2 +100%',
+            rules_version: 'v3',
+            kind: 'full',
+          },
+          {
+            token: 'NEW',
+            exit_vienna: '23 Nov 2026, 10:00',
+            net_pct: 40,
+            net_sol: 0.06,
+            reason: 'TP1 +40% sells 50%',
+            rules_version: 'v4',
+            exit_code: 'TP1',
+            kind: 'partial',
+          },
+        ],
+      },
+    })
+    expect(view.paper.closedTrades.map((row) => row.token)).toEqual(['NEW', 'OLD'])
+    expect(view.paper.closedTrades[0]?.exitCode).toBe('TP1')
+    expect(view.paper.closedTrades[0]?.kind).toBe('partial')
+    expect(view.paper.closedTrades[1]?.exitCode).toBe('TP2')
+    expect(view.paper.closedStats.count).toBe(2)
+    expect(view.paper.closedStats.winRatePct).toBe(100)
+    expect(view.paper.closedStats.netSol).toBeCloseTo(0.11, 6)
+    expect(view.paper.closedStats.bestNetSol).toBeCloseTo(0.06, 6)
+    expect(view.paper.closedStats.worstNetSol).toBeCloseTo(0.05, 6)
+  })
+
+  it('has an empty history when nothing has closed', () => {
+    const view = normalizeSnapshot({ paper: { bankroll_sol: 10, start_bankroll_sol: 10 } })
+    expect(view.paper.closedTrades).toEqual([])
+    expect(view.paper.closedStats.count).toBe(0)
+    expect(view.paper.closedStats.netSol).toBeNull()
+  })
+
+  it('parses short exit reasons', () => {
+    expect(exitCodeFromReason('SL -25% hit (price -26.68%)')).toBe('SL')
+    expect(exitCodeFromReason('TP1 +40% sells 50%')).toBe('TP1')
+    expect(exitCodeFromReason('TP2 +100%')).toBe('TP2')
+    expect(exitCodeFromReason('48h time stop')).toBe('time')
+    expect(exitCodeFromReason('trimmed remainder', 'partial')).toBe('TP1')
+  })
+})
+
