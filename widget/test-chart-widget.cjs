@@ -99,12 +99,13 @@ function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFa
   }
   class Request {
     constructor(url) { this.url = url; this.timeoutInterval = 0; calls.lastRequest = this }
-    async loadJSON() {
-      assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/snapshot.json')
-      if (this.timeoutInterval > 6) throw new Error('timeoutInterval too long for a widget')
-      if (fetchFails) throw new Error('offline')
-      return JSON.parse(JSON.stringify(snapshot))
+    async loadString() {
+      assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/widget.json')
+      if (this.timeoutInterval > 15) throw new Error('timeoutInterval too long for a widget')
+      if (fetchFails) throw new Error('The request timed out.')
+      return JSON.stringify(snapshot)
     }
+    async loadJSON() { return JSON.parse(await this.loadString()) }
   }
   const store = { ...files }
   const FileManager = {
@@ -115,6 +116,7 @@ function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFa
       readString: (p) => store[p],
       writeString: (p, s) => { store[p] = s },
     }),
+    iCloud: () => { throw new Error('widgets must use FileManager.local() documentsDirectory') },
   }
   const Script = {
     setWidget: (w) => { calls.order.push('setWidget'); calls.setWidget = w },
@@ -316,8 +318,8 @@ function serialize(node) {
   assert.ok(imgs[0].image.lineWidth >= 4, 'line thick enough to survive tint, got ' + imgs[0].image.lineWidth)
   const ops = (imgs[0].image.commands || []).map((c) => c.op)
   assert.ok(ops.includes('fillPath') && ops.includes('strokePath') && ops.includes('fillEllipse'), 'chart ops ' + ops)
-  assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
-  assert.equal(run.calls.lastRequest && run.calls.lastRequest.timeoutInterval, 6)
+  assert.ok(run.store['/docs/trading-bot-widget.json'], 'cache written')
+  assert.equal(run.calls.lastRequest && run.calls.lastRequest.timeoutInterval, 12)
   assertSetWidgetBeforeComplete(run, 'live success')
   ok('medium widget draws a thick untinted filling chart, caches, sets url/refresh')
 
@@ -328,14 +330,15 @@ function serialize(node) {
   assert.equal(filledStacks(largeRun.calls.setWidget).length, 0)
   ok('large widget also renders a fill-free chart')
 
-  const cachedRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true, files: { '/docs/trading-bot-snapshot.json': JSON.stringify(liveSnapshot) } })
+  const cachedRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true, files: { '/docs/trading-bot-widget.json': JSON.stringify(liveSnapshot) } })
   assert.ok(texts(cachedRun.calls.setWidget).some((s) => s.includes('SOL')))
   assertSetWidgetBeforeComplete(cachedRun, 'cache fallback')
   ok('offline falls back to cached snapshot')
 
   const errRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true })
   const errTexts = texts(errRun.calls.setWidget)
-  assert.ok(errTexts.some((s) => s.includes('Updating')), 'placeholder, got ' + errTexts)
+  assert.ok(errTexts.some((s) => s.includes('timed out') || s.includes('The request')), 'shows fetch error, got ' + errTexts)
+  assert.ok(errTexts.some((s) => s === 'Trading Bot'))
   assert.equal(images(errRun.calls.setWidget).length, 0, 'placeholder does not draw a chart')
   assert.ok(errRun.calls.completed)
   assertSetWidgetBeforeComplete(errRun, 'no-cache placeholder')
@@ -343,10 +346,12 @@ function serialize(node) {
 
   const appRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: false })
   assert.equal(appRun.calls.presented, 'medium')
+  assert.ok(appRun.store['/docs/trading-bot-widget.json'], 'in-app run must seed the local cache')
   ok('in-app run previews medium')
 
-  assert.equal(W.REQUEST_TIMEOUT_S, 6)
-  ok('request timeout is 6 seconds')
+  assert.equal(W.REQUEST_TIMEOUT_S, 12)
+  assert.equal(W.SNAPSHOT_URL, 'https://styxg121.github.io/trading-bot-app/data/widget.json')
+  ok('request timeout is 12 seconds and fetch uses widget.json')
 
   // Downsample + time budget: 400 points must render quickly with <= 60 vertices
   const manyEq = []

@@ -47,11 +47,12 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
   }
   class Request {
     constructor(url) { this.url = url; this.timeoutInterval = 0 }
-    async loadJSON() {
-      assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/snapshot.json')
-      if (fetchFails) throw new Error('offline')
-      return JSON.parse(JSON.stringify(snapshot))
+    async loadString() {
+      assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/widget.json')
+      if (fetchFails) throw new Error('The request timed out.')
+      return JSON.stringify(snapshot)
     }
+    async loadJSON() { return JSON.parse(await this.loadString()) }
   }
   const store = { ...files }
   const FileManager = {
@@ -62,6 +63,7 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
       readString: (p) => store[p],
       writeString: (p, s) => { store[p] = s },
     }),
+    iCloud: () => { throw new Error('widgets must use FileManager.local() documentsDirectory') },
   }
   const Script = {
     setWidget: (w) => { calls.order.push('setWidget'); calls.setWidget = w },
@@ -295,7 +297,7 @@ function serialize(node) {
   assert.ok(sized.some((b) => b.size && b.size.width === 150 && texts(b).some((s) => s.includes('%'))), 'P/L uses a fixed-width box')
   assert.ok(sized.some((b) => b.size && b.size.width === 130), 'token uses a fixed-width box')
   assert.ok(sized.some((b) => b.size && b.size.width === 300 && texts(b).some((s) => s.includes('SOL') && s.includes('%'))), 'header net uses one fitted line')
-  assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
+  assert.ok(run.store['/docs/trading-bot-widget.json'], 'cache written')
   assertSetWidgetBeforeComplete(run, 'live success')
   const nameBox = sized.find((b) => b.size && b.size.width === 130)
   assert.ok(nameBox, 'token box')
@@ -310,18 +312,23 @@ function serialize(node) {
   ok('runs as a large widget with live data, caches snapshot, sets url/refresh')
 
   // Offline uses cache
-  const cachedRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true, files: { '/docs/trading-bot-snapshot.json': JSON.stringify(liveSnapshot) } })
+  const cachedRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true, files: { '/docs/trading-bot-widget.json': JSON.stringify(liveSnapshot) } })
   assert.ok(texts(cachedRun.calls.setWidget).some((s) => s.includes('SOL')))
   ok('offline falls back to cached snapshot')
 
   // Offline + no cache -> error widget, no throw
   const errRun = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: true, fetchFails: true })
-  assert.ok(texts(errRun.calls.setWidget).some((s) => s.includes('Could not load')))
+  const errTexts = texts(errRun.calls.setWidget)
+  assert.ok(errTexts.some((s) => s.includes('timed out') || s.includes('The request')), 'shows fetch error, got ' + errTexts)
+  assert.ok(errTexts.some((s) => s === 'Trading Bot'))
   ok('offline without cache shows an error widget')
 
   // Run in app (preview path)
   const appRun = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: false })
   assert.equal(appRun.calls.presented, 'large')
+  assert.ok(appRun.store['/docs/trading-bot-widget.json'], 'in-app run must seed the local cache')
+  assert.equal(W.REQUEST_TIMEOUT_S, 12)
+  assert.equal(W.SNAPSHOT_URL, 'https://styxg121.github.io/trading-bot-app/data/widget.json')
   ok('in-app run previews large')
 
   if (treeOut) {

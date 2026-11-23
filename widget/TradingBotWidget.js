@@ -12,12 +12,15 @@
 // 3. Long-press the Home Screen → + → search “Scriptable” → add a Large widget.
 // 4. Long-press the widget → Edit Widget → Script: “Trading Bot”.
 //    Tapping the widget opens the phone app.
+// 5. Run the script once in Scriptable (Play). That writes a local cache
+//    the home screen widget can use if LTE is slow.
 //
 // iOS widgets cannot scroll. Extra trades show as “+N more”.
 
 const APP_URL = "https://styxg121.github.io/trading-bot-app/"
-const SNAPSHOT_URL = APP_URL + "data/snapshot.json"
-const CACHE_NAME = "trading-bot-snapshot.json"
+const SNAPSHOT_URL = APP_URL + "data/widget.json"
+const CACHE_NAME = "trading-bot-widget.json"
+const REQUEST_TIMEOUT_S = 12
 const REFRESH_MINUTES = 15
 const TZ = "Europe/Vienna"
 
@@ -329,23 +332,35 @@ function subline(trade) {
 
 // --- Scriptable I/O (mocked in the node test) ---
 
+function cacheFileManager() {
+  // Shared between the Scriptable app and home screen widgets.
+  return FileManager.local()
+}
+
 function cachePath() {
-  const fm = FileManager.local()
+  const fm = cacheFileManager()
   return fm.joinPath(fm.documentsDirectory(), CACHE_NAME)
+}
+
+function errorMessage(err) {
+  if (err == null) return "Could not load"
+  const msg = err && err.message ? String(err.message) : String(err)
+  return msg.length > 80 ? msg.slice(0, 77) + "…" : msg
 }
 
 function writeCache(snapshot) {
   try {
-    FileManager.local().writeString(cachePath(), JSON.stringify(snapshot))
+    cacheFileManager().writeString(cachePath(), JSON.stringify(snapshot))
   } catch (err) {}
 }
 
 function readCache() {
   try {
-    const fm = FileManager.local()
+    const fm = cacheFileManager()
     const path = cachePath()
     if (!fm.fileExists(path)) return null
-    return JSON.parse(fm.readString(path))
+    const cached = JSON.parse(fm.readString(path))
+    return cached && typeof cached === "object" ? cached : null
   } catch (err) {
     return null
   }
@@ -353,14 +368,21 @@ function readCache() {
 
 async function fetchSnapshot() {
   const request = new Request(SNAPSHOT_URL)
-  request.timeoutInterval = 6
-  const json = await request.loadJSON()
-  if (!json || typeof json !== "object") throw new Error("Bad snapshot")
+  request.timeoutInterval = REQUEST_TIMEOUT_S
+  const body = await request.loadString()
+  let json
+  try {
+    json = JSON.parse(body)
+  } catch (err) {
+    throw new Error("Bad widget.json")
+  }
+  if (!json || typeof json !== "object") throw new Error("Bad widget.json")
   writeCache(json)
   return json
 }
 
 async function loadSnapshot() {
+  // 12s on LTE, then the local cache written by an in-app preview.
   try {
     return await fetchSnapshot()
   } catch (err) {
@@ -514,14 +536,14 @@ async function runScriptable() {
       model = buildModel(snapshot, Date.now(), family)
     } catch (err) {
       model = buildModel({}, Date.now(), family)
-      model.error = "Could not load snapshot"
+      model.error = errorMessage(err)
       model.ok = false
     }
     try {
       widget = renderWidget(model)
     } catch (err) {
       model = buildModel({}, Date.now(), family)
-      model.error = "Could not load snapshot"
+      model.error = errorMessage(err)
       model.ok = false
       widget = renderWidget(model)
     }
@@ -548,6 +570,7 @@ const TradingBotWidget = {
   SNAPSHOT_URL: SNAPSHOT_URL,
   REFRESH_MINUTES: REFRESH_MINUTES,
   MAX_ROWS: MAX_ROWS,
+  REQUEST_TIMEOUT_S: REQUEST_TIMEOUT_S,
   parseViennaLabel: parseViennaLabel,
   parseTime: parseTime,
   formatViennaClock: formatViennaClock,
@@ -562,6 +585,9 @@ const TradingBotWidget = {
   tone: tone,
   renderWidget: renderWidget,
   loadSnapshot: loadSnapshot,
+  fetchSnapshot: fetchSnapshot,
+  writeCache: writeCache,
+  errorMessage: errorMessage,
   runScriptable: runScriptable,
   estimateHeight: estimateHeight,
   LAYOUT: LAYOUT,

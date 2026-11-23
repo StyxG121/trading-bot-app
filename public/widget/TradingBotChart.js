@@ -17,8 +17,8 @@
 //    Tapping the widget opens the phone app.
 
 const APP_URL = "https://styxg121.github.io/trading-bot-app/"
-const SNAPSHOT_URL = APP_URL + "data/snapshot.json"
-const CACHE_NAME = "trading-bot-snapshot.json"
+const SNAPSHOT_URL = APP_URL + "data/widget.json"
+const CACHE_NAME = "trading-bot-widget.json"
 const REFRESH_MINUTES = 15
 const TZ = "Europe/Vienna"
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000
@@ -39,7 +39,7 @@ const CHART_SIZE = {
   extraLarge: { width: 330, height: 200, lineWidth: 4.5 },
 }
 const MAX_CHART_POINTS = 60
-const REQUEST_TIMEOUT_S = 6
+const REQUEST_TIMEOUT_S = 12
 
 // --- pure helpers (also used by the node test) ---
 
@@ -273,19 +273,24 @@ function slimSnapshot(data) {
     if (!row || typeof row !== "object") continue
     slimOpen.push({
       token: row.token,
+      entry_ts: row.entry_ts,
+      entry_vienna: row.entry_vienna,
       size_sol_remaining: row.size_sol_remaining,
       size_sol_original: row.size_sol_original,
       size_sol: row.size_sol,
       last_gross_pct: row.last_gross_pct,
       last_price_usd: row.last_price_usd,
+      last_price: row.last_price,
       entry_price_usd: row.entry_price_usd,
+      entry_price: row.entry_price,
+      rules_version: row.rules_version,
     })
   }
   const slimClose = []
   for (let i = 0; i < closes.length; i++) {
     const row = closes[i]
     if (!row || typeof row !== "object") continue
-    slimClose.push({ token: row.token, exit_iso: row.exit_iso, exit_vienna: row.exit_vienna, net_sol: row.net_sol })
+    slimClose.push({ token: row.token, exit_iso: row.exit_iso, exit_vienna: row.exit_vienna, net_sol: row.net_sol, net_pct: row.net_pct, exit_code: row.exit_code, kind: row.kind, rules_version: row.rules_version })
   }
   return {
     as_of_iso: data.as_of_iso,
@@ -336,10 +341,10 @@ function chartSizeFor(family) {
   return CHART_SIZE[family] || CHART_SIZE.medium
 }
 
-function placeholderModel(family, now) {
+function placeholderModel(family, now, error) {
   return {
     ok: true,
-    error: null,
+    error: error || null,
     placeholder: true,
     family: family || "medium",
     bankroll: null,
@@ -357,7 +362,7 @@ function placeholderModel(family, now) {
 }
 
 function buildModel(snapshot, now, family) {
-  if (!snapshot || snapshot.placeholder) return placeholderModel(family, now)
+  if (!snapshot || snapshot.placeholder) return placeholderModel(family, now, snapshot && snapshot.error)
   const paper = paperOf(snapshot)
   const asOf = parseTime(snapshot && (snapshot.as_of_iso || snapshot.as_of_vienna)) || now
   const raw = Array.isArray(paper.equity) ? paper.equity.map(readEquityPoint).filter(Boolean) : []
@@ -459,14 +464,25 @@ function tone(value) {
 
 // --- Scriptable I/O (mocked in the node test) ---
 
+function cacheFileManager() {
+  // Shared between the Scriptable app and home screen widgets.
+  return FileManager.local()
+}
+
 function cachePath() {
-  const fm = FileManager.local()
+  const fm = cacheFileManager()
   return fm.joinPath(fm.documentsDirectory(), CACHE_NAME)
+}
+
+function errorMessage(err) {
+  if (err == null) return "Could not load"
+  const msg = err && err.message ? String(err.message) : String(err)
+  return msg.length > 80 ? msg.slice(0, 77) + "…" : msg
 }
 
 function readCache() {
   try {
-    const fm = FileManager.local()
+    const fm = cacheFileManager()
     const path = cachePath()
     if (!fm.fileExists(path)) return null
     const cached = JSON.parse(fm.readString(path))
@@ -478,26 +494,36 @@ function readCache() {
 
 function writeCache(snapshot) {
   try {
-    FileManager.local().writeString(cachePath(), JSON.stringify(snapshot))
+    cacheFileManager().writeString(cachePath(), JSON.stringify(snapshot))
   } catch (err) {}
 }
 
-async function loadSnapshot() {
-  // Widget budget is only a few seconds. Time out the request so we can
-  // still paint from cache (or a placeholder) and call Script.complete().
+async function fetchSnapshot() {
+  const req = new Request(SNAPSHOT_URL)
+  req.timeoutInterval = REQUEST_TIMEOUT_S
+  const body = await req.loadString()
+  let data
   try {
-    const req = new Request(SNAPSHOT_URL)
-    req.timeoutInterval = REQUEST_TIMEOUT_S
-    const data = await req.loadJSON()
-    if (data && typeof data === "object") {
-      const slim = slimSnapshot(data)
-      writeCache(slim)
-      return slim
-    }
-  } catch (err) {}
-  const cached = readCache()
-  if (cached) return cached
-  return { placeholder: true }
+    data = JSON.parse(body)
+  } catch (err) {
+    throw new Error("Bad widget.json")
+  }
+  if (!data || typeof data !== "object") throw new Error("Bad widget.json")
+  const slim = slimSnapshot(data)
+  writeCache(slim)
+  return slim
+}
+
+async function loadSnapshot() {
+  // Home-screen widgets have about 30s, but LTE can be slow. 12s leaves
+  // time to fall back to the local cache (seeded by an in-app run).
+  try {
+    return await fetchSnapshot()
+  } catch (err) {
+    const cached = readCache()
+    if (cached) return cached
+    return { placeholder: true, error: errorMessage(err) }
+  }
 }
 
 function color(hex, alpha) {
@@ -556,10 +582,10 @@ function renderWidget(model) {
   widget.refreshAfterDate = new Date(Date.now() + REFRESH_MINUTES * 60 * 1000)
   widget.spacing = large ? 5 : 4
 
-  if (model.error && !model.ok) {
+  if (model.placeholder || (model.error && !model.ok)) {
     addLabel(widget, "Trading Bot", 12, "semibold", TEXT)
-    addLabel(widget, String(model.error), 11, "regular", RED)
-    addLabel(widget, "updated " + formatViennaClock(Date.now()), 9, "regular", DIM)
+    addLabel(widget, String(model.error || "Updating…"), 11, "regular", model.error ? RED : MUTED)
+    addLabel(widget, "updated " + formatViennaClock(model.updatedAt || Date.now()), 9, "regular", DIM)
     return widget
   }
 
@@ -578,7 +604,7 @@ function renderWidget(model) {
 
   addLabel(header, formatSol(model.bankroll) + " SOL", 11, "semibold", TEXT, { minScale: 0.8 })
 
-  if (model.placeholder || model.empty || !model.points.length) {
+  if (model.empty || !model.points.length) {
     widget.addSpacer(6)
     const empty = widget.addStack()
     empty.layoutVertically()
@@ -586,7 +612,7 @@ function renderWidget(model) {
     empty.borderWidth = 1
     empty.borderColor = color(BORDER, BORDER_ALPHA)
     empty.setPadding(12, 12, 12, 12)
-    const emptyLabel = model.placeholder ? "Updating…" : "No 7d equity yet"
+    const emptyLabel = "No 7d equity yet"
     addLabel(empty, emptyLabel, 12, "regular", MUTED, { center: true })
     widget.addSpacer()
     addLabel(widget, "updated " + formatViennaClock(model.updatedAt), 9, "regular", DIM)
@@ -628,7 +654,7 @@ function errorWidget(message, family) {
   widget.url = APP_URL
   widget.setPadding(10, 14, 8, 14)
   addLabel(widget, "Trading Bot", 12, "semibold", TEXT)
-  addLabel(widget, String(message || "Updating…"), 11, "regular", MUTED)
+  addLabel(widget, String(message || "Updating…"), 11, "regular", message ? RED : MUTED)
   addLabel(widget, "updated " + formatViennaClock(Date.now()), 9, "regular", DIM)
   return widget
 }
@@ -642,12 +668,12 @@ async function runScriptable() {
     try {
       snapshot = await loadSnapshot()
     } catch (err) {
-      snapshot = { placeholder: true }
+      snapshot = { placeholder: true, error: errorMessage(err) }
     }
     try {
       widget = renderWidget(buildModel(snapshot, Date.now(), family))
     } catch (err) {
-      widget = errorWidget("Updating…", family)
+      widget = errorWidget(errorMessage(err), family)
     }
     if (!widget) widget = errorWidget("Updating…", family)
     // Always set the widget first so iOS never sees an empty run, then present in-app.
@@ -659,7 +685,7 @@ async function runScriptable() {
     }
   } catch (err) {
     try {
-      widget = errorWidget("Updating…", family)
+      widget = errorWidget(errorMessage(err), family)
       Script.setWidget(widget)
     } catch (err2) {}
   } finally {
@@ -695,6 +721,9 @@ const TradingBotChart = {
   drawChartImage: drawChartImage,
   renderWidget: renderWidget,
   loadSnapshot: loadSnapshot,
+  fetchSnapshot: fetchSnapshot,
+  writeCache: writeCache,
+  errorMessage: errorMessage,
   runScriptable: runScriptable,
   errorWidget: errorWidget,
   tone: tone,
