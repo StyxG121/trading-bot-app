@@ -11,7 +11,7 @@ const liveSnapshot = JSON.parse(fs.readFileSync(snapPath, 'utf8'))
 const source = fs.readFileSync(path.join(__dirname, 'TradingBotWidget.js'), 'utf8')
 
 function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFails = false, files = {} }) {
-  const calls = { setWidget: null, completed: false, presented: null }
+  const calls = { setWidget: null, completed: false, presented: null, order: [] }
   class Color { constructor(hex, alpha) { this.hex = hex; this.alpha = alpha ?? 1 } }
   class Size { constructor(w, h) { this.width = w; this.height = h } }
   const Font = {
@@ -64,8 +64,8 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
     }),
   }
   const Script = {
-    setWidget: (w) => { calls.setWidget = w },
-    complete: () => { calls.completed = true },
+    setWidget: (w) => { calls.order.push('setWidget'); calls.setWidget = w },
+    complete: () => { calls.order.push('complete'); calls.completed = true },
   }
   const config = { widgetFamily: family, runsInWidget }
   const sandbox = {
@@ -80,18 +80,27 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
 async function runInScriptable(opts) {
   const ctx = makeSandbox(opts)
   vm.createContext(ctx.sandbox)
-  vm.runInContext(source, ctx.sandbox, { filename: 'TradingBotWidget.js' })
-  // runScriptable is async; wait until complete
-  for (let i = 0; i < 200 && !ctx.calls.completed; i++) await new Promise((r) => setTimeout(r, 5))
+  const wrapped = "(async () => {\n" + source + "\n})()"
+  const pending = vm.runInContext(wrapped, ctx.sandbox, { filename: opts.filename || 'widget.js' })
+  if (pending && typeof pending.then === "function") await pending
   assert.ok(ctx.calls.completed, 'Script.complete() was not called')
   return ctx
+}
+
+function assertSetWidgetBeforeComplete(ctx, label) {
+  const order = ctx.calls.order || []
+  const setI = order.indexOf('setWidget')
+  const doneI = order.indexOf('complete')
+  assert.ok(ctx.calls.setWidget, label + ': setWidget not called, order=' + order)
+  assert.ok(setI >= 0 && doneI >= 0 && setI < doneI, label + ': setWidget must run before complete, order=' + order)
 }
 
 function loadPure() {
   // Load without a Script global so it only exports helpers
   const sandbox = { console, Date, Intl, JSON, Math, Number, String, Object, Array, Error, Promise, module: { exports: {} } }
   vm.createContext(sandbox)
-  vm.runInContext(source, sandbox, { filename: 'TradingBotWidget.js' })
+  const wrapped = "(async () => {\n" + source + "\n})()"
+  vm.runInContext(wrapped, sandbox, { filename: 'TradingBotWidget.js' })
   return sandbox.module.exports
 }
 
@@ -171,7 +180,7 @@ function serialize(node) {
   const live = W.buildModel(liveSnapshot, now, 'large')
   const opens = (liveSnapshot.paper.open || []).length
   assert.equal(live.openCount, opens)
-  assert.ok(live.trades.length <= 7)
+  assert.ok(live.trades.length <= 6)
   assert.equal(live.trades.length + live.hidden, live.tradeCount)
   // newest first
   for (let i = 1; i < live.trades.length; i++) assert.ok((live.trades[i - 1].at || 0) >= (live.trades[i].at || 0))
@@ -224,13 +233,14 @@ function serialize(node) {
   assert.equal(W.subline(wr.trades.find((t) => t.token === 'C')), '11:00 · open')
   ok('stats, ordering, sublines')
 
-  // Overflow: 12 trades on large -> 7 + "+5 more"
+  // Overflow: 12 trades on large -> 6 + "+6 more"
   const many = { paper: { bankroll_sol: 10, start_bankroll_sol: 10, open: [], closed_trades: [] } }
   for (let i = 0; i < 12; i++) many.paper.closed_trades.push({ token: 'T' + i, exit_vienna: `23 Nov 2026, ${String(1 + i).padStart(2, '0')}:00`, net_sol: i % 2 ? 0.01 : -0.01, net_pct: i % 2 ? 1 : -1 })
   const mm = W.buildModel(many, Date.parse('2026-11-23T13:00:00Z'), 'large')
-  assert.equal(mm.trades.length, 7)
-  assert.equal(mm.hidden, 5)
+  assert.equal(mm.trades.length, 6)
+  assert.equal(mm.hidden, 6)
   ok('overflow shows +N more')
+  assert.ok(W.estimateHeight(mm) <= 340, '6-row overflow layout is ' + W.estimateHeight(mm))
 
   // A 24h close must stay visible when 7 newer opens would push it off a large widget
   const crowded = {
@@ -248,7 +258,7 @@ function serialize(node) {
   }
   const cr = W.buildModel(crowded, Date.parse('2026-11-23T12:00:00Z'), 'large')
   assert.ok(cr.trades.some((t) => t.token === 'GONE' && t.status === 'closed'), '24h close was dropped: ' + cr.trades.map((t) => t.token))
-  assert.equal(cr.hidden, 1)
+  assert.equal(cr.hidden, 2)
   ok('keeps a 24h close visible when opens would overflow it')
 
   // Full run as a widget with live data
@@ -284,8 +294,19 @@ function serialize(node) {
   const sized = boxes(widget)
   assert.ok(sized.some((b) => b.size && b.size.width === 150 && texts(b).some((s) => s.includes('%'))), 'P/L uses a fixed-width box')
   assert.ok(sized.some((b) => b.size && b.size.width === 130), 'token uses a fixed-width box')
-  assert.ok(sized.some((b) => b.size && b.size.width === 310 && texts(b).some((s) => s.includes('SOL') && s.includes('%'))), 'header net uses one fitted line')
+  assert.ok(sized.some((b) => b.size && b.size.width === 300 && texts(b).some((s) => s.includes('SOL') && s.includes('%'))), 'header net uses one fitted line')
   assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
+  assertSetWidgetBeforeComplete(run, 'live success')
+  const nameBox = sized.find((b) => b.size && b.size.width === 130)
+  assert.ok(nameBox, 'token box')
+  assert.equal(nameBox.children[0] && nameBox.children[0].type, 'text')
+  assert.equal(nameBox.children[0].align, 'left')
+  assert.ok(nameBox.children.some((c) => c.type === 'spacer'), 'spacer after the name left-aligns it')
+  const pnlBox = sized.find((b) => b.size && b.size.width === 150 && texts(b).some((s) => s.includes('%')))
+  assert.ok(pnlBox && pnlBox.children[0] && pnlBox.children[0].type === 'spacer', 'P/L stays right-aligned')
+  assert.ok(live.trades.length <= 6)
+  const height = W.estimateHeight(live)
+  assert.ok(height <= 340, 'large layout must fit in 340pt, got ' + height)
   ok('runs as a large widget with live data, caches snapshot, sets url/refresh')
 
   // Offline uses cache

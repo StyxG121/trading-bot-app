@@ -30,7 +30,35 @@ const RED = "#ff5c6a"
 const BORDER = "#8e9890"
 const BORDER_ALPHA = 0.4
 
-const MAX_ROWS = { small: 0, medium: 3, large: 7, extraLarge: 10 }
+const MAX_ROWS = { small: 0, medium: 3, large: 6, extraLarge: 8 }
+
+// Measured stack for a large widget. Target <= 340pt so the header and
+// footer stay visible on a ~354pt iPhone Pro large widget.
+const LAYOUT = {
+  paddingTop: 8,
+  paddingBottom: 8,
+  paddingX: 12,
+  widgetSpacing: 3,
+  headerBankroll: 18,
+  headerNet: 15,
+  headerMeta: 11,
+  headerSpacing: 1,
+  listGap: 0,
+  cardHeight: 32,
+  cardSpacing: 3,
+  moreHeight: 11,
+  footer: 10,
+  sections: 2,
+}
+
+function estimateHeight(model) {
+  const rows = model && model.trades ? model.trades.length : 0
+  const more = model && model.hidden > 0 ? LAYOUT.moreHeight : 0
+  const header = LAYOUT.headerBankroll + LAYOUT.headerSpacing + LAYOUT.headerNet + LAYOUT.headerSpacing + LAYOUT.headerMeta
+  const list = rows * LAYOUT.cardHeight + Math.max(0, rows - 1) * LAYOUT.cardSpacing + more
+  const gaps = LAYOUT.widgetSpacing * LAYOUT.sections
+  return LAYOUT.paddingTop + LAYOUT.paddingBottom + header + LAYOUT.listGap + list + gaps + LAYOUT.footer
+}
 
 // --- pure helpers (also used by the node test) ---
 
@@ -365,11 +393,15 @@ function addLabel(parent, text, size, weight, hex, options) {
 function addFittedText(parent, text, width, height, size, weight, hex, options) {
   const box = parent.addStack()
   box.layoutHorizontally()
+  box.centerAlignContent()
   box.size = new Size(width, height)
-  if (options && options.right) {
+  const right = options && options.right
+  if (right) box.addSpacer()
+  const line = addLabel(box, text, size, weight, hex, { minScale: 0.7, right: right })
+  if (!right) {
+    line.leftAlignText()
     box.addSpacer()
   }
-  const line = addLabel(box, text, size, weight, hex, { minScale: 0.7, right: options && options.right })
   return line
 }
 
@@ -377,9 +409,9 @@ function renderWidget(model) {
   const widget = new ListWidget()
   widget.backgroundColor = color(BG)
   widget.url = APP_URL
-  widget.setPadding(12, 14, 10, 14)
+  widget.setPadding(LAYOUT.paddingTop, LAYOUT.paddingX, LAYOUT.paddingBottom, LAYOUT.paddingX)
   widget.refreshAfterDate = new Date(Date.now() + REFRESH_MINUTES * 60 * 1000)
-  widget.spacing = 6
+  widget.spacing = LAYOUT.widgetSpacing
 
   if (model.error && !model.ok) {
     addLabel(widget, "Trading Bot", 12, "semibold", TEXT)
@@ -390,12 +422,12 @@ function renderWidget(model) {
 
   const header = widget.addStack()
   header.layoutVertically()
-  header.spacing = 2
+  header.spacing = LAYOUT.headerSpacing
 
   const bankrollRow = header.addStack()
   bankrollRow.layoutHorizontally()
   bankrollRow.bottomAlignContent()
-  addFittedText(bankrollRow, formatSol(model.bankroll, 3) + " SOL", 200, 24, 20, "bold", TEXT)
+  addFittedText(bankrollRow, formatSol(model.bankroll, 3) + " SOL", 200, LAYOUT.headerBankroll, 16, "bold", TEXT)
   bankrollRow.addSpacer()
 
   const netValue = model.net24h != null ? model.net24h : model.netPct
@@ -403,13 +435,13 @@ function renderWidget(model) {
   const netRow = header.addStack()
   netRow.layoutHorizontally()
   const netText = directionMark(netValue) + formatSignedSol(model.net24h, 3) + " SOL  " + formatPct(model.netPct)
-  addFittedText(netRow, netText, 310, 18, 13, "semibold", netColor)
+  addFittedText(netRow, netText, 300, LAYOUT.headerNet, 12, "semibold", netColor)
 
   const meta = []
   meta.push((model.tradeCount || 0) + (model.tradeCount === 1 ? " trade" : " trades") + " 24h")
   if (model.winRate != null) meta.push(formatPct(model.winRate).replace("+", "") + " win")
   meta.push((model.openCount || 0) + " open")
-  addLabel(header, meta.join("  ·  "), 10, "regular", MUTED, { minScale: 0.8 })
+  addLabel(header, meta.join("  ·  "), 9, "regular", MUTED, { minScale: 0.7 })
 
   if (model.empty) {
     widget.addSpacer(8)
@@ -422,18 +454,16 @@ function renderWidget(model) {
     addLabel(empty, "No trades in the last 24h", 12, "regular", MUTED, { center: true })
     widget.addSpacer()
   } else {
-    widget.addSpacer(4)
     const list = widget.addStack()
     list.layoutVertically()
-    list.spacing = 4
+    list.spacing = LAYOUT.cardSpacing
 
     for (let i = 0; i < model.trades.length; i++) {
       addTradeCard(list, model.trades[i])
     }
     if (model.hidden > 0) {
-      addLabel(list, "+" + model.hidden + " more", 10, "semibold", MUTED)
+      addLabel(list, "+" + model.hidden + " more", 9, "semibold", MUTED)
     }
-    widget.addSpacer()
   }
 
   addLabel(widget, "updated " + formatViennaClock(model.updatedAt), 9, "regular", DIM)
@@ -448,33 +478,35 @@ function addTradeCard(parent, trade) {
   card.cornerRadius = 10
   card.borderWidth = 1
   card.borderColor = color(BORDER, BORDER_ALPHA)
-  card.setPadding(5, 8, 5, 8)
-  card.spacing = 6
+  card.setPadding(3, 7, 3, 7)
+  card.spacing = 5
 
   const value = trade.sol != null ? trade.sol : trade.pct
   // Text glyph, not a filled stack: a fill would become a solid tint bar.
   const bar = card.addText("▎")
-  bar.font = Font.boldSystemFont(14)
+  bar.font = Font.boldSystemFont(12)
   bar.textColor = color(tone(value))
   bar.lineLimit = 1
 
   const body = card.addStack()
   body.layoutVertically()
-  body.spacing = 1
-  body.size = new Size(292, 34)
+  body.spacing = 0
+  body.size = new Size(292, 26)
 
   const top = body.addStack()
   top.layoutHorizontally()
   top.centerAlignContent()
-  addFittedText(top, trade.token, 130, 16, 11, "semibold", TEXT)
+  addFittedText(top, trade.token, 130, 14, 11, "semibold", TEXT)
   top.addSpacer()
-  addFittedText(top, formatPnl(trade.sol, trade.pct), 150, 16, 11, "bold", tone(value), { right: true })
+  addFittedText(top, formatPnl(trade.sol, trade.pct), 150, 14, 11, "bold", tone(value), { right: true })
 
-  addLabel(body, subline(trade), 10, "regular", MUTED, { minScale: 0.7 })
+  addLabel(body, subline(trade), 9, "regular", MUTED, { minScale: 0.7 })
 }
 
 async function runScriptable() {
   const family = typeof config !== "undefined" && config.widgetFamily ? config.widgetFamily : "large"
+  const inWidget = typeof config === "undefined" || config.runsInWidget !== false
+  let widget = null
   try {
     let model
     try {
@@ -485,16 +517,27 @@ async function runScriptable() {
       model.error = "Could not load snapshot"
       model.ok = false
     }
-    const widget = renderWidget(model)
-    if (typeof config !== "undefined" && config.runsInWidget) {
-      Script.setWidget(widget)
-    } else if (family === "medium") {
-      await widget.presentMedium()
-    } else if (family === "small") {
-      await widget.presentSmall()
-    } else {
-      await widget.presentLarge()
+    try {
+      widget = renderWidget(model)
+    } catch (err) {
+      model = buildModel({}, Date.now(), family)
+      model.error = "Could not load snapshot"
+      model.ok = false
+      widget = renderWidget(model)
     }
+    Script.setWidget(widget)
+    if (!inWidget) {
+      if (family === "medium") await widget.presentMedium()
+      else if (family === "small") await widget.presentSmall()
+      else await widget.presentLarge()
+    }
+  } catch (err) {
+    try {
+      const fallback = new ListWidget()
+      fallback.backgroundColor = color(BG)
+      addLabel(fallback, "Trading Bot", 12, "semibold", TEXT)
+      Script.setWidget(fallback)
+    } catch (err2) {}
   } finally {
     Script.complete()
   }
@@ -519,6 +562,9 @@ const TradingBotWidget = {
   tone: tone,
   renderWidget: renderWidget,
   loadSnapshot: loadSnapshot,
+  runScriptable: runScriptable,
+  estimateHeight: estimateHeight,
+  LAYOUT: LAYOUT,
 }
 
 try {
@@ -528,5 +574,5 @@ try {
 } catch (err) {}
 
 if (typeof Script !== "undefined") {
-  runScriptable()
+  await runScriptable()
 }

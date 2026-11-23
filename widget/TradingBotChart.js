@@ -622,8 +622,21 @@ function renderWidget(model) {
   return widget
 }
 
+function errorWidget(message, family) {
+  const widget = new ListWidget()
+  widget.backgroundColor = color(BG)
+  widget.url = APP_URL
+  widget.setPadding(10, 14, 8, 14)
+  addLabel(widget, "Trading Bot", 12, "semibold", TEXT)
+  addLabel(widget, String(message || "Updating…"), 11, "regular", MUTED)
+  addLabel(widget, "updated " + formatViennaClock(Date.now()), 9, "regular", DIM)
+  return widget
+}
+
 async function runScriptable() {
   const family = typeof config !== "undefined" && config.widgetFamily ? config.widgetFamily : "medium"
+  const inWidget = typeof config === "undefined" || config.runsInWidget !== false
+  let widget = null
   try {
     let snapshot
     try {
@@ -631,17 +644,24 @@ async function runScriptable() {
     } catch (err) {
       snapshot = { placeholder: true }
     }
-    const model = buildModel(snapshot, Date.now(), family)
-    const widget = renderWidget(model)
-    if (typeof config !== "undefined" && config.runsInWidget) {
-      Script.setWidget(widget)
-    } else if (family === "large") {
-      await widget.presentLarge()
-    } else if (family === "small") {
-      await widget.presentSmall()
-    } else {
-      await widget.presentMedium()
+    try {
+      widget = renderWidget(buildModel(snapshot, Date.now(), family))
+    } catch (err) {
+      widget = errorWidget("Updating…", family)
     }
+    if (!widget) widget = errorWidget("Updating…", family)
+    // Always set the widget first so iOS never sees an empty run, then present in-app.
+    Script.setWidget(widget)
+    if (!inWidget) {
+      if (family === "large") await widget.presentLarge()
+      else if (family === "small") await widget.presentSmall()
+      else await widget.presentMedium()
+    }
+  } catch (err) {
+    try {
+      widget = errorWidget("Updating…", family)
+      Script.setWidget(widget)
+    } catch (err2) {}
   } finally {
     Script.complete()
   }
@@ -675,6 +695,8 @@ const TradingBotChart = {
   drawChartImage: drawChartImage,
   renderWidget: renderWidget,
   loadSnapshot: loadSnapshot,
+  runScriptable: runScriptable,
+  errorWidget: errorWidget,
   tone: tone,
 }
 
@@ -685,5 +707,7 @@ try {
 } catch (err) {}
 
 if (typeof Script !== "undefined") {
-  runScriptable()
+  // Top-level await: Scriptable ends the script when the main body returns,
+  // so a fire-and-forget runScriptable() would call complete without setWidget.
+  await runScriptable()
 }

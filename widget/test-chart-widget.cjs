@@ -10,8 +10,8 @@ const treeOut = process.argv[3]
 const liveSnapshot = JSON.parse(fs.readFileSync(snapPath, 'utf8'))
 const source = fs.readFileSync(path.join(__dirname, 'TradingBotChart.js'), 'utf8')
 
-function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFails = false, files = {} }) {
-  const calls = { setWidget: null, completed: false, presented: null }
+function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFails = false, files = {}, renderThrows = false }) {
+  const calls = { setWidget: null, completed: false, presented: null, order: [] }
   class Color { constructor(hex, alpha) { this.hex = hex; this.alpha = alpha ?? 1 } }
   const Font = {
     systemFont: (s) => ({ size: s, weight: 'regular' }),
@@ -46,6 +46,7 @@ function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFa
     strokePath() { this.commands.push({ op: 'strokePath', width: this._lineWidth }) }
     fillEllipse(r) { this.commands.push({ op: 'fillEllipse', rect: r }) }
     getImage() {
+      if (renderThrows) throw new Error('draw failed')
       return { type: 'drawn', size: this.size, commands: this.commands, lineWidth: this._lineWidth, opaque: this.opaque, respectScreenScale: this.respectScreenScale }
     }
   }
@@ -116,8 +117,8 @@ function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFa
     }),
   }
   const Script = {
-    setWidget: (w) => { calls.setWidget = w },
-    complete: () => { calls.completed = true },
+    setWidget: (w) => { calls.order.push('setWidget'); calls.setWidget = w },
+    complete: () => { calls.order.push('complete'); calls.completed = true },
   }
   const config = { widgetFamily: family, runsInWidget }
   const sandbox = {
@@ -132,16 +133,26 @@ function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFa
 async function runInScriptable(opts) {
   const ctx = makeSandbox(opts)
   vm.createContext(ctx.sandbox)
-  vm.runInContext(source, ctx.sandbox, { filename: 'TradingBotChart.js' })
-  for (let i = 0; i < 200 && !ctx.calls.completed; i++) await new Promise((r) => setTimeout(r, 5))
+  const wrapped = "(async () => {\n" + source + "\n})()"
+  const pending = vm.runInContext(wrapped, ctx.sandbox, { filename: opts.filename || 'widget.js' })
+  if (pending && typeof pending.then === "function") await pending
   assert.ok(ctx.calls.completed, 'Script.complete() was not called')
   return ctx
+}
+
+function assertSetWidgetBeforeComplete(ctx, label) {
+  const order = ctx.calls.order || []
+  const setI = order.indexOf('setWidget')
+  const doneI = order.indexOf('complete')
+  assert.ok(ctx.calls.setWidget, label + ': setWidget not called, order=' + order)
+  assert.ok(setI >= 0 && doneI >= 0 && setI < doneI, label + ': setWidget must run before complete, order=' + order)
 }
 
 function loadPure() {
   const sandbox = { console, Date, Intl, JSON, Math, Number, String, Object, Array, Error, Promise, module: { exports: {} } }
   vm.createContext(sandbox)
-  vm.runInContext(source, sandbox, { filename: 'TradingBotChart.js' })
+  const wrapped = "(async () => {\n" + source + "\n})()"
+  vm.runInContext(wrapped, sandbox, { filename: 'TradingBotChart.js' })
   return sandbox.module.exports
 }
 
@@ -307,6 +318,7 @@ function serialize(node) {
   assert.ok(ops.includes('fillPath') && ops.includes('strokePath') && ops.includes('fillEllipse'), 'chart ops ' + ops)
   assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
   assert.equal(run.calls.lastRequest && run.calls.lastRequest.timeoutInterval, 6)
+  assertSetWidgetBeforeComplete(run, 'live success')
   ok('medium widget draws a thick untinted filling chart, caches, sets url/refresh')
 
   const largeRun = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: true })
@@ -318,6 +330,7 @@ function serialize(node) {
 
   const cachedRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true, files: { '/docs/trading-bot-snapshot.json': JSON.stringify(liveSnapshot) } })
   assert.ok(texts(cachedRun.calls.setWidget).some((s) => s.includes('SOL')))
+  assertSetWidgetBeforeComplete(cachedRun, 'cache fallback')
   ok('offline falls back to cached snapshot')
 
   const errRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true })
@@ -325,6 +338,7 @@ function serialize(node) {
   assert.ok(errTexts.some((s) => s.includes('Updating')), 'placeholder, got ' + errTexts)
   assert.equal(images(errRun.calls.setWidget).length, 0, 'placeholder does not draw a chart')
   assert.ok(errRun.calls.completed)
+  assertSetWidgetBeforeComplete(errRun, 'no-cache placeholder')
   ok('offline without cache shows a lightweight placeholder and completes')
 
   const appRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: false })
@@ -354,6 +368,11 @@ function serialize(node) {
   assert.ok(lineOps.every((o) => o.op === 'line'), 'no bezier ops on a heavy series')
   assert.ok(elapsed < 250, 'heavy series should render well under the widget budget, took ' + elapsed + 'ms')
   ok('time-budget: 400 points downsample to <=60 and render quickly with Script.complete')
+
+  const throwRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, renderThrows: true })
+  assertSetWidgetBeforeComplete(throwRun, 'render throw')
+  assert.ok(throwRun.calls.setWidget, 'error widget was set after a draw throw')
+  ok('setWidget is called before complete on success, cache, no-cache, and throw')
 
   if (treeOut) {
     fs.writeFileSync(treeOut, JSON.stringify({ family: 'medium', tree: serialize(widget) }, null, 2))
