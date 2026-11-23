@@ -11,6 +11,7 @@ import { readShowUsd } from './lib/storage.ts'
 import { ActivityScreen } from './screens/ActivityScreen.tsx'
 import { AgentsScreen } from './screens/AgentsScreen.tsx'
 import { HomeScreen } from './screens/HomeScreen.tsx'
+import { CalendarScreen } from './screens/CalendarScreen.tsx'
 import { LearningScreen } from './screens/LearningScreen.tsx'
 
 export default function App() {
@@ -102,6 +103,7 @@ function Shell() {
       ) : null}
       {book && tab === 'agents' ? <AgentsScreen book={book} /> : null}
       {book && tab === 'activity' ? <ActivityScreen book={book} /> : null}
+      {book && tab === 'calendar' ? <CalendarScreen days={book.dailyPnl} asOfMs={snap.view?.asOfMs ?? null} /> : null}
       {snap.view && tab === 'learning' ? <LearningScreen learning={snap.view.learning} /> : null}
 
       <BottomNav tab={tab} onChange={(next) => navigate({ tab: next })} />

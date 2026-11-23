@@ -1,17 +1,18 @@
-import { ArrowLeftRight, GraduationCap, House, Radar } from 'lucide-react'
+import { ArrowLeftRight, CalendarDays, GraduationCap, House, Radar } from 'lucide-react'
 import type { Tab } from '../hooks/useRoute.ts'
 
 const TABS: { id: Tab; label: string; icon: typeof House }[] = [
   { id: 'home', label: 'Home', icon: House },
   { id: 'agents', label: 'Agents', icon: Radar },
   { id: 'activity', label: 'Activity', icon: ArrowLeftRight },
+  { id: 'calendar', label: 'Calendar', icon: CalendarDays },
   { id: 'learning', label: 'Learning', icon: GraduationCap },
 ]
 
 export function BottomNav({ tab, onChange }: { tab: Tab; onChange: (tab: Tab) => void }) {
   return (
     <nav className="fixed bottom-0 left-1/2 z-30 w-full max-w-[480px] -translate-x-1/2 border-t border-white/8 bg-[#050605]/95 backdrop-blur">
-      <div className="grid grid-cols-4 pb-[env(safe-area-inset-bottom)]">
+      <div className="grid grid-cols-5 pb-[env(safe-area-inset-bottom)]">
         {TABS.map((item) => {
           const active = tab === item.id
           const Icon = item.icon

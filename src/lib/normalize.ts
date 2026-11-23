@@ -89,6 +89,7 @@ export type BookView = {
   closedStats: ClosedStatsView
   openPositions: OpenPositionView[]
   openStats: OpenStatsView
+  dailyPnl: DailyPnlDay[]
 }
 
 export type ExitCode = 'TP1' | 'TP2' | 'SL' | 'time' | 'exit'
@@ -134,6 +135,27 @@ export type OpenStatsView = {
   unrealizedPct: number | null
   bestSol: number | null
   worstSol: number | null
+}
+
+export type DailyPnlTrade = {
+  token: string
+  netSol: number | null
+  netPct: number | null
+  exitLabel: string | null
+  exitCode: ExitCode
+  kind: 'full' | 'partial'
+  rulesVersion: string | null
+  sizeSol: number | null
+}
+
+export type DailyPnlDay = {
+  date: string
+  netSol: number
+  netPct: number | null
+  trades: number
+  wins: number
+  losses: number
+  items: DailyPnlTrade[]
 }
 
 export type LearningView = {
@@ -607,6 +629,7 @@ function emptyBook(): BookView {
     closedStats: emptyClosedStats(),
     openPositions: [],
     openStats: emptyOpenStats(),
+    dailyPnl: [],
   }
 }
 
@@ -794,6 +817,47 @@ function buildAgents(
   return { agents, lastScanLabel: shortLabel(latestScan?.time ?? null) }
 }
 
+
+function readDailyPnl(value: unknown): DailyPnlDay[] {
+  return list(value).flatMap((item) => {
+    const row = obj(item)
+    if (!row) return []
+    const date = str(row.date)
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return []
+    const netSol = num(row.net_sol) ?? 0
+    const items = list(row.items).flatMap((entry) => {
+      const trade = obj(entry)
+      if (!trade) return []
+      const token = str(trade.token)
+      if (!token) return []
+      const code = str(trade.exit_code)
+      return [
+        {
+          token,
+          netSol: num(trade.net_sol),
+          netPct: num(trade.net_pct),
+          exitLabel: str(trade.exit_vienna),
+          exitCode: code && ['TP1', 'TP2', 'SL', 'time', 'exit'].includes(code) ? (code as ExitCode) : 'exit',
+          kind: (str(trade.kind) === 'partial' ? 'partial' : 'full') as DailyPnlTrade['kind'],
+          rulesVersion: str(trade.rules_version),
+          sizeSol: num(trade.size_sol),
+        },
+      ]
+    })
+    return [
+      {
+        date,
+        netSol,
+        netPct: num(row.net_pct),
+        trades: num(row.trades) ?? items.length,
+        wins: num(row.wins) ?? items.filter((item) => (item.netSol ?? 0) > 0).length,
+        losses: num(row.losses) ?? items.filter((item) => (item.netSol ?? 0) < 0).length,
+        items,
+      },
+    ]
+  })
+}
+
 function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView {
   if (!raw) return emptyBook()
   const start = num(raw.start_bankroll_sol)
@@ -828,6 +892,7 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
   const closedStats = readClosedStats(raw.closed_stats, closedTrades)
   const openPositions = toOpenPositions(opens, clock)
   const openStats = statsFromOpenPositions(openPositions)
+  const dailyPnl = readDailyPnl(raw.daily_pnl)
 
   return {
     live: trading || anyNumber || budget.length > 0,
@@ -857,6 +922,7 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
     closedStats,
     openPositions,
     openStats,
+    dailyPnl,
   }
 }
 

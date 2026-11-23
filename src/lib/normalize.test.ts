@@ -18,6 +18,7 @@ describe('shipped snapshot', () => {
     expect(view.paper.losses).toBe(1)
     expect(view.paper.winRatePct).toBe(0)
     expect(view.paper.openCount).toBe(0)
+    expect(view.paper.dailyPnl).toEqual([])
     expect(view.paper.openPositions).toEqual([])
     expect(view.paper.openStats.count).toBe(0)
     expect(view.paper.openStats.inPlaySol).toBeNull()

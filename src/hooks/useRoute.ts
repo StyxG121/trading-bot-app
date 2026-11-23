@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { readMode, writeMode } from '../lib/storage.ts'
 
-export type Tab = 'home' | 'agents' | 'activity' | 'learning'
+export type Tab = 'home' | 'agents' | 'activity' | 'calendar' | 'learning'
 export type Mode = 'paper' | 'real'
 
 function parseTab(value: string | null): Tab {
-  if (value === 'agents' || value === 'activity' || value === 'learning' || value === 'home') return value
+  if (value === 'agents' || value === 'activity' || value === 'calendar' || value === 'learning' || value === 'home') return value
   return 'home'
 }
 
