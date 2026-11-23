@@ -1,0 +1,201 @@
+{
+  "as_of_vienna": "23 Nov 2026, 06:49",
+  "as_of_iso": "2026-11-23T06:49:47+01:00",
+  "zone": "Europe/Vienna (CET, UTC+1)",
+  "paper": {
+    "start_bankroll_sol": 10.0,
+    "bankroll_sol": 9.855991,
+    "gross_pnl_sol": -0.133411,
+    "net_pnl_sol": -0.144009,
+    "wins": 0,
+    "losses": 1,
+    "win_rate_pct": 0.0,
+    "open_count": 0,
+    "open": [],
+    "days_left": 6.5,
+    "week_end": "Sun 29 Nov 2026, 20:00",
+    "equity": [
+      {
+        "label": "22 Nov start",
+        "value": 10.0
+      },
+      {
+        "label": "22 Nov 21:09",
+        "value": 9.855991
+      }
+    ],
+    "closed_trades": [
+      {
+        "token": "FIONA",
+        "entry_price": 0.001724,
+        "exit_price": 0.001264,
+        "entry_vienna": "22 Nov 2026, 17:37",
+        "exit_vienna": "22 Nov 2026, 21:09",
+        "size_sol": 0.5,
+        "score": "77.4",
+        "gross_pct": -26.68,
+        "net_pct": -28.8,
+        "net_sol": -0.144,
+        "reason": "SL -25% hit (price -26.68%)",
+        "entry_reason": "WARN passed all entry filters; age 67.7h liq131k"
+      }
+    ],
+    "budget_pnl": [
+      {
+        "bankroll_sol": 1,
+        "size_sol": 0.05,
+        "gross_pct": -26.68,
+        "net_pct": -28.69,
+        "net_sol": -0.0143
+      },
+      {
+        "bankroll_sol": 3,
+        "size_sol": 0.15,
+        "gross_pct": -26.68,
+        "net_pct": -28.67,
+        "net_sol": -0.043
+      },
+      {
+        "bankroll_sol": 10,
+        "size_sol": 0.5,
+        "gross_pct": -26.68,
+        "net_pct": -28.8,
+        "net_sol": -0.144
+      },
+      {
+        "bankroll_sol": 50,
+        "size_sol": 2.5,
+        "gross_pct": -26.68,
+        "net_pct": -28.99,
+        "net_sol": -0.7249
+      }
+    ],
+    "activity": [
+      {
+        "time_vienna": "23 Nov 2026, 06:35",
+        "raw": "scanned 35 | PASS 0 WARN 13 FAIL 22 | entries 0 | exits 0 | no open positions | closest VINE 77.7 (age out of window), Singularity 64.6; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 13 / 22",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 06:12",
+        "raw": "scanned 35 | entries 0 | exits 0 | no open positions | closest mihao 65.2 (age, BSR, score); copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 05:35",
+        "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 0 | exits 0 | no open positions | closest DCTY 69.7 (VOL1H, age), mihao 67.1; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 11 / 24",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 05:08",
+        "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 11 / 24",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 04:40",
+        "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 11 / 24",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 04:04",
+        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 12 / 23",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 03:36",
+        "raw": "scanned 35 | PASS 0 WARN 13 FAIL 22 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 13 / 22",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 03:09",
+        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 12 / 23",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 02:34",
+        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | FIONA 71.5 qualified but blocked: exited by SL <24h ago; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "0 / 12 / 23",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 02:08",
+        "raw": "scanned 35 | entries 0 | exits 0 | no open positions | CATE 85 scored but age out of window; copy bonus no; monitor paused",
+        "scanned": "35",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      }
+    ],
+    "rules_version": "v3",
+    "rules_date": "22 Nov 2026",
+    "key_rules": [
+      "Liquidity \u2265 $50k and score \u2265 68",
+      "5% per trade, max 5 positions, daily loss limit \u221215%",
+      "TP1 +40% sells 50% and moves the stop to breakeven; TP2 +100%; SL \u221225%; 48h time stop",
+      "Pool age 4\u2013336h; socials required if the token is under 7 days old",
+      "Organic and copycat filters auto-FAIL"
+    ],
+    "lessons": [
+      "22 Nov 20:00 review (FIONA still open, about \u221219%): no rule changes (sample of 1).",
+      "FIONA later hit the \u221225% stop at 21:09 Europe/Vienna, net \u221228.80% / \u22120.1440 SOL.",
+      "History study (140 tokens, 112 memecoins): 59.8% rug or collapse; strongest flags are a peak in under 4h and no socials."
+    ],
+    "toptraders": [
+      "62 wallets scored, 329 closed trades, 0 copyable.",
+      "Closest names, watch only: Mr. Frog, Prosciutto, SKX.",
+      "Proposed, not yet applied: 12h fade cut if still underwater; optional +20% partial take. Keep the 4h age floor and the socials rule. Copy-signal bonus cannot fire while copyable is 0."
+    ]
+  },
+  "real": {
+    "status": "Not live, waiting for go-live",
+    "wallet": "2q5aEdRPtgBSE1yjauJfz5KHL7Bea1sT1xGBLd2u4SA3",
+    "chain": "Solana (Phantom)",
+    "balance_sol": 0,
+    "planned_budget_usd": "$400\u2013500",
+    "leverage_rules": [
+      "BTC, ETH, and SOL perps only; memecoins stay spot, never leveraged",
+      "Isolated margin only, 2x default, 3x hard cap",
+      "Risk per trade \u2264 1% of the perps bankroll, counting the stop and both taker fees",
+      "Mandatory stop; liquidation at least 3\u00d7 the stop distance",
+      "Daily loss limit \u22123% of that day's starting perps bankroll",
+      "Max two open perp positions; no adding to a loser"
+    ]
+  },
+  "mode": "PAPER ONLY until an explicit go-live"
+}

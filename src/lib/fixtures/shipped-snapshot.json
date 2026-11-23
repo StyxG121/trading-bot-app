@@ -1,0 +1,156 @@
+{
+  "as_of_vienna": "23 Nov 2026, 01:26",
+  "as_of_iso": "2026-11-23T01:26:41+01:00",
+  "zone": "Europe/Vienna (CET, UTC+1)",
+  "paper": {
+    "start_bankroll_sol": 10.0,
+    "bankroll_sol": 9.855991,
+    "gross_pnl_sol": -0.133411,
+    "net_pnl_sol": -0.144009,
+    "wins": 0,
+    "losses": 1,
+    "win_rate_pct": 0.0,
+    "open_count": 0,
+    "open": [],
+    "days_left": 6.8,
+    "week_end": "Sun 29 Nov 2026, 20:00",
+    "equity": [
+      {
+        "label": "22 Nov start",
+        "value": 10.0
+      },
+      {
+        "label": "22 Nov 21:09",
+        "value": 9.855991
+      }
+    ],
+    "closed_trades": [
+      {
+        "token": "FIONA",
+        "entry_price": 0.001724,
+        "exit_price": 0.001264,
+        "entry_vienna": "22 Nov 2026, 17:37",
+        "exit_vienna": "22 Nov 2026, 21:09",
+        "size_sol": 0.5,
+        "score": "77.4",
+        "gross_pct": -26.68,
+        "net_pct": -28.8,
+        "net_sol": -0.144,
+        "reason": "SL -25% hit (price -26.68%)",
+        "entry_reason": "WARN passed all entry filters; age 67.7h liq131k"
+      }
+    ],
+    "budget_pnl": [
+      {
+        "bankroll_sol": 1,
+        "size_sol": 0.05,
+        "gross_pct": -26.68,
+        "net_pct": -28.69,
+        "net_sol": -0.0143
+      },
+      {
+        "bankroll_sol": 3,
+        "size_sol": 0.15,
+        "gross_pct": -26.68,
+        "net_pct": -28.67,
+        "net_sol": -0.043
+      },
+      {
+        "bankroll_sol": 10,
+        "size_sol": 0.5,
+        "gross_pct": -26.68,
+        "net_pct": -28.8,
+        "net_sol": -0.144
+      },
+      {
+        "bankroll_sol": 50,
+        "size_sol": 2.5,
+        "gross_pct": -26.68,
+        "net_pct": -28.99,
+        "net_sol": -0.7249
+      }
+    ],
+    "activity": [
+      {
+        "time_vienna": "22 Nov 2026, 23:39",
+        "raw": "scanned 35 | PASS 2 WARN 15 FAIL 18 | entries 0 | exits 0 | no open positions | near misses: SIDOOR 74.7 (liq 40.6k<50k), CLAUDIA 68.1 (age/BSR 1.03), Rings 61.2 (BSR 0.46)",
+        "scanned": "35",
+        "verdicts": "2 / 15 / 18",
+        "entries": "0",
+        "miss": "SIDOOR 74.7 (liq 40.6k<50k), CLAUDIA 68.1 (age/BSR 1.03), Rings 61.2 (BSR 0.46)",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "22 Nov 2026, 21:32",
+        "raw": "scanned 35 | entries 0 | exits 0 | no open positions | near misses: CLAUDIA 74.7 (age), VINE 74.4 (age), FLOAT 69 (age/BSR 0.85), Singularity 61.5 (BSR 0.97/score)",
+        "scanned": "35",
+        "verdicts": "—",
+        "entries": "0",
+        "miss": "CLAUDIA 74.7 (age), VINE 74.4 (age), FLOAT 69 (age/BSR 0.85), Singularity 61.5 (BSR 0.97/score)",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "22 Nov 2026, 21:09",
+        "raw": "monitor | exits 1 (FIONA SL -26.68% gross / -28.80% net) | open 0",
+        "scanned": "monitor",
+        "verdicts": "—",
+        "entries": "out FIONA SL",
+        "miss": "—",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "22 Nov 2026, 19:38",
+        "raw": "scanned 35 | PASS 1 WARN 16 FAIL 18 | entries 0 | exits 0 | open FIONA -12.1% (no exit trigger) | near misses: CLAUDIA 78.3 (age/BSR 0.96), FLOAT 74.1 (age/BSR), FIONA 59 re-score",
+        "scanned": "35",
+        "verdicts": "1 / 16 / 18",
+        "entries": "0",
+        "miss": "CLAUDIA 78.3 (age/BSR 0.96), FLOAT 74.1 (age/BSR), FIONA 59 re-score",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "22 Nov 2026, 17:37",
+        "raw": "scanned 35 | entries 1 (FIONA 77.4) | exits 0 | no open positions before | near misses: CBUCKS 67.2 (vol/age), greg liq<50k",
+        "scanned": "35",
+        "verdicts": "—",
+        "entries": "FIONA 77.4",
+        "miss": "CBUCKS 67.2 (vol/age), greg liq<50k",
+        "kind": "scan"
+      }
+    ],
+    "rules_version": "v3",
+    "rules_date": "22 Nov 2026",
+    "key_rules": [
+      "Liquidity >= $50k and score >= 68",
+      "5% per trade, max 5 positions, daily loss limit -15%",
+      "TP1 +40% sells 50% and moves the stop to breakeven; TP2 +100%; SL -25%; 48h time stop",
+      "Pool age 4-336h; socials required if the token is under 7 days old",
+      "Organic and copycat filters auto-FAIL"
+    ],
+    "lessons": [
+      "22 Nov 20:00 review: no rule changes (sample of 1).",
+      "FIONA hit the -25% stop at 21:09 Europe/Vienna, net -28.80% / -0.1440 SOL.",
+      "History study (140 tokens, 112 memecoins): 59.8% rug or collapse; strongest flags are a peak in under 4h and no socials."
+    ],
+    "toptraders": [
+      "62 wallets scored, 329 closed trades, 0 copyable.",
+      "Closest names, watch only: Mr. Frog, Prosciutto, SKX.",
+      "Proposed, not yet applied: 12h fade cut if still underwater; optional +20% partial take. Copy-signal bonus cannot fire while copyable is 0."
+    ]
+  },
+  "real": {
+    "status": "Not live, waiting for go-live",
+    "wallet": "2q5aEdRPtgBSE1yjauJfz5KHL7Bea1sT1xGBLd2u4SA3",
+    "chain": "Solana (Phantom)",
+    "balance_sol": 0,
+    "planned_budget_usd": "$400-500",
+    "leverage_rules": [
+      "BTC, ETH, and SOL perps only; memecoins stay spot",
+      "Isolated margin only, 2x default, 3x hard cap",
+      "Risk per trade <= 1% of the perps bankroll",
+      "Mandatory stop; liquidation at least 3x the stop distance",
+      "Daily loss limit -3%",
+      "Max two open perp positions"
+    ]
+  },
+  "mode": "PAPER ONLY until an explicit go-live"
+}
