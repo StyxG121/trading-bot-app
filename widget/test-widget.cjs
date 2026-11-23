@@ -12,7 +12,7 @@ const source = fs.readFileSync(path.join(__dirname, 'TradingBotWidget.js'), 'utf
 
 function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFails = false, files = {} }) {
   const calls = { setWidget: null, completed: false, presented: null }
-  class Color { constructor(hex) { this.hex = hex } }
+  class Color { constructor(hex, alpha) { this.hex = hex; this.alpha = alpha ?? 1 } }
   const Font = {
     systemFont: (s) => ({ size: s, weight: 'regular' }),
     semiboldSystemFont: (s) => ({ size: s, weight: 'semibold' }),
@@ -26,7 +26,7 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
   }
   class WidgetSpacer { constructor(len) { this.type = 'spacer'; this.length = len ?? null } }
   class WidgetStack {
-    constructor() { this.type = 'stack'; this.children = []; this.layout = 'horizontal'; this.padding = null }
+    constructor() { this.type = 'stack'; this.children = []; this.layout = 'horizontal'; this.padding = null; this.borderWidth = null; this.borderColor = null }
     addText(t) { assert.equal(typeof t, 'string'); const n = new WidgetText(t); this.children.push(n); return n }
     addStack() { const s = new WidgetStack(); this.children.push(s); return s }
     addSpacer(len) { const s = new WidgetSpacer(len); this.children.push(s); return s }
@@ -101,8 +101,14 @@ function texts(node, out = []) {
 }
 
 function cards(node, out = []) {
-  if (node.type === 'stack' && node.backgroundColor && node.cornerRadius) out.push(node)
+  if (node.type === 'stack' && node.borderWidth && node.cornerRadius) out.push(node)
   for (const child of node.children || []) cards(child, out)
+  return out
+}
+
+function filledStacks(node, out = [], isRoot = true) {
+  if (!isRoot && node.backgroundColor) out.push(node)
+  for (const child of node.children || []) filledStacks(child, out, false)
   return out
 }
 
@@ -116,6 +122,8 @@ function serialize(node) {
     ...base,
     layout: node.layout,
     background: node.backgroundColor && node.backgroundColor.hex,
+    borderWidth: node.borderWidth ?? null,
+    borderColor: node.borderColor && { hex: node.borderColor.hex, alpha: node.borderColor.alpha },
     cornerRadius: node.cornerRadius ?? null,
     padding: node.padding,
     spacing: node.spacing ?? null,
@@ -133,6 +141,13 @@ function serialize(node) {
   const W = loadPure()
   assert.equal(typeof W.buildModel, 'function')
   ok('loads as a plain script and exports helpers')
+
+  assert.equal(W.directionMark(1), '▲ ')
+  assert.equal(W.directionMark(-1), '▼ ')
+  assert.equal(W.directionMark(0), '')
+  assert.ok(W.formatPnl(0.001, 0.3).startsWith('▲ +'))
+  assert.ok(W.formatPnl(-0.144, -28.8).startsWith('▼ −') || W.formatPnl(-0.144, -28.8).startsWith('▼ -'))
+  ok('direction marks and formatPnl stay readable without color')
 
   // Vienna label parsing (CET in November)
   assert.equal(new Date(W.parseViennaLabel('22 Nov 2026, 21:09')).toISOString(), '2026-11-22T20:09:00.000Z')
@@ -173,6 +188,18 @@ function serialize(node) {
   assert.equal(old.tradeCount, 0)
   assert.equal(old.empty, true)
   ok('24h window excludes older closes; empty state')
+
+  const emptyRun = await runInScriptable({
+    snapshot: { as_of_iso: '2026-11-23T13:00:00+01:00', paper: { bankroll_sol: 10, start_bankroll_sol: 10, closed_trades: [], open: [] } },
+    family: 'large',
+    runsInWidget: true,
+  })
+  const emptyWidget = emptyRun.calls.setWidget
+  assert.ok(texts(emptyWidget).some((s) => s.includes('No trades in the last 24h')))
+  assert.equal(filledStacks(emptyWidget).length, 0, 'empty state must not use a filled background')
+  const emptyBox = cards(emptyWidget).find((c) => texts(c).some((s) => s.includes('No trades')))
+  assert.ok(emptyBox && emptyBox.borderWidth === 1, 'empty state uses a border, not a fill')
+  ok('empty state is readable in tinted mode')
 
   // Win rate from closed 24h only
   const wr = W.buildModel({
@@ -230,8 +257,13 @@ function serialize(node) {
   const t = texts(widget)
   assert.ok(t.some((s) => s.includes('SOL')), 'bankroll text')
   assert.ok(t.some((s) => s.startsWith('updated ')), 'updated footer')
-  const tradeCards = cards(widget).filter((c) => c.cornerRadius === 10 && c.children.length >= 2)
+  const tradeCards = cards(widget).filter((c) => c.cornerRadius === 10 && c.borderWidth === 1 && c.children.length >= 2)
   assert.ok(tradeCards.length >= 1, 'trade cards rendered')
+  assert.ok(tradeCards.every((c) => c.borderColor && c.borderColor.hex && (c.borderColor.alpha ?? 1) < 1), 'cards use a low-alpha border')
+  assert.equal(filledStacks(widget).length, 0, 'no filled stack backgrounds (breaks iOS tinted mode)')
+  assert.equal(widget.backgroundColor && widget.backgroundColor.hex, '#050605')
+  assert.ok(t.some((s) => s.includes('▲') || s.includes('▼')), 'P/L uses ▲/▼ when color is lost')
+  assert.ok(tradeCards.every((c) => texts(c).some((s) => s === '▎')), 'each card has a text left bar, not a fill')
   assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
   ok('runs as a large widget with live data, caches snapshot, sets url/refresh')
 

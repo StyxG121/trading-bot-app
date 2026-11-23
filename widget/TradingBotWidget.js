@@ -1,5 +1,8 @@
 // Trading Bot — Scriptable home screen widget
 // Large (or medium) widget: 24h trades + open positions, dark, green/red P/L.
+// Readable in iOS 18+ Tinted mode: trade rows use a thin border, not a filled
+// background (fills become solid tint bars and hide the text). Re-copy this
+// script into Scriptable after an update; the widget does not auto-refresh it.
 //
 // Install (iPhone):
 // 1. Install the free “Scriptable” app from the App Store.
@@ -19,12 +22,13 @@ const REFRESH_MINUTES = 15
 const TZ = "Europe/Vienna"
 
 const BG = "#050605"
-const CARD = "#141716"
 const TEXT = "#f3f6f3"
 const MUTED = "#8e9890"
 const DIM = "#6f7872"
 const GREEN = "#3dff7a"
 const RED = "#ff5c6a"
+const BORDER = "#8e9890"
+const BORDER_ALPHA = 0.4
 
 const MAX_ROWS = { small: 0, medium: 3, large: 7, extraLarge: 10 }
 
@@ -111,6 +115,19 @@ function formatPct(value) {
   const body = Math.abs(value).toLocaleString("en-US", { maximumFractionDigits: 1 })
   const sign = value > 0 ? "+" : value < 0 ? "−" : ""
   return sign + body + "%"
+}
+
+function directionMark(value) {
+  // Tinted mode drops text color, so ▲/▼ plus +/− keep direction readable.
+  if (value == null || !Number.isFinite(value) || value === 0) return ""
+  return value > 0 ? "▲ " : "▼ "
+}
+
+function formatPnl(sol, pct) {
+  const value = sol != null && Number.isFinite(sol) ? sol : pct
+  const mark = directionMark(value)
+  if (sol != null && Number.isFinite(sol)) return mark + formatSignedSol(sol) + "  " + formatPct(pct)
+  return mark + formatPct(pct)
 }
 
 function isFiniteNumber(value) {
@@ -324,8 +341,9 @@ async function loadSnapshot() {
   }
 }
 
-function color(hex) {
-  return new Color(hex)
+function color(hex, alpha) {
+  if (alpha == null) return new Color(hex)
+  return new Color(hex, alpha)
 }
 
 function addLabel(parent, text, size, weight, hex, options) {
@@ -366,8 +384,9 @@ function renderWidget(model) {
   addLabel(bankrollRow, formatSol(model.bankroll) + " SOL", 20, "bold", TEXT, { minScale: 0.7 })
   bankrollRow.addSpacer()
 
-  const netColor = tone(model.net24h != null ? model.net24h : model.netPct)
-  addLabel(header, formatSignedSol(model.net24h) + " SOL  " + formatPct(model.netPct), 13, "semibold", netColor, { minScale: 0.75 })
+  const netValue = model.net24h != null ? model.net24h : model.netPct
+  const netColor = tone(netValue)
+  addLabel(header, directionMark(netValue) + formatSignedSol(model.net24h) + " SOL  " + formatPct(model.netPct), 13, "semibold", netColor, { minScale: 0.75 })
 
   const meta = []
   meta.push((model.tradeCount || 0) + (model.tradeCount === 1 ? " trade" : " trades") + " 24h")
@@ -379,8 +398,9 @@ function renderWidget(model) {
     widget.addSpacer(8)
     const empty = widget.addStack()
     empty.layoutVertically()
-    empty.backgroundColor = color(CARD)
     empty.cornerRadius = 10
+    empty.borderWidth = 1
+    empty.borderColor = color(BORDER, BORDER_ALPHA)
     empty.setPadding(12, 12, 12, 12)
     addLabel(empty, "No trades in the last 24h", 12, "regular", MUTED, { center: true })
     widget.addSpacer()
@@ -404,22 +424,35 @@ function renderWidget(model) {
 }
 
 function addTradeCard(parent, trade) {
+  // No filled backgroundColor: iOS 18+ Tinted mode turns fills into solid bars.
   const card = parent.addStack()
-  card.layoutVertically()
-  card.backgroundColor = color(CARD)
+  card.layoutHorizontally()
+  card.centerAlignContent()
   card.cornerRadius = 10
-  card.setPadding(5, 9, 5, 9)
-  card.spacing = 1
+  card.borderWidth = 1
+  card.borderColor = color(BORDER, BORDER_ALPHA)
+  card.setPadding(5, 8, 5, 8)
+  card.spacing = 6
 
-  const top = card.addStack()
+  const value = trade.sol != null ? trade.sol : trade.pct
+  // Text glyph, not a filled stack: a fill would become a solid tint bar.
+  const bar = card.addText("▎")
+  bar.font = Font.boldSystemFont(14)
+  bar.textColor = color(tone(value))
+  bar.lineLimit = 1
+
+  const body = card.addStack()
+  body.layoutVertically()
+  body.spacing = 1
+
+  const top = body.addStack()
   top.layoutHorizontally()
   top.centerAlignContent()
   addLabel(top, trade.token, 11, "semibold", TEXT, { minScale: 0.7 })
   top.addSpacer()
-  const pnl = trade.sol != null ? formatSignedSol(trade.sol) + "  " + formatPct(trade.pct) : formatPct(trade.pct)
-  addLabel(top, pnl, 11, "bold", tone(trade.sol != null ? trade.sol : trade.pct), { minScale: 0.7 })
+  addLabel(top, formatPnl(trade.sol, trade.pct), 11, "bold", tone(value), { minScale: 0.7 })
 
-  addLabel(card, subline(trade), 10, "regular", MUTED, { minScale: 0.8 })
+  addLabel(body, subline(trade), 10, "regular", MUTED, { minScale: 0.8 })
 }
 
 async function runScriptable() {
@@ -457,6 +490,8 @@ const TradingBotWidget = {
   formatSol: formatSol,
   formatSignedSol: formatSignedSol,
   formatPct: formatPct,
+  directionMark: directionMark,
+  formatPnl: formatPnl,
   openPnl: openPnl,
   buildModel: buildModel,
   subline: subline,
