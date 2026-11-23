@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "23 Nov 2026, 23:34",
-  "as_of_iso": "2026-11-23T23:34:34+01:00",
+  "as_of_vienna": "24 Nov 2026, 00:03",
+  "as_of_iso": "2026-11-24T00:03:31+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.009297,
-        "last_gross_pct": -6.666,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.009278,
+        "last_gross_pct": -6.8567,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v4"
       },
       {
@@ -49,9 +49,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 691.31h liq344129; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.007936,
-        "last_gross_pct": -0.6758,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.007742,
+        "last_gross_pct": -3.1039,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v4"
       },
       {
@@ -70,9 +70,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 309.48h liq157627; rules_version=v4",
         "entry_buy_impact_pct": 1.607321,
-        "last_price_usd": 0.00251,
-        "last_gross_pct": -4.9242,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.002321,
+        "last_gross_pct": -12.0833,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v4"
       },
       {
@@ -91,9 +91,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 74.97h liq23944; rules_version=v5",
         "entry_buy_impact_pct": 2.059955,
-        "last_price_usd": 7.089e-05,
-        "last_gross_pct": -21.1545,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 6.852e-05,
+        "last_gross_pct": -23.7905,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v5"
       },
       {
@@ -112,9 +112,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.0006202,
-        "last_gross_pct": 6.931,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.0006375,
+        "last_gross_pct": 9.9138,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v5"
       },
       {
@@ -133,9 +133,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1153.69h liq232258; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004388,
-        "last_gross_pct": 1.9517,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.004167,
+        "last_gross_pct": -3.1831,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -155,9 +155,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 47.41h liq40387; rules_version=v5",
         "entry_buy_impact_pct": 1.726612,
-        "last_price_usd": 0.0002748,
-        "last_gross_pct": 3.0371,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.0002511,
+        "last_gross_pct": -5.8493,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -192,9 +192,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 834.62h liq197921; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001768,
-        "last_gross_pct": -4.2772,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.001757,
+        "last_gross_pct": -4.8728,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -225,13 +225,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
         },
-        "peak_gross_pct": 0.0,
+        "peak_gross_pct": 1.0182,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 97.67h liq161716; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.002357,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-23T22:32:23.549726+00:00",
+        "last_price_usd": 0.002164,
+        "last_gross_pct": -8.1884,
+        "last_checked_at": "2026-11-23T23:03:30.999514+00:00",
         "rules_version": "v5",
         "override_reason": "",
         "pattern": {
@@ -247,7 +247,7 @@
         }
       }
     ],
-    "days_left": 5.9,
+    "days_left": 5.8,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -328,8 +328,8 @@
       },
       {
         "label": "now",
-        "value": 9.375695,
-        "t": "2026-11-23T23:34:34+01:00",
+        "value": 9.283383,
+        "t": "2026-11-24T00:03:31+01:00",
         "kind": "now"
       }
     ],
@@ -689,17 +689,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "23 Nov 2026, 23:32",
-        "raw": "scanned 35 | PASS 1 WARN 9 FAIL 25 | entries 1 (FIONA 72.6) | exits 0 | open CLAUDIA -6.7%, mihao -0.7%, Rings -4.9%, HUSS -21.2%, HOGE +6.9%, CBUCKS +2.0%, SIDOOR +3.0%, DCTY -4.3%, FIONA +0.0% | copy bonus no | AI monitor paused; exit loop alive",
-        "scanned": "35",
-        "verdicts": "1 / 9 / 25",
-        "entries": "FIONA 72.6",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 23:34",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.8%, mihao -0.9%, Rings -4.9%, HUSS -22.8%, HOGE +6.7%, CBUCKS +2.0%, SIDOOR +3.0%, DCTY -4.2% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 00:03",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.9%, mihao -3.1%, Rings -12.1%, HUSS -23.8%, HOGE +9.9%, CBUCKS -3.2%, SIDOOR -5.8%, DCTY -4.9%, FIONA -8.2% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -707,8 +698,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:34",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.8%, mihao -0.7%, Rings -4.9%, HUSS -22.8%, HOGE +9.1%, CBUCKS +2.0%, SIDOOR +3.0%, DCTY -4.3% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:40",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -7.0%, mihao -2.2%, Rings -5.4%, HUSS -23.3%, HOGE +14.1%, CBUCKS +2.0%, SIDOOR -4.5%, DCTY -0.8%, FIONA -3.1% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -716,8 +707,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:33",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.8%, mihao -0.7%, Rings -4.9%, HUSS -22.8%, HOGE +9.1%, CBUCKS +2.0%, SIDOOR +3.0%, DCTY -4.3% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:39",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -7.0%, mihao -2.2%, Rings -5.4%, HUSS -23.3%, HOGE +11.6%, CBUCKS +2.0%, SIDOOR -4.0%, DCTY -0.8%, FIONA -2.9% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -725,8 +716,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:33",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.7%, mihao -0.7%, Rings -4.5%, HUSS -21.2%, HOGE +6.9%, CBUCKS +2.0%, SIDOOR +2.9%, DCTY -3.7% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:39",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -7.1%, mihao -2.2%, Rings -5.4%, HUSS -22.2%, HOGE +8.7%, CBUCKS +2.0%, SIDOOR -4.0%, DCTY -1.9%, FIONA -1.7% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -734,8 +725,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:33",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.7%, mihao -0.7%, Rings -4.5%, HUSS -21.2%, HOGE +6.9%, CBUCKS +2.0%, SIDOOR +2.9%, DCTY -3.7% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:39",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -7.1%, mihao -2.2%, Rings -5.4%, HUSS -22.2%, HOGE +8.7%, CBUCKS +2.0%, SIDOOR -4.0%, DCTY -1.9%, FIONA -1.7% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -743,8 +734,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:33",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.7%, mihao -0.7%, Rings -4.5%, HUSS -21.2%, HOGE +6.9%, CBUCKS +2.0%, SIDOOR +2.9%, DCTY -3.7% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:38",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -7.1%, mihao -2.2%, Rings -5.4%, HUSS -22.2%, HOGE +8.7%, CBUCKS +2.0%, SIDOOR -4.0%, DCTY -1.9%, FIONA -1.7% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -752,17 +743,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:32",
-        "raw": "monitor | entries 0 | exits 1 (NINO SL -25.21%) | open CLAUDIA -6.1%, mihao -1.0%, Rings -4.5%, HUSS -22.8%, HOGE +6.9%, CBUCKS +2.0%, SIDOOR +2.9%, DCTY -3.5% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0; out 1 (NINO SL -25.21%)",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 23:32",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.7%, mihao -0.5%, Rings -4.5%, HUSS -22.8%, HOGE +6.9%, NINO -23.2%, CBUCKS +2.0%, SIDOOR +2.9%, DCTY -3.4% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:38",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.5%, mihao -2.2%, Rings -5.0%, HUSS -22.2%, HOGE +10.1%, CBUCKS +2.0%, SIDOOR -3.6%, DCTY -2.0%, FIONA -0.6% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -770,8 +752,26 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "23 Nov 2026, 23:32",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.7%, mihao -0.5%, Rings -4.5%, HUSS -22.8%, HOGE +6.9%, NINO -23.2%, CBUCKS +2.0%, SIDOOR +2.9%, DCTY -3.4% | closest FIONA 70.6 (dumping), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "23 Nov 2026, 23:38",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.5%, mihao -2.2%, Rings -5.0%, HUSS -22.2%, HOGE +10.1%, CBUCKS +2.0%, SIDOOR -3.6%, DCTY -2.0%, FIONA -0.6% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 23:38",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -6.5%, mihao -2.2%, Rings -5.0%, HUSS -22.2%, HOGE +10.1%, CBUCKS +2.0%, SIDOOR -3.6%, DCTY -2.0%, FIONA -0.6% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 23:37",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -7.0%, mihao -2.1%, Rings -5.0%, HUSS -23.9%, HOGE +10.1%, CBUCKS +2.0%, SIDOOR -3.4%, DCTY -2.3%, FIONA -0.4% | closest Kimchi 60 (safety), CATE 57.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
