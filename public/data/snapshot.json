@@ -1,16 +1,16 @@
 {
-  "as_of_vienna": "23 Nov 2026, 19:12",
-  "as_of_iso": "2026-11-23T19:12:08+01:00",
+  "as_of_vienna": "23 Nov 2026, 19:41",
+  "as_of_iso": "2026-11-23T19:41:20+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
-    "bankroll_sol": 9.603228,
-    "gross_pnl_sol": -0.365482,
-    "net_pnl_sol": -0.396772,
+    "bankroll_sol": 9.660744,
+    "gross_pnl_sol": -0.302405,
+    "net_pnl_sol": -0.339256,
     "wins": 0,
     "losses": 4,
     "win_rate_pct": 0.0,
-    "open_count": 6,
+    "open_count": 7,
     "open": [
       {
         "token": "FIONA",
@@ -18,19 +18,19 @@
         "entry_ts": "2026-11-23T11:33:19.464140+00:00",
         "entry_price_usd": 0.001493,
         "size_sol_original": 0.29568,
-        "size_sol_remaining": 0.29568,
+        "size_sol_remaining": 0.14784,
         "score": 71.8,
         "score_pre_bonus": 71.8,
         "copy_bonus": 0,
         "copy_wallets": [],
-        "stop_pct": -25.0,
-        "tp1_done": false,
+        "stop_pct": 0.0,
+        "tp1_done": true,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 86.68h liq125787; rules_version=v4",
         "entry_buy_impact_pct": 1.649357,
-        "last_price_usd": 0.00189,
-        "last_gross_pct": 26.5908,
-        "last_checked_at": "2026-11-23T18:12:08.045206+00:00",
+        "last_price_usd": 0.00213,
+        "last_gross_pct": 42.6658,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
         "rules_version": "v4"
       },
       {
@@ -49,9 +49,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 613.32h liq334983; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.003235,
-        "last_gross_pct": -10.3133,
-        "last_checked_at": "2026-11-23T18:12:08.045206+00:00",
+        "last_price_usd": 0.003186,
+        "last_gross_pct": -11.6717,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
         "rules_version": "v4"
       },
       {
@@ -70,9 +70,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.009701,
-        "last_gross_pct": -2.6102,
-        "last_checked_at": "2026-11-23T18:12:08.045206+00:00",
+        "last_price_usd": 0.009751,
+        "last_gross_pct": -2.1082,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
         "rules_version": "v4"
       },
       {
@@ -91,9 +91,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 824.52h liq235504; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.002186,
-        "last_gross_pct": -14.9416,
-        "last_checked_at": "2026-11-23T18:12:08.045206+00:00",
+        "last_price_usd": 0.001983,
+        "last_gross_pct": -22.8405,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
         "rules_version": "v4"
       },
       {
@@ -112,9 +112,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 691.31h liq344129; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.007749,
-        "last_gross_pct": -3.0163,
-        "last_checked_at": "2026-11-23T18:12:08.045206+00:00",
+        "last_price_usd": 0.008161,
+        "last_gross_pct": 2.1402,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
         "rules_version": "v4"
       },
       {
@@ -133,10 +133,31 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 309.48h liq157627; rules_version=v4",
         "entry_buy_impact_pct": 1.607321,
-        "last_price_usd": 0.002636,
-        "last_gross_pct": -0.1515,
-        "last_checked_at": "2026-11-23T18:12:08.045206+00:00",
+        "last_price_usd": 0.002665,
+        "last_gross_pct": 0.947,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
         "rules_version": "v4"
+      },
+      {
+        "token": "HUANG",
+        "mint": "4kFR6GDuAJRaqimh21uJhhfwPrGbFW34J6UXEWUhpump",
+        "entry_ts": "2026-11-23T18:39:06.499533+00:00",
+        "entry_price_usd": 0.000151,
+        "size_sol_original": 0.289822,
+        "size_sol_remaining": 0.289822,
+        "score": 65.2,
+        "score_pre_bonus": 65.2,
+        "copy_bonus": 0,
+        "copy_wallets": [],
+        "stop_pct": -25.0,
+        "tp1_done": false,
+        "verdict": "WARN",
+        "entry_reason": "WARN passed all entry filters; age 2.1h liq36275; rules_version=v5",
+        "entry_buy_impact_pct": 1.0,
+        "last_price_usd": 0.000151,
+        "last_gross_pct": 0.0,
+        "last_checked_at": "2026-11-23T18:39:06.499533+00:00",
+        "rules_version": "v5"
       }
     ],
     "days_left": 6.0,
@@ -171,19 +192,44 @@
       },
       {
         "label": "23 Nov 18:26",
-        "value": 9.603228,
+        "value": 9.6033,
         "t": "2026-11-23T18:26:44+01:00",
         "kind": "close",
         "token": "HOGE"
       },
       {
+        "label": "23 Nov 19:39",
+        "value": 9.660744,
+        "t": "2026-11-23T19:39:06+01:00",
+        "kind": "close",
+        "token": "FIONA"
+      },
+      {
         "label": "now",
-        "value": 9.590101,
-        "t": "2026-11-23T19:12:08+01:00",
+        "value": 9.624623,
+        "t": "2026-11-23T19:41:20+01:00",
         "kind": "now"
       }
     ],
     "closed_trades": [
+      {
+        "token": "FIONA",
+        "entry_price": 0.001493,
+        "exit_price": 0.00213,
+        "entry_vienna": "23 Nov 2026, 12:33",
+        "exit_vienna": "23 Nov 2026, 19:39",
+        "exit_iso": "2026-11-23T19:39:06+01:00",
+        "size_sol": 0.14784,
+        "score": "71.8",
+        "gross_pct": 42.67,
+        "net_pct": 38.9,
+        "net_sol": 0.0575,
+        "reason": "TP1 +40% hit (price +42.67%)",
+        "entry_reason": "WARN passed all entry filters; age 86.68h liq125787; rules_version=v4",
+        "rules_version": "v4",
+        "exit_code": "TP1",
+        "kind": "partial"
+      },
       {
         "token": "HOGE",
         "entry_price": 0.0009086,
@@ -258,14 +304,14 @@
       }
     ],
     "closed_stats": {
-      "count": 4,
-      "wins": 0,
+      "count": 5,
+      "wins": 1,
       "losses": 4,
-      "win_rate_pct": 0.0,
-      "net_sol": -0.3967,
-      "best_net_sol": -0.0794,
+      "win_rate_pct": 20.0,
+      "net_sol": -0.3392,
+      "best_net_sol": 0.0575,
       "worst_net_sol": -0.144,
-      "avg_net_sol": -0.099175
+      "avg_net_sol": -0.06784
     },
     "budget_pnl": [
       {
@@ -298,6 +344,15 @@
       }
     ],
     "activity": [
+      {
+        "time_vienna": "23 Nov 2026, 19:39",
+        "raw": "scanned 35 | PASS 1 WARN 9 FAIL 25 | entries 1 (HUANG 65.2) | exits 1 (FIONA TP1 +42.67%) | open FIONA +42.7%, FLOAT -11.7%, CLAUDIA -2.1%, DCTY -22.8%, mihao +2.1%, Rings +0.9%, HUANG +0.0% | HOGE 54.6 qualified but blocked: exited by SL 1.2h ago (<2h re-entry block) | copy bonus no | AI monitor paused; exit loop alive",
+        "scanned": "35",
+        "verdicts": "1 / 9 / 25",
+        "entries": "HUANG 65.2; out FIONA SL",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
       {
         "time_vienna": "23 Nov 2026, 19:12",
         "raw": "monitor | entries 0 | exits 0 | open FIONA +26.6%, FLOAT -10.3%, CLAUDIA -2.6%, DCTY -14.9%, mihao -3.0%, Rings -0.2% | closest CBUCKS 71.1 (VOL1H), MCAT 65.3 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
@@ -378,15 +433,6 @@
         "entries": "0",
         "miss": "\u2014",
         "kind": "monitor"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 18:35",
-        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | open FIONA -3.7%, FLOAT -8.5%, CLAUDIA +1.5%, DCTY -23.2%, mihao -1.7%, Rings +3.3% | HOGE 66.3 qualified but blocked: exited by SL 0.1h ago (<2h re-entry block) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "35",
-        "verdicts": "0 / 12 / 23",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
       }
     ],
     "rules_version": "v5",
