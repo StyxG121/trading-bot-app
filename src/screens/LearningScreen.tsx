@@ -38,6 +38,25 @@ export function LearningScreen({ learning }: { learning: LearningView }) {
           </ul>
         )}
       </section>
+      {learning.patternModel.length > 0 || learning.patternStatus ? (
+        <section>
+          <div className="flex items-center justify-between">
+            <h2 className="text-[15px] font-semibold">Pattern model</h2>
+            {learning.patternStatus ? (
+              <span className="rounded-full bg-[#1d2320] px-2.5 py-0.5 text-[11px] font-medium text-[#8e9890]">
+                {learning.patternStatus}
+              </span>
+            ) : null}
+          </div>
+          <ul className="mt-2 space-y-2">
+            {learning.patternModel.map((line) => (
+              <li key={line} className="rounded-2xl bg-[#141716] px-3 py-2.5 text-sm leading-snug text-[#d5ddd6]">
+                {line}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       <section>
         <h2 className="text-[15px] font-semibold">Top traders</h2>
         {learning.topTraders.length === 0 ? (

@@ -164,6 +164,8 @@ export type LearningView = {
   rules: string[]
   lessons: string[]
   topTraders: string[]
+  patternStatus: string | null
+  patternModel: string[]
 }
 
 export type SnapshotView = {
@@ -972,6 +974,8 @@ export function normalizeSnapshot(input: unknown): SnapshotView {
       rules: strings(paperRaw?.key_rules),
       lessons: strings(paperRaw?.lessons),
       topTraders: strings(paperRaw?.toptraders),
+      patternStatus: str(paperRaw?.pattern_model_status),
+      patternModel: strings(paperRaw?.pattern_model),
     },
   }
 }
