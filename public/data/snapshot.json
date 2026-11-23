@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "23 Nov 2026, 07:01",
-  "as_of_iso": "2026-11-23T07:01:32+01:00",
+  "as_of_vienna": "23 Nov 2026, 12:21",
+  "as_of_iso": "2026-11-23T12:21:03+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -12,7 +12,7 @@
     "win_rate_pct": 0.0,
     "open_count": 0,
     "open": [],
-    "days_left": 6.5,
+    "days_left": 6.3,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -72,53 +72,71 @@
     ],
     "activity": [
       {
-        "time_vienna": "23 Nov 2026, 06:35",
-        "raw": "scanned 35 | PASS 0 WARN 13 FAIL 22 | entries 0 | exits 0 | no open positions | closest VINE 77.7 (age out of window), Singularity 64.6; copy bonus no; monitor paused",
-        "scanned": "35",
-        "verdicts": "0 / 13 / 22",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 06:12",
-        "raw": "scanned 35 | entries 0 | exits 0 | no open positions | closest mihao 65.2 (age, BSR, score); copy bonus no; monitor paused",
-        "scanned": "35",
+        "time_vienna": "",
+        "raw": "User requested more paper-week learning volume, so entry standards were lowered. Thresholds now live in config.json (score 60, liq $20k, vol $50k/$5k, age 1\u20131440h, BSR 0.85\u20134.0, 3% size, max 8, daily loss \u221220%, re-entry 6h). Hard safety gates stay on. Dry-run reuse-scan would have entered FIONA+CLAUDIA; full dry-run would have entered FIONA+FLOAT+DCTY+CLAUDIA (not written to the book). Next live scan_cycle will trade under v4 and tag journal rows rules_version=v4. Pre-v4 FIONA rows are tagged v3.",
+        "scanned": "\u2014",
         "verdicts": "\u2014",
-        "entries": "0",
+        "entries": "\u2014",
         "miss": "\u2014",
-        "kind": "scan"
+        "kind": "other"
       },
       {
-        "time_vienna": "23 Nov 2026, 05:35",
-        "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 0 | exits 0 | no open positions | closest DCTY 69.7 (VOL1H, age), mihao 67.1; copy bonus no; monitor paused",
+        "time_vienna": "",
+        "raw": "## 2026-11-23 12:20 Europe/Vienna \u2014 rules v4 applied (paper only)",
+        "scanned": "\u2014",
+        "verdicts": "\u2014",
+        "entries": "\u2014",
+        "miss": "\u2014",
+        "kind": "other"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 12:08",
+        "raw": "scanned 35 | PASS 0 WARN 7 FAIL 28 | entries 0 | exits 0 | no open positions | FIONA 77.8 qualified but blocked: exited by SL 15.0h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
         "scanned": "35",
-        "verdicts": "0 / 11 / 24",
+        "verdicts": "0 / 7 / 28",
         "entries": "0",
         "miss": "\u2014",
         "kind": "scan"
       },
       {
-        "time_vienna": "23 Nov 2026, 05:08",
-        "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "time_vienna": "23 Nov 2026, 11:30",
+        "raw": "scanned 35 | PASS 1 WARN 9 FAIL 25 | entries 0 | exits 0 | no open positions | FIONA 77.7 qualified but blocked: exited by SL 14.4h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
         "scanned": "35",
-        "verdicts": "0 / 11 / 24",
+        "verdicts": "1 / 9 / 25",
         "entries": "0",
         "miss": "\u2014",
         "kind": "scan"
       },
       {
-        "time_vienna": "23 Nov 2026, 04:40",
-        "raw": "scanned 35 | PASS 0 WARN 11 FAIL 24 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "time_vienna": "23 Nov 2026, 11:07",
+        "raw": "scanned 35 | PASS 0 WARN 9 FAIL 26 | entries 0 | exits 0 | no open positions | FIONA 71.8 qualified but blocked: exited by SL 14.0h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
         "scanned": "35",
-        "verdicts": "0 / 11 / 24",
+        "verdicts": "0 / 9 / 26",
         "entries": "0",
         "miss": "\u2014",
         "kind": "scan"
       },
       {
-        "time_vienna": "23 Nov 2026, 04:04",
-        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "time_vienna": "23 Nov 2026, 10:30",
+        "raw": "scanned 35 | PASS 0 WARN 8 FAIL 27 | entries 0 | exits 0 | no open positions | FIONA 68.6 qualified but blocked: exited by SL 13.4h ago (<24h re-entry block) | copy bonus no | monitor already paused",
+        "scanned": "35",
+        "verdicts": "0 / 8 / 27",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 10:02",
+        "raw": "scanned 35 | PASS 0 WARN 10 FAIL 25 | entries 0 | exits 0 | no open positions | FIONA 69.7 qualified but blocked: exited by SL 12.9h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
+        "scanned": "35",
+        "verdicts": "0 / 10 / 25",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 09:33",
+        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | FIONA 72.8 qualified but blocked: exited by SL 12.4h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
         "scanned": "35",
         "verdicts": "0 / 12 / 23",
         "entries": "0",
@@ -126,17 +144,8 @@
         "kind": "scan"
       },
       {
-        "time_vienna": "23 Nov 2026, 03:36",
-        "raw": "scanned 35 | PASS 0 WARN 13 FAIL 22 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
-        "scanned": "35",
-        "verdicts": "0 / 13 / 22",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 03:09",
-        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | no qualifiers; copy bonus no; monitor paused",
+        "time_vienna": "23 Nov 2026, 09:03",
+        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | FIONA 77.8 qualified but blocked: exited by SL 11.9h ago (<24h re-entry block) | copy bonus no | monitor already paused | costs_samples not refreshed",
         "scanned": "35",
         "verdicts": "0 / 12 / 23",
         "entries": "0",
@@ -144,17 +153,8 @@
         "kind": "scan"
       },
       {
-        "time_vienna": "23 Nov 2026, 02:34",
-        "raw": "scanned 35 | PASS 0 WARN 12 FAIL 23 | entries 0 | exits 0 | no open positions | FIONA 71.5 qualified but blocked: exited by SL <24h ago; copy bonus no; monitor paused",
-        "scanned": "35",
-        "verdicts": "0 / 12 / 23",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 02:08",
-        "raw": "scanned 35 | entries 0 | exits 0 | no open positions | CATE 85 scored but age out of window; copy bonus no; monitor paused",
+        "time_vienna": "23 Nov 2026, 08:36",
+        "raw": "scanned 35 | entries 0 | exits 0 | no open positions | FIONA qualified (72.8 WARN) but blocked: exited by SL 2026-11-22T20:09Z, <24h re-entry rule; copy bonus no (0 copyable wallets); monitor paused",
         "scanned": "35",
         "verdicts": "\u2014",
         "entries": "0",
@@ -162,24 +162,25 @@
         "kind": "scan"
       }
     ],
-    "rules_version": "v3",
-    "rules_date": "22 Nov 2026",
+    "rules_version": "v4",
+    "rules_date": "23 Nov 2026",
     "key_rules": [
-      "Liquidity \u2265 $50k and score \u2265 68",
-      "5% per trade, max 5 positions, daily loss limit \u221215%",
-      "TP1 +40% sells 50% and moves the stop to breakeven; TP2 +100%; SL \u221225%; 48h time stop",
-      "Pool age 4\u2013336h; socials required if the token is under 7 days old",
-      "Organic and copycat filters auto-FAIL"
+      "Liquidity \u2265 $20k and score \u2265 60",
+      "3% per trade, max 8 positions, daily loss limit \u221220%",
+      "TP1 +40% sells 50% and moves the stop to breakeven; TP2 +100%; SL -25%; 48h time stop",
+      "Pool age 1\u20131440h; socials required if the token is under 7 days old",
+      "24h volume \u2265 $50,000, 1h volume \u2265 $5,000, 1h buy/sell ratio 0.85\u20134",
+      "Organic and copycat filters auto-FAIL; mint/freeze/honeypot/RugCheck danger still hard-FAIL",
+      "Re-entry cooldown 6h after a full exit (paper, rules v4)"
     ],
     "lessons": [
-      "22 Nov 20:00 review (FIONA still open, about \u221219%): no rule changes (sample of 1).",
-      "FIONA later hit the \u221225% stop at 21:09 Europe/Vienna, net \u221228.80% / \u22120.1440 SOL.",
+      "23 Nov midday: v4 loosened entry gates at the user's request to gather more paper-week learning trades. Hard safety gates stay on. Journal rows are tagged rules_version.",
+      "FIONA (v3) hit the \u221225% stop at 21:09 Europe/Vienna, net \u221228.80% / \u22120.1440 SOL.",
       "History study (140 tokens, 112 memecoins): 59.8% rug or collapse; strongest flags are a peak in under 4h and no socials."
     ],
     "toptraders": [
-      "62 wallets scored, 329 closed trades, 0 copyable.",
-      "Closest names, watch only: Mr. Frog, Prosciutto, SKX.",
-      "Proposed, not yet applied: 12h fade cut if still underwater; optional +20% partial take. Keep the 4h age floor and the socials rule. Copy-signal bonus cannot fire while copyable is 0."
+      "62 wallets scored in the first reconstruction; later refresh added Lynk as copyable. Copy bonus still cannot override a FAIL.",
+      "v4 age window is 1\u20131440h for learning volume; the 12h fade-cut / TP0 proposals remain not applied."
     ]
   },
   "real": {
