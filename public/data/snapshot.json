@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "23 Nov 2026, 19:55",
-  "as_of_iso": "2026-11-23T19:55:31+01:00",
+  "as_of_vienna": "23 Nov 2026, 20:06",
+  "as_of_iso": "2026-11-23T20:06:09+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -193,7 +193,7 @@
       {
         "label": "now",
         "value": 9.57334,
-        "t": "2026-11-23T19:55:31+01:00",
+        "t": "2026-11-23T20:06:09+01:00",
         "kind": "now"
       }
     ],
@@ -350,6 +350,15 @@
     "activity": [
       {
         "time_vienna": "23 Nov 2026, 19:55",
+        "raw": "maintenance | box exit loop (pid 472954) stalled in its sleep after the 19:47 Vienna cycle (heartbeat 8 min stale, no crash); restarted via ensure_exit_loop.sh at 19:55 Vienna (new pid 477177). First cycle closed DCTY by SL at -30.1% gross / -31.5% net (-0.0932 SOL), worse than the -25% stop partly because of the ~8 min gap. Scanner calls ensure_exit_loop.sh each full scan and would also have caught it.",
+        "scanned": "\u2014",
+        "verdicts": "\u2014",
+        "entries": "\u2014",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "23 Nov 2026, 19:55",
         "raw": "monitor | entries 0 | exits 1 (DCTY SL -30.12%) | open FIONA +51.3%, FLOAT -16.2%, CLAUDIA -3.3%, mihao +2.2%, Rings +4.2%, HUANG -10.7% | closest mihao 69 (BSR), CBUCKS 61.1 (VOL1H,BSR) | copy bonus no | AI monitor paused; exit loop alive",
         "scanned": "monitor",
         "verdicts": "\u2014",
@@ -428,15 +437,6 @@
         "entries": "0",
         "miss": "\u2014",
         "kind": "monitor"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 19:02",
-        "raw": "scanned 35 | PASS 1 WARN 11 FAIL 23 | entries 0 | exits 0 | open FIONA +12.5%, FLOAT -9.0%, CLAUDIA -0.6%, DCTY -20.1%, mihao -2.9%, Rings +0.4% | HOGE 63.2 qualified but blocked: exited by SL 0.6h ago (<2h re-entry block) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "35",
-        "verdicts": "1 / 11 / 23",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "scan"
       }
     ],
     "rules_version": "v5",
