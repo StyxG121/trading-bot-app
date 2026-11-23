@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "23 Nov 2026, 20:06",
-  "as_of_iso": "2026-11-23T20:06:45+01:00",
+  "as_of_vienna": "23 Nov 2026, 20:09",
+  "as_of_iso": "2026-11-23T20:09:20+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -10,7 +10,7 @@
     "wins": 0,
     "losses": 6,
     "win_rate_pct": 0.0,
-    "open_count": 5,
+    "open_count": 6,
     "open": [
       {
         "token": "FIONA",
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 86.68h liq125787; rules_version=v4",
         "entry_buy_impact_pct": 1.649357,
-        "last_price_usd": 0.002668,
-        "last_gross_pct": 78.7006,
-        "last_checked_at": "2026-11-23T19:06:43.266578+00:00",
+        "last_price_usd": 0.00261,
+        "last_gross_pct": 74.8158,
+        "last_checked_at": "2026-11-23T19:07:28.384535+00:00",
         "rules_version": "v4"
       },
       {
@@ -49,9 +49,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 613.32h liq334983; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.003022,
-        "last_gross_pct": -16.2185,
-        "last_checked_at": "2026-11-23T19:06:43.266578+00:00",
+        "last_price_usd": 0.003057,
+        "last_gross_pct": -15.2481,
+        "last_checked_at": "2026-11-23T19:07:28.384535+00:00",
         "rules_version": "v4"
       },
       {
@@ -70,9 +70,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.009612,
-        "last_gross_pct": -3.5037,
-        "last_checked_at": "2026-11-23T19:06:43.266578+00:00",
+        "last_price_usd": 0.009523,
+        "last_gross_pct": -4.3971,
+        "last_checked_at": "2026-11-23T19:07:28.384535+00:00",
         "rules_version": "v4"
       },
       {
@@ -91,9 +91,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 691.31h liq344129; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.00825,
-        "last_gross_pct": 3.2541,
-        "last_checked_at": "2026-11-23T19:06:43.266578+00:00",
+        "last_price_usd": 0.008274,
+        "last_gross_pct": 3.5544,
+        "last_checked_at": "2026-11-23T19:07:28.384535+00:00",
         "rules_version": "v4"
       },
       {
@@ -112,10 +112,31 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 309.48h liq157627; rules_version=v4",
         "entry_buy_impact_pct": 1.607321,
-        "last_price_usd": 0.002635,
-        "last_gross_pct": -0.1894,
-        "last_checked_at": "2026-11-23T19:06:43.266578+00:00",
+        "last_price_usd": 0.002592,
+        "last_gross_pct": -1.8182,
+        "last_checked_at": "2026-11-23T19:07:28.384535+00:00",
         "rules_version": "v4"
+      },
+      {
+        "token": "HUSS",
+        "mint": "3umHFkiMHyphCkLxtbf8Aabie8r5hxn86QeBAovTpump",
+        "entry_ts": "2026-11-23T19:07:28.384535+00:00",
+        "entry_price_usd": 8.991e-05,
+        "size_sol_original": 0.283931,
+        "size_sol_remaining": 0.283931,
+        "score": 53.1,
+        "score_pre_bonus": 53.1,
+        "copy_bonus": 0,
+        "copy_wallets": [],
+        "stop_pct": -25.0,
+        "tp1_done": false,
+        "verdict": "WARN",
+        "entry_reason": "WARN passed all entry filters; age 74.97h liq23944; rules_version=v5",
+        "entry_buy_impact_pct": 2.059955,
+        "last_price_usd": 8.991e-05,
+        "last_gross_pct": 0.0,
+        "last_checked_at": "2026-11-23T19:07:28.384535+00:00",
+        "rules_version": "v5"
       }
     ],
     "days_left": 6.0,
@@ -178,8 +199,8 @@
       },
       {
         "label": "now",
-        "value": 9.531459,
-        "t": "2026-11-23T20:06:45+01:00",
+        "value": 9.522097,
+        "t": "2026-11-23T20:09:20+01:00",
         "kind": "now"
       }
     ],
@@ -353,6 +374,15 @@
     ],
     "activity": [
       {
+        "time_vienna": "23 Nov 2026, 20:07",
+        "raw": "scanned 35 | PASS 1 WARN 9 FAIL 25 | entries 1 (HUSS 53.1) | exits 0 | open FIONA +74.8%, FLOAT -15.2%, CLAUDIA -4.4%, mihao +3.6%, Rings -1.8%, HUSS +0.0% | HOGE 57.7 qualified but blocked: exited by SL 1.7h ago (<2h re-entry block) | copy bonus no | AI monitor paused; exit loop alive",
+        "scanned": "35",
+        "verdicts": "1 / 9 / 25",
+        "entries": "HUSS 53.1",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
         "time_vienna": "23 Nov 2026, 20:06",
         "raw": "monitor | entries 0 | exits 1 (HUANG SL -34.30%) | open FIONA +78.7%, FLOAT -16.2%, CLAUDIA -3.5%, mihao +3.3%, Rings -0.2% | closest mihao 69 (BSR), CBUCKS 61.1 (VOL1H,BSR) | copy bonus no | AI monitor paused; exit loop alive",
         "scanned": "monitor",
@@ -427,15 +457,6 @@
       {
         "time_vienna": "23 Nov 2026, 19:09",
         "raw": "monitor | entries 0 | exits 0 | open FIONA +21.0%, FLOAT -10.3%, CLAUDIA -2.5%, DCTY -14.2%, mihao -2.7%, Rings -2.0% | closest CBUCKS 71.1 (VOL1H), MCAT 65.3 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "23 Nov 2026, 19:07",
-        "raw": "monitor | entries 0 | exits 0 | open FIONA +16.9%, FLOAT -10.2%, CLAUDIA -1.3%, DCTY -16.7%, mihao -2.6%, Rings -1.5% | closest CBUCKS 71.1 (VOL1H), MCAT 65.3 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
