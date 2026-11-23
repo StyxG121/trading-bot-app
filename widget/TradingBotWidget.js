@@ -99,20 +99,21 @@ function formatViennaClock(ms) {
 
 function formatSol(value, digits) {
   if (value == null || !Number.isFinite(value)) return "—"
-  const places = digits == null ? (Math.abs(value) >= 10 ? 2 : 3) : digits
-  const body = Math.abs(value).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: places })
+  const places = digits == null ? 3 : digits
+  const body = Math.abs(value).toFixed(places)
   return (value < 0 ? "−" : "") + body
 }
 
 function formatSignedSol(value, digits) {
   if (value == null || !Number.isFinite(value)) return "—"
-  if (value > 0) return "+" + formatSol(value, digits)
-  return formatSol(value, digits)
+  const body = formatSol(value, digits)
+  if (value > 0) return "+" + body
+  return body
 }
 
 function formatPct(value) {
   if (value == null || !Number.isFinite(value)) return "—"
-  const body = Math.abs(value).toLocaleString("en-US", { maximumFractionDigits: 1 })
+  const body = Math.abs(value).toFixed(1)
   const sign = value > 0 ? "+" : value < 0 ? "−" : ""
   return sign + body + "%"
 }
@@ -324,7 +325,7 @@ function readCache() {
 
 async function fetchSnapshot() {
   const request = new Request(SNAPSHOT_URL)
-  request.timeoutInterval = 12
+  request.timeoutInterval = 6
   const json = await request.loadJSON()
   if (!json || typeof json !== "object") throw new Error("Bad snapshot")
   writeCache(json)
@@ -347,15 +348,28 @@ function color(hex, alpha) {
 }
 
 function addLabel(parent, text, size, weight, hex, options) {
-  const line = parent.addText(text)
+  const line = parent.addText(String(text))
   if (weight === "bold") line.font = Font.boldSystemFont(size)
   else if (weight === "semibold") line.font = Font.semiboldSystemFont(size)
   else line.font = Font.systemFont(size)
   line.textColor = color(hex)
   line.lineLimit = 1
+  line.minimumScaleFactor = (options && options.minScale) != null ? options.minScale : 0.7
   if (options && options.right) line.rightAlignText()
   if (options && options.center) line.centerAlignText()
-  if (options && options.minScale) line.minimumScaleFactor = options.minScale
+  return line
+}
+
+// One text node in a fixed-width box so Scriptable cannot draw a wrapped
+// overflow copy on top of the scaled line (the iOS 18 overprint bug).
+function addFittedText(parent, text, width, height, size, weight, hex, options) {
+  const box = parent.addStack()
+  box.layoutHorizontally()
+  box.size = new Size(width, height)
+  if (options && options.right) {
+    box.addSpacer()
+  }
+  const line = addLabel(box, text, size, weight, hex, { minScale: 0.7, right: options && options.right })
   return line
 }
 
@@ -381,12 +395,15 @@ function renderWidget(model) {
   const bankrollRow = header.addStack()
   bankrollRow.layoutHorizontally()
   bankrollRow.bottomAlignContent()
-  addLabel(bankrollRow, formatSol(model.bankroll) + " SOL", 20, "bold", TEXT, { minScale: 0.7 })
+  addFittedText(bankrollRow, formatSol(model.bankroll, 3) + " SOL", 200, 24, 20, "bold", TEXT)
   bankrollRow.addSpacer()
 
   const netValue = model.net24h != null ? model.net24h : model.netPct
   const netColor = tone(netValue)
-  addLabel(header, directionMark(netValue) + formatSignedSol(model.net24h) + " SOL  " + formatPct(model.netPct), 13, "semibold", netColor, { minScale: 0.75 })
+  const netRow = header.addStack()
+  netRow.layoutHorizontally()
+  const netText = directionMark(netValue) + formatSignedSol(model.net24h, 3) + " SOL  " + formatPct(model.netPct)
+  addFittedText(netRow, netText, 310, 18, 13, "semibold", netColor)
 
   const meta = []
   meta.push((model.tradeCount || 0) + (model.tradeCount === 1 ? " trade" : " trades") + " 24h")
@@ -444,39 +461,43 @@ function addTradeCard(parent, trade) {
   const body = card.addStack()
   body.layoutVertically()
   body.spacing = 1
+  body.size = new Size(292, 34)
 
   const top = body.addStack()
   top.layoutHorizontally()
   top.centerAlignContent()
-  addLabel(top, trade.token, 11, "semibold", TEXT, { minScale: 0.7 })
+  addFittedText(top, trade.token, 130, 16, 11, "semibold", TEXT)
   top.addSpacer()
-  addLabel(top, formatPnl(trade.sol, trade.pct), 11, "bold", tone(value), { minScale: 0.7 })
+  addFittedText(top, formatPnl(trade.sol, trade.pct), 150, 16, 11, "bold", tone(value), { right: true })
 
-  addLabel(body, subline(trade), 10, "regular", MUTED, { minScale: 0.8 })
+  addLabel(body, subline(trade), 10, "regular", MUTED, { minScale: 0.7 })
 }
 
 async function runScriptable() {
   const family = typeof config !== "undefined" && config.widgetFamily ? config.widgetFamily : "large"
-  let model
   try {
-    const snapshot = await loadSnapshot()
-    model = buildModel(snapshot, Date.now(), family)
-  } catch (err) {
-    model = buildModel({}, Date.now(), family)
-    model.error = "Could not load snapshot"
-    model.ok = false
+    let model
+    try {
+      const snapshot = await loadSnapshot()
+      model = buildModel(snapshot, Date.now(), family)
+    } catch (err) {
+      model = buildModel({}, Date.now(), family)
+      model.error = "Could not load snapshot"
+      model.ok = false
+    }
+    const widget = renderWidget(model)
+    if (typeof config !== "undefined" && config.runsInWidget) {
+      Script.setWidget(widget)
+    } else if (family === "medium") {
+      await widget.presentMedium()
+    } else if (family === "small") {
+      await widget.presentSmall()
+    } else {
+      await widget.presentLarge()
+    }
+  } finally {
+    Script.complete()
   }
-  const widget = renderWidget(model)
-  if (typeof config !== "undefined" && config.runsInWidget) {
-    Script.setWidget(widget)
-  } else if (family === "medium") {
-    await widget.presentMedium()
-  } else if (family === "small") {
-    await widget.presentSmall()
-  } else {
-    await widget.presentLarge()
-  }
-  Script.complete()
 }
 
 const TradingBotWidget = {

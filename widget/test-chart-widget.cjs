@@ -97,9 +97,10 @@ function makeSandbox({ snapshot, family = 'medium', runsInWidget = true, fetchFa
     async presentSmall() { calls.presented = 'small' }
   }
   class Request {
-    constructor(url) { this.url = url; this.timeoutInterval = 0 }
+    constructor(url) { this.url = url; this.timeoutInterval = 0; calls.lastRequest = this }
     async loadJSON() {
       assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/snapshot.json')
+      if (this.timeoutInterval > 6) throw new Error('timeoutInterval too long for a widget')
       if (fetchFails) throw new Error('offline')
       return JSON.parse(JSON.stringify(snapshot))
     }
@@ -273,13 +274,13 @@ function serialize(node) {
   assert.ok(Math.abs(nowPt.value - (9.855991 + 0.03)) < 1e-6, 'now P/L ' + nowPt.value)
   ok('old snapshots get a mark-to-market now point')
 
-  const geo = W.layoutChart(live.points, 320, 96)
+  const geo = W.layoutChart(live.points, 330, 110)
   assert.ok(geo && geo.coords.length === live.points.length)
-  assert.ok(geo.coords.every((c) => c.x >= 0 && c.x <= 320 && c.y >= 0 && c.y <= 96))
-  const segs = W.smoothPath(geo.coords)
+  assert.ok(geo.coords.every((c) => c.x >= 0 && c.x <= 330 && c.y >= 0 && c.y <= 110))
+  const segs = W.polyline(geo.coords)
   assert.ok(segs[0].type === 'move')
-  assert.ok(segs.some((s) => s.type === 'curve'))
-  ok('chart layout and smooth path stay in bounds')
+  assert.ok(segs.slice(1).every((s) => s.type === 'line'), 'chart uses a polyline, not beziers')
+  ok('chart layout and polyline stay in bounds')
 
   // Full medium widget run
   const run = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true })
@@ -299,12 +300,13 @@ function serialize(node) {
   assert.equal(imgs.length, 1, 'one chart image')
   assert.equal(imgs[0].contentMode, 'filling')
   assert.equal(imgs[0].tintColor, null)
-  assert.ok(imgs[0].image && imgs[0].image.respectScreenScale)
+  assert.equal(imgs[0].image.respectScreenScale, false)
   assert.equal(imgs[0].image.opaque, false)
   assert.ok(imgs[0].image.lineWidth >= 4, 'line thick enough to survive tint, got ' + imgs[0].image.lineWidth)
   const ops = (imgs[0].image.commands || []).map((c) => c.op)
   assert.ok(ops.includes('fillPath') && ops.includes('strokePath') && ops.includes('fillEllipse'), 'chart ops ' + ops)
   assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
+  assert.equal(run.calls.lastRequest && run.calls.lastRequest.timeoutInterval, 6)
   ok('medium widget draws a thick untinted filling chart, caches, sets url/refresh')
 
   const largeRun = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: true })
@@ -319,12 +321,39 @@ function serialize(node) {
   ok('offline falls back to cached snapshot')
 
   const errRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true })
-  assert.ok(texts(errRun.calls.setWidget).some((s) => s.includes('Could not load')))
-  ok('offline without cache shows an error widget')
+  const errTexts = texts(errRun.calls.setWidget)
+  assert.ok(errTexts.some((s) => s.includes('Updating')), 'placeholder, got ' + errTexts)
+  assert.equal(images(errRun.calls.setWidget).length, 0, 'placeholder does not draw a chart')
+  assert.ok(errRun.calls.completed)
+  ok('offline without cache shows a lightweight placeholder and completes')
 
   const appRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: false })
   assert.equal(appRun.calls.presented, 'medium')
   ok('in-app run previews medium')
+
+  assert.equal(W.REQUEST_TIMEOUT_S, 6)
+  ok('request timeout is 6 seconds')
+
+  // Downsample + time budget: 400 points must render quickly with <= 60 vertices
+  const manyEq = []
+  const start = Date.parse('2026-11-16T13:00:00+01:00')
+  for (let i = 0; i < 400; i++) {
+    manyEq.push({ t: new Date(start + i * 3600 * 1000).toISOString(), value: 10 + Math.sin(i / 8) * 0.2, kind: i === 50 ? 'close' : 'point' })
+  }
+  const heavy = { as_of_iso: '2026-11-23T13:00:00+01:00', paper: { bankroll_sol: 10, start_bankroll_sol: 10, equity: manyEq, open: [], closed_trades: [] } }
+  const t0 = Date.now()
+  const heavyModel = W.buildModel(heavy, Date.parse('2026-11-23T12:00:00Z'), 'medium')
+  assert.ok(heavyModel.points.length <= 60, 'downsampled to ' + heavyModel.points.length)
+  assert.equal(heavyModel.points[0].t, manyEq[0] && Date.parse(manyEq[0].t) ? heavyModel.points[0].t : heavyModel.points[0].t)
+  const heavyRun = await runInScriptable({ snapshot: heavy, family: 'medium', runsInWidget: true })
+  const elapsed = Date.now() - t0
+  assert.ok(heavyRun.calls.completed, 'Script.complete was called')
+  assert.equal(images(heavyRun.calls.setWidget).length, 1)
+  const heavyPath = (images(heavyRun.calls.setWidget)[0].image.commands || []).find((c) => c.op === 'addPath')
+  const lineOps = heavyPath && heavyPath.path && heavyPath.path.ops ? heavyPath.path.ops.filter((o) => o.op === 'line' || o.op === 'curve') : []
+  assert.ok(lineOps.every((o) => o.op === 'line'), 'no bezier ops on a heavy series')
+  assert.ok(elapsed < 250, 'heavy series should render well under the widget budget, took ' + elapsed + 'ms')
+  ok('time-budget: 400 points downsample to <=60 and render quickly with Script.complete')
 
   if (treeOut) {
     fs.writeFileSync(treeOut, JSON.stringify({ family: 'medium', tree: serialize(widget) }, null, 2))

@@ -13,6 +13,7 @@ const source = fs.readFileSync(path.join(__dirname, 'TradingBotWidget.js'), 'utf
 function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFails = false, files = {} }) {
   const calls = { setWidget: null, completed: false, presented: null }
   class Color { constructor(hex, alpha) { this.hex = hex; this.alpha = alpha ?? 1 } }
+  class Size { constructor(w, h) { this.width = w; this.height = h } }
   const Font = {
     systemFont: (s) => ({ size: s, weight: 'regular' }),
     semiboldSystemFont: (s) => ({ size: s, weight: 'semibold' }),
@@ -45,7 +46,7 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
     async presentSmall() { calls.presented = 'small' }
   }
   class Request {
-    constructor(url) { this.url = url }
+    constructor(url) { this.url = url; this.timeoutInterval = 0 }
     async loadJSON() {
       assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/snapshot.json')
       if (fetchFails) throw new Error('offline')
@@ -69,7 +70,7 @@ function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFai
   const config = { widgetFamily: family, runsInWidget }
   const sandbox = {
     console, Date, Intl, JSON, Math, Number, String, Object, Array, Error, Promise,
-    Color, Font, ListWidget, Request, FileManager, Script, config,
+    Color, Font, Size, ListWidget, Request, FileManager, Script, config,
     module: { exports: {} },
   }
   sandbox.globalThis = sandbox
@@ -126,6 +127,7 @@ function serialize(node) {
     borderColor: node.borderColor && { hex: node.borderColor.hex, alpha: node.borderColor.alpha },
     cornerRadius: node.cornerRadius ?? null,
     padding: node.padding,
+    size: node.size ? { width: node.size.width, height: node.size.height } : null,
     spacing: node.spacing ?? null,
     align: node.align ?? null,
     url: node.url ?? null,
@@ -146,7 +148,9 @@ function serialize(node) {
   assert.equal(W.directionMark(-1), '▼ ')
   assert.equal(W.directionMark(0), '')
   assert.ok(W.formatPnl(0.001, 0.3).startsWith('▲ +'))
-  assert.ok(W.formatPnl(-0.144, -28.8).startsWith('▼ −') || W.formatPnl(-0.144, -28.8).startsWith('▼ -'))
+  assert.equal(W.formatPnl(-0.144, -28.8), '▼ −0.144  −28.8%')
+  assert.equal(W.formatPct(-1.55), '−1.6%')
+  assert.equal(W.formatSol(9.855991, 3), '9.856')
   ok('direction marks and formatPnl stay readable without color')
 
   // Vienna label parsing (CET in November)
@@ -264,6 +268,23 @@ function serialize(node) {
   assert.equal(widget.backgroundColor && widget.backgroundColor.hex, '#050605')
   assert.ok(t.some((s) => s.includes('▲') || s.includes('▼')), 'P/L uses ▲/▼ when color is lost')
   assert.ok(tradeCards.every((c) => texts(c).some((s) => s === '▎')), 'each card has a text left bar, not a fill')
+  // One text node per P/L / header net line, in a fixed-width box — no overprint.
+  const pnlLines = t.filter((s) => /[▲▼]/.test(s) && s.includes('%'))
+  assert.ok(pnlLines.length >= 1, 'expected P/L lines, got ' + t)
+  pnlLines.forEach((s) => {
+    const matches = s.match(/[▲▼]/g) || []
+    assert.equal(matches.length, 1, 'overprinted P/L: ' + s)
+    assert.ok(!/\d+\.\d{4}/.test(s), 'P/L should use 3 SOL decimals: ' + s)
+  })
+  function boxes(node, out = []) {
+    if (node.type === 'stack' && node.size) out.push(node)
+    for (const child of node.children || []) boxes(child, out)
+    return out
+  }
+  const sized = boxes(widget)
+  assert.ok(sized.some((b) => b.size && b.size.width === 150 && texts(b).some((s) => s.includes('%'))), 'P/L uses a fixed-width box')
+  assert.ok(sized.some((b) => b.size && b.size.width === 130), 'token uses a fixed-width box')
+  assert.ok(sized.some((b) => b.size && b.size.width === 310 && texts(b).some((s) => s.includes('SOL') && s.includes('%'))), 'header net uses one fitted line')
   assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
   ok('runs as a large widget with live data, caches snapshot, sets url/refresh')
 

@@ -33,11 +33,13 @@ const BORDER = "#8e9890"
 const BORDER_ALPHA = 0.4
 
 const CHART_SIZE = {
-  small: { width: 300, height: 72, lineWidth: 3.5 },
-  medium: { width: 320, height: 80, lineWidth: 4 },
-  large: { width: 320, height: 220, lineWidth: 4.5 },
-  extraLarge: { width: 480, height: 220, lineWidth: 4.5 },
+  small: { width: 300, height: 70, lineWidth: 3.5 },
+  medium: { width: 330, height: 110, lineWidth: 4 },
+  large: { width: 330, height: 200, lineWidth: 4.5 },
+  extraLarge: { width: 330, height: 200, lineWidth: 4.5 },
 }
+const MAX_CHART_POINTS = 60
+const REQUEST_TIMEOUT_S = 6
 
 // --- pure helpers (also used by the node test) ---
 
@@ -112,20 +114,21 @@ function formatViennaClock(ms) {
 
 function formatSol(value, digits) {
   if (value == null || !Number.isFinite(value)) return "—"
-  const places = digits == null ? (Math.abs(value) >= 10 ? 2 : 3) : digits
-  const body = Math.abs(value).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: places })
+  const places = digits == null ? 3 : digits
+  const body = Math.abs(value).toFixed(places)
   return (value < 0 ? "−" : "") + body
 }
 
 function formatSignedSol(value, digits) {
   if (value == null || !Number.isFinite(value)) return "—"
-  if (value > 0) return "+" + formatSol(value, digits)
-  return formatSol(value, digits)
+  const body = formatSol(value, digits)
+  if (value > 0) return "+" + body
+  return body
 }
 
 function formatPct(value) {
   if (value == null || !Number.isFinite(value)) return "—"
-  const body = Math.abs(value).toLocaleString("en-US", { maximumFractionDigits: 1 })
+  const body = Math.abs(value).toFixed(1)
   const sign = value > 0 ? "+" : value < 0 ? "−" : ""
   return sign + body + "%"
 }
@@ -252,18 +255,116 @@ function ensureNowPoint(points, paper, now) {
   return points.concat([{ t: now, label: "now", value: value, kind: "now", token: null, index: points.length }])
 }
 
+function slimSnapshot(data) {
+  if (!data || typeof data !== "object") return {}
+  const paper = data.paper && typeof data.paper === "object" ? data.paper : {}
+  const equity = Array.isArray(paper.equity) ? paper.equity : []
+  const opens = Array.isArray(paper.open) ? paper.open : []
+  const closes = Array.isArray(paper.closed_trades) ? paper.closed_trades : []
+  const slimEq = []
+  for (let i = 0; i < equity.length; i++) {
+    const row = equity[i]
+    if (!row || typeof row !== "object") continue
+    slimEq.push({ label: row.label, value: row.value, t: row.t, kind: row.kind, token: row.token })
+  }
+  const slimOpen = []
+  for (let i = 0; i < opens.length; i++) {
+    const row = opens[i]
+    if (!row || typeof row !== "object") continue
+    slimOpen.push({
+      token: row.token,
+      size_sol_remaining: row.size_sol_remaining,
+      size_sol_original: row.size_sol_original,
+      size_sol: row.size_sol,
+      last_gross_pct: row.last_gross_pct,
+      last_price_usd: row.last_price_usd,
+      entry_price_usd: row.entry_price_usd,
+    })
+  }
+  const slimClose = []
+  for (let i = 0; i < closes.length; i++) {
+    const row = closes[i]
+    if (!row || typeof row !== "object") continue
+    slimClose.push({ token: row.token, exit_iso: row.exit_iso, exit_vienna: row.exit_vienna, net_sol: row.net_sol })
+  }
+  return {
+    as_of_iso: data.as_of_iso,
+    as_of_vienna: data.as_of_vienna,
+    paper: {
+      bankroll_sol: paper.bankroll_sol,
+      start_bankroll_sol: paper.start_bankroll_sol,
+      equity: slimEq,
+      open: slimOpen,
+      closed_trades: slimClose,
+    },
+  }
+}
+
+function downsample(points, limit) {
+  const cap = limit == null ? MAX_CHART_POINTS : limit
+  if (!points || points.length <= cap) return points ? points.slice() : []
+  const n = points.length
+  const chosen = new Array(n)
+  let count = 0
+  function pick(i) {
+    if (i < 0 || i >= n || chosen[i]) return
+    chosen[i] = true
+    count++
+  }
+  pick(0)
+  pick(n - 1)
+  for (let i = 0; i < n && count < cap; i++) {
+    if (points[i].kind === "close") pick(i)
+  }
+  if (count < cap) {
+    const step = (n - 1) / (cap - 1)
+    for (let k = 0; k < cap && count < cap; k++) pick(Math.round(k * step))
+  }
+  if (count > cap) {
+    const out = [points[0]]
+    const inner = cap - 2
+    for (let k = 1; k <= inner; k++) out.push(points[Math.round((k * (n - 1)) / (inner + 1))])
+    out.push(points[n - 1])
+    return out
+  }
+  const out = []
+  for (let i = 0; i < n; i++) if (chosen[i]) out.push(points[i])
+  return out
+}
+
 function chartSizeFor(family) {
   return CHART_SIZE[family] || CHART_SIZE.medium
 }
 
+function placeholderModel(family, now) {
+  return {
+    ok: true,
+    error: null,
+    placeholder: true,
+    family: family || "medium",
+    bankroll: null,
+    net7d: null,
+    netPct: null,
+    points: [],
+    markers: [],
+    min: null,
+    max: null,
+    up: true,
+    empty: true,
+    updatedAt: now || Date.now(),
+    chartSize: chartSizeFor(family || "medium"),
+  }
+}
+
 function buildModel(snapshot, now, family) {
+  if (!snapshot || snapshot.placeholder) return placeholderModel(family, now)
   const paper = paperOf(snapshot)
   const asOf = parseTime(snapshot && (snapshot.as_of_iso || snapshot.as_of_vienna)) || now
   const raw = Array.isArray(paper.equity) ? paper.equity.map(readEquityPoint).filter(Boolean) : []
   let series = raw.length ? raw.slice() : fallbackSeries(paper, asOf)
   series.sort(function (a, b) { return (a.t || 0) - (b.t || 0) })
   series = ensureNowPoint(series, paper, asOf)
-  const week = pointsInWeek(series, asOf)
+  const week = downsample(pointsInWeek(series, asOf), MAX_CHART_POINTS)
   const first = week[0]
   const last = week[week.length - 1]
   const net7d = first && last ? last.value - first.value : null
@@ -319,25 +420,10 @@ function layoutChart(points, width, height) {
   return { coords: coords, minV: minV, maxV: maxV, width: width, height: height }
 }
 
-function smoothPath(coords) {
+function polyline(coords) {
   if (!coords.length) return []
-  if (coords.length === 1) return [{ type: "move", x: coords[0].x, y: coords[0].y }]
   const segs = [{ type: "move", x: coords[0].x, y: coords[0].y }]
-  for (let i = 0; i < coords.length - 1; i++) {
-    const p0 = coords[i - 1] || coords[i]
-    const p1 = coords[i]
-    const p2 = coords[i + 1]
-    const p3 = coords[i + 2] || p2
-    segs.push({
-      type: "curve",
-      c1x: p1.x + (p2.x - p0.x) / 6,
-      c1y: p1.y + (p2.y - p0.y) / 6,
-      c2x: p2.x - (p3.x - p1.x) / 6,
-      c2y: p2.y - (p3.y - p1.y) / 6,
-      x: p2.x,
-      y: p2.y,
-    })
-  }
+  for (let i = 1; i < coords.length; i++) segs.push({ type: "line", x: coords[i].x, y: coords[i].y })
   return segs
 }
 
@@ -345,20 +431,19 @@ function applySegs(path, segs) {
   for (let i = 0; i < segs.length; i++) {
     const s = segs[i]
     if (s.type === "move") path.moveToPoint(new Point(s.x, s.y))
-    else path.addCurveToPoint(new Point(s.x, s.y), new Point(s.c1x, s.c1y), new Point(s.c2x, s.c2y))
+    else path.addLineToPoint(new Point(s.x, s.y))
   }
 }
 
 function linePath(coords) {
   const path = new Path()
-  applySegs(path, smoothPath(coords))
+  applySegs(path, polyline(coords))
   return path
 }
 
 function areaPath(coords, height) {
   const path = new Path()
-  const segs = smoothPath(coords)
-  applySegs(path, segs)
+  applySegs(path, polyline(coords))
   const last = coords[coords.length - 1]
   const first = coords[0]
   path.addLineToPoint(new Point(last.x, height))
@@ -379,25 +464,40 @@ function cachePath() {
   return fm.joinPath(fm.documentsDirectory(), CACHE_NAME)
 }
 
+function readCache() {
+  try {
+    const fm = FileManager.local()
+    const path = cachePath()
+    if (!fm.fileExists(path)) return null
+    const cached = JSON.parse(fm.readString(path))
+    return cached && typeof cached === "object" ? slimSnapshot(cached) : null
+  } catch (err) {
+    return null
+  }
+}
+
+function writeCache(snapshot) {
+  try {
+    FileManager.local().writeString(cachePath(), JSON.stringify(snapshot))
+  } catch (err) {}
+}
+
 async function loadSnapshot() {
-  const fm = FileManager.local()
-  const path = cachePath()
+  // Widget budget is only a few seconds. Time out the request so we can
+  // still paint from cache (or a placeholder) and call Script.complete().
   try {
     const req = new Request(SNAPSHOT_URL)
-    req.timeoutInterval = 12
+    req.timeoutInterval = REQUEST_TIMEOUT_S
     const data = await req.loadJSON()
     if (data && typeof data === "object") {
-      try { fm.writeString(path, JSON.stringify(data)) } catch (err) {}
-      return data
+      const slim = slimSnapshot(data)
+      writeCache(slim)
+      return slim
     }
   } catch (err) {}
-  if (fm.fileExists(path)) {
-    try {
-      const cached = JSON.parse(fm.readString(path))
-      if (cached && typeof cached === "object") return cached
-    } catch (err) {}
-  }
-  throw new Error("offline")
+  const cached = readCache()
+  if (cached) return cached
+  return { placeholder: true }
 }
 
 function color(hex, alpha) {
@@ -419,13 +519,14 @@ function addLabel(parent, text, size, weight, hex, options) {
 }
 
 function drawChartImage(model) {
+  if (!model || model.placeholder || !model.points || model.points.length < 2) return null
   const size = model.chartSize
   const geo = layoutChart(model.points, size.width, size.height)
   if (!geo) return null
   const ctx = new DrawContext()
   ctx.size = new Size(size.width, size.height)
   ctx.opaque = false
-  ctx.respectScreenScale = true
+  ctx.respectScreenScale = false
   const stroke = model.up ? GREEN : RED
   if (geo.coords.length >= 2) {
     ctx.setFillColor(color(stroke, 0.22))
@@ -438,7 +539,8 @@ function drawChartImage(model) {
   }
   for (let i = 0; i < geo.coords.length; i++) {
     const c = geo.coords[i]
-    const r = c.last ? 5 : c.marker ? 4 : 3
+    if (!c.last && !c.marker) continue
+    const r = c.last ? 5 : 4
     ctx.setFillColor(color(stroke))
     ctx.fillEllipse(new Rect(c.x - r, c.y - r, r * 2, r * 2))
   }
@@ -476,7 +578,7 @@ function renderWidget(model) {
 
   addLabel(header, formatSol(model.bankroll) + " SOL", 11, "semibold", TEXT, { minScale: 0.8 })
 
-  if (model.empty || !model.points.length) {
+  if (model.placeholder || model.empty || !model.points.length) {
     widget.addSpacer(6)
     const empty = widget.addStack()
     empty.layoutVertically()
@@ -484,7 +586,8 @@ function renderWidget(model) {
     empty.borderWidth = 1
     empty.borderColor = color(BORDER, BORDER_ALPHA)
     empty.setPadding(12, 12, 12, 12)
-    addLabel(empty, "No 7d equity yet", 12, "regular", MUTED, { center: true })
+    const emptyLabel = model.placeholder ? "Updating…" : "No 7d equity yet"
+    addLabel(empty, emptyLabel, 12, "regular", MUTED, { center: true })
     widget.addSpacer()
     addLabel(widget, "updated " + formatViennaClock(model.updatedAt), 9, "regular", DIM)
   } else {
@@ -521,26 +624,27 @@ function renderWidget(model) {
 
 async function runScriptable() {
   const family = typeof config !== "undefined" && config.widgetFamily ? config.widgetFamily : "medium"
-  let model
   try {
-    const snapshot = await loadSnapshot()
-    model = buildModel(snapshot, Date.now(), family)
-  } catch (err) {
-    model = buildModel({}, Date.now(), family)
-    model.error = "Could not load snapshot"
-    model.ok = false
+    let snapshot
+    try {
+      snapshot = await loadSnapshot()
+    } catch (err) {
+      snapshot = { placeholder: true }
+    }
+    const model = buildModel(snapshot, Date.now(), family)
+    const widget = renderWidget(model)
+    if (typeof config !== "undefined" && config.runsInWidget) {
+      Script.setWidget(widget)
+    } else if (family === "large") {
+      await widget.presentLarge()
+    } else if (family === "small") {
+      await widget.presentSmall()
+    } else {
+      await widget.presentMedium()
+    }
+  } finally {
+    Script.complete()
   }
-  const widget = renderWidget(model)
-  if (typeof config !== "undefined" && config.runsInWidget) {
-    Script.setWidget(widget)
-  } else if (family === "large") {
-    await widget.presentLarge()
-  } else if (family === "small") {
-    await widget.presentSmall()
-  } else {
-    await widget.presentMedium()
-  }
-  Script.complete()
 }
 
 const TradingBotChart = {
@@ -559,7 +663,12 @@ const TradingBotChart = {
   openUnrealized: openUnrealized,
   buildModel: buildModel,
   layoutChart: layoutChart,
-  smoothPath: smoothPath,
+  polyline: polyline,
+  downsample: downsample,
+  slimSnapshot: slimSnapshot,
+  placeholderModel: placeholderModel,
+  MAX_CHART_POINTS: MAX_CHART_POINTS,
+  REQUEST_TIMEOUT_S: REQUEST_TIMEOUT_S,
   pointsInWeek: pointsInWeek,
   fallbackSeries: fallbackSeries,
   ensureNowPoint: ensureNowPoint,
