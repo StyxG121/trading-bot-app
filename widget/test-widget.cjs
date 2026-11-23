@@ -1,0 +1,261 @@
+// Runs TradingBotWidget.js inside a vm with a mocked Scriptable API.
+// Usage: node widget/test-widget.cjs <snapshot.json> [outTree.json]
+const fs = require('node:fs')
+const path = require('node:path')
+const vm = require('node:vm')
+const assert = require('node:assert/strict')
+
+const snapPath = process.argv[2]
+const treeOut = process.argv[3]
+const liveSnapshot = JSON.parse(fs.readFileSync(snapPath, 'utf8'))
+const source = fs.readFileSync(path.join(__dirname, 'TradingBotWidget.js'), 'utf8')
+
+function makeSandbox({ snapshot, family = 'large', runsInWidget = true, fetchFails = false, files = {} }) {
+  const calls = { setWidget: null, completed: false, presented: null }
+  class Color { constructor(hex) { this.hex = hex } }
+  const Font = {
+    systemFont: (s) => ({ size: s, weight: 'regular' }),
+    semiboldSystemFont: (s) => ({ size: s, weight: 'semibold' }),
+    boldSystemFont: (s) => ({ size: s, weight: 'bold' }),
+  }
+  class WidgetText {
+    constructor(text) { this.type = 'text'; this.text = text; this.align = 'left' }
+    leftAlignText() { this.align = 'left' }
+    centerAlignText() { this.align = 'center' }
+    rightAlignText() { this.align = 'right' }
+  }
+  class WidgetSpacer { constructor(len) { this.type = 'spacer'; this.length = len ?? null } }
+  class WidgetStack {
+    constructor() { this.type = 'stack'; this.children = []; this.layout = 'horizontal'; this.padding = null }
+    addText(t) { assert.equal(typeof t, 'string'); const n = new WidgetText(t); this.children.push(n); return n }
+    addStack() { const s = new WidgetStack(); this.children.push(s); return s }
+    addSpacer(len) { const s = new WidgetSpacer(len); this.children.push(s); return s }
+    layoutVertically() { this.layout = 'vertical' }
+    layoutHorizontally() { this.layout = 'horizontal' }
+    centerAlignContent() { this.align = 'center' }
+    topAlignContent() { this.align = 'top' }
+    bottomAlignContent() { this.align = 'bottom' }
+    setPadding(t, l, b, r) { this.padding = [t, l, b, r] }
+    addImage() { throw new Error('addImage not expected') }
+  }
+  class ListWidget extends WidgetStack {
+    constructor() { super(); this.type = 'widget'; this.layout = 'vertical' }
+    async presentLarge() { calls.presented = 'large' }
+    async presentMedium() { calls.presented = 'medium' }
+    async presentSmall() { calls.presented = 'small' }
+  }
+  class Request {
+    constructor(url) { this.url = url }
+    async loadJSON() {
+      assert.equal(this.url, 'https://styxg121.github.io/trading-bot-app/data/snapshot.json')
+      if (fetchFails) throw new Error('offline')
+      return JSON.parse(JSON.stringify(snapshot))
+    }
+  }
+  const store = { ...files }
+  const FileManager = {
+    local: () => ({
+      documentsDirectory: () => '/docs',
+      joinPath: (a, b) => `${a}/${b}`,
+      fileExists: (p) => Object.prototype.hasOwnProperty.call(store, p),
+      readString: (p) => store[p],
+      writeString: (p, s) => { store[p] = s },
+    }),
+  }
+  const Script = {
+    setWidget: (w) => { calls.setWidget = w },
+    complete: () => { calls.completed = true },
+  }
+  const config = { widgetFamily: family, runsInWidget }
+  const sandbox = {
+    console, Date, Intl, JSON, Math, Number, String, Object, Array, Error, Promise,
+    Color, Font, ListWidget, Request, FileManager, Script, config,
+    module: { exports: {} },
+  }
+  sandbox.globalThis = sandbox
+  return { sandbox, calls, store }
+}
+
+async function runInScriptable(opts) {
+  const ctx = makeSandbox(opts)
+  vm.createContext(ctx.sandbox)
+  vm.runInContext(source, ctx.sandbox, { filename: 'TradingBotWidget.js' })
+  // runScriptable is async; wait until complete
+  for (let i = 0; i < 200 && !ctx.calls.completed; i++) await new Promise((r) => setTimeout(r, 5))
+  assert.ok(ctx.calls.completed, 'Script.complete() was not called')
+  return ctx
+}
+
+function loadPure() {
+  // Load without a Script global so it only exports helpers
+  const sandbox = { console, Date, Intl, JSON, Math, Number, String, Object, Array, Error, Promise, module: { exports: {} } }
+  vm.createContext(sandbox)
+  vm.runInContext(source, sandbox, { filename: 'TradingBotWidget.js' })
+  return sandbox.module.exports
+}
+
+function texts(node, out = []) {
+  if (node.type === 'text') out.push(node.text)
+  for (const child of node.children || []) texts(child, out)
+  return out
+}
+
+function cards(node, out = []) {
+  if (node.type === 'stack' && node.backgroundColor && node.cornerRadius) out.push(node)
+  for (const child of node.children || []) cards(child, out)
+  return out
+}
+
+function serialize(node) {
+  const base = { type: node.type }
+  if (node.type === 'text') {
+    return { ...base, text: node.text, color: node.textColor && node.textColor.hex, font: node.font, align: node.align, lineLimit: node.lineLimit }
+  }
+  if (node.type === 'spacer') return { ...base, length: node.length }
+  return {
+    ...base,
+    layout: node.layout,
+    background: node.backgroundColor && node.backgroundColor.hex,
+    cornerRadius: node.cornerRadius ?? null,
+    padding: node.padding,
+    spacing: node.spacing ?? null,
+    align: node.align ?? null,
+    url: node.url ?? null,
+    refreshAfterDate: node.refreshAfterDate ? node.refreshAfterDate.toISOString() : null,
+    children: (node.children || []).map(serialize),
+  }
+}
+
+;(async () => {
+  const results = []
+  const ok = (name) => { results.push(name); console.log('PASS', name) }
+
+  const W = loadPure()
+  assert.equal(typeof W.buildModel, 'function')
+  ok('loads as a plain script and exports helpers')
+
+  // Vienna label parsing (CET in November)
+  assert.equal(new Date(W.parseViennaLabel('22 Nov 2026, 21:09')).toISOString(), '2026-11-22T20:09:00.000Z')
+  assert.equal(W.formatViennaClock(Date.parse('2026-11-23T12:35:00Z')), '13:35')
+  ok('Vienna time parse/format')
+
+  // Open P/L from last_gross_pct
+  const op = W.openPnl({ size_sol_remaining: 0.3, last_gross_pct: 10 })
+  assert.ok(Math.abs(op.sol - 0.03) < 1e-9)
+  const op2 = W.openPnl({ size_sol_original: 0.2, entry_price_usd: 1, last_price_usd: 0.9 })
+  assert.ok(Math.abs(op2.pct + 10) < 1e-9)
+  ok('open P/L from gross pct or prices')
+
+  // Live snapshot model, large
+  const asOf = Date.parse(liveSnapshot.as_of_iso)
+  const now = Number.isFinite(asOf) ? asOf : Date.now()
+  const live = W.buildModel(liveSnapshot, now, 'large')
+  const opens = (liveSnapshot.paper.open || []).length
+  assert.equal(live.openCount, opens)
+  assert.ok(live.trades.length <= 7)
+  assert.equal(live.trades.length + live.hidden, live.tradeCount)
+  // newest first
+  for (let i = 1; i < live.trades.length; i++) assert.ok((live.trades[i - 1].at || 0) >= (live.trades[i].at || 0))
+  // FIONA SL closed 22 Nov 21:09 is older than 24h at as_of 23 Nov 13:35? (16.4h) -> included
+  console.log('  live model:', JSON.stringify({ bankroll: live.bankroll, net24h: live.net24h, netPct: live.netPct, tradeCount: live.tradeCount, open: live.openCount, closed24h: live.closedCount, winRate: live.winRate, visible: live.trades.map((t) => `${t.token}:${t.status}:${t.pct}`), hidden: live.hidden }))
+  ok('live snapshot model (large)')
+
+  const medium = W.buildModel(liveSnapshot, now, 'medium')
+  assert.ok(medium.trades.length <= 3)
+  assert.equal(medium.trades.length + medium.hidden, medium.tradeCount)
+  ok('medium shows fewer rows')
+
+  // 24h window: a close 30h ago is excluded
+  const old = W.buildModel({
+    as_of_iso: '2026-11-23T13:00:00+01:00',
+    paper: { bankroll_sol: 10, start_bankroll_sol: 10, closed_trades: [{ token: 'OLD', exit_vienna: '22 Nov 2026, 07:00', net_sol: 1, net_pct: 10 }], open: [] },
+  }, Date.parse('2026-11-23T12:00:00Z'), 'large')
+  assert.equal(old.tradeCount, 0)
+  assert.equal(old.empty, true)
+  ok('24h window excludes older closes; empty state')
+
+  // Win rate from closed 24h only
+  const wr = W.buildModel({
+    paper: {
+      bankroll_sol: 10, start_bankroll_sol: 10,
+      closed_trades: [
+        { token: 'A', exit_vienna: '23 Nov 2026, 12:00', net_sol: 0.1, net_pct: 10, exit_code: 'TP1', kind: 'partial', rules_version: 'v4' },
+        { token: 'B', exit_vienna: '23 Nov 2026, 11:00', net_sol: -0.05, net_pct: -5, exit_code: 'SL', rules_version: 'v4' },
+      ],
+      open: [{ token: 'C', entry_ts: '2026-11-23T10:00:00Z', size_sol_remaining: 0.3, last_gross_pct: 5 }],
+    },
+  }, Date.parse('2026-11-23T12:30:00Z'), 'large')
+  assert.equal(wr.winRate, 50)
+  assert.equal(wr.openCount, 1)
+  assert.ok(Math.abs(wr.net24h - (0.1 - 0.05 + 0.015)) < 1e-9)
+  assert.equal(wr.trades[0].token, 'A')
+  assert.equal(W.subline(wr.trades[0]), '12:00 · TP1 · half · v4')
+  assert.equal(W.subline(wr.trades.find((t) => t.token === 'C')), '11:00 · open')
+  ok('stats, ordering, sublines')
+
+  // Overflow: 12 trades on large -> 7 + "+5 more"
+  const many = { paper: { bankroll_sol: 10, start_bankroll_sol: 10, open: [], closed_trades: [] } }
+  for (let i = 0; i < 12; i++) many.paper.closed_trades.push({ token: 'T' + i, exit_vienna: `23 Nov 2026, ${String(1 + i).padStart(2, '0')}:00`, net_sol: i % 2 ? 0.01 : -0.01, net_pct: i % 2 ? 1 : -1 })
+  const mm = W.buildModel(many, Date.parse('2026-11-23T13:00:00Z'), 'large')
+  assert.equal(mm.trades.length, 7)
+  assert.equal(mm.hidden, 5)
+  ok('overflow shows +N more')
+
+  // A 24h close must stay visible when 7 newer opens would push it off a large widget
+  const crowded = {
+    as_of_iso: '2026-11-23T13:00:00+01:00',
+    paper: {
+      bankroll_sol: 10, start_bankroll_sol: 10,
+      closed_trades: [{ token: 'GONE', exit_vienna: '22 Nov 2026, 21:00', net_sol: -0.14, net_pct: -28, exit_code: 'SL' }],
+      open: Array.from({ length: 7 }, (_, i) => ({
+        token: 'O' + i,
+        entry_ts: `2026-11-23T1${i}:00:00Z`,
+        size_sol_remaining: 0.3,
+        last_gross_pct: 1,
+      })),
+    },
+  }
+  const cr = W.buildModel(crowded, Date.parse('2026-11-23T12:00:00Z'), 'large')
+  assert.ok(cr.trades.some((t) => t.token === 'GONE' && t.status === 'closed'), '24h close was dropped: ' + cr.trades.map((t) => t.token))
+  assert.equal(cr.hidden, 1)
+  ok('keeps a 24h close visible when opens would overflow it')
+
+  // Full run as a widget with live data
+  const run = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: true })
+  const widget = run.calls.setWidget
+  assert.ok(widget, 'Script.setWidget not called')
+  assert.equal(widget.url, 'https://styxg121.github.io/trading-bot-app/')
+  const refreshMin = (widget.refreshAfterDate.getTime() - Date.now()) / 60000
+  assert.ok(refreshMin > 14 && refreshMin <= 15.1, 'refreshAfterDate ~15 min, got ' + refreshMin)
+  const t = texts(widget)
+  assert.ok(t.some((s) => s.includes('SOL')), 'bankroll text')
+  assert.ok(t.some((s) => s.startsWith('updated ')), 'updated footer')
+  const tradeCards = cards(widget).filter((c) => c.cornerRadius === 10 && c.children.length >= 2)
+  assert.ok(tradeCards.length >= 1, 'trade cards rendered')
+  assert.ok(run.store['/docs/trading-bot-snapshot.json'], 'cache written')
+  ok('runs as a large widget with live data, caches snapshot, sets url/refresh')
+
+  // Offline uses cache
+  const cachedRun = await runInScriptable({ snapshot: liveSnapshot, family: 'medium', runsInWidget: true, fetchFails: true, files: { '/docs/trading-bot-snapshot.json': JSON.stringify(liveSnapshot) } })
+  assert.ok(texts(cachedRun.calls.setWidget).some((s) => s.includes('SOL')))
+  ok('offline falls back to cached snapshot')
+
+  // Offline + no cache -> error widget, no throw
+  const errRun = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: true, fetchFails: true })
+  assert.ok(texts(errRun.calls.setWidget).some((s) => s.includes('Could not load')))
+  ok('offline without cache shows an error widget')
+
+  // Run in app (preview path)
+  const appRun = await runInScriptable({ snapshot: liveSnapshot, family: 'large', runsInWidget: false })
+  assert.equal(appRun.calls.presented, 'large')
+  ok('in-app run previews large')
+
+  if (treeOut) {
+    fs.writeFileSync(treeOut, JSON.stringify({ family: 'large', tree: serialize(widget) }, null, 2))
+    console.log('wrote tree', treeOut)
+  }
+  console.log(`\n${results.length} checks passed`)
+})().catch((err) => {
+  console.error('FAIL', err && err.stack ? err.stack : err)
+  process.exit(1)
+})
