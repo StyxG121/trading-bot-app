@@ -87,6 +87,8 @@ export type BookView = {
   leverageRules: string[]
   closedTrades: ClosedTradeView[]
   closedStats: ClosedStatsView
+  openPositions: OpenPositionView[]
+  openStats: OpenStatsView
 }
 
 export type ExitCode = 'TP1' | 'TP2' | 'SL' | 'time' | 'exit'
@@ -111,6 +113,27 @@ export type ClosedStatsView = {
   bestNetSol: number | null
   worstNetSol: number | null
   avgNetSol: number | null
+}
+
+export type OpenPositionView = {
+  id: string
+  token: string
+  sizeSol: number | null
+  pnlPct: number | null
+  pnlSol: number | null
+  entryLabel: string | null
+  entryAt: number | null
+  tp1Done: boolean
+  rulesVersion: string | null
+}
+
+export type OpenStatsView = {
+  count: number
+  inPlaySol: number | null
+  unrealizedSol: number | null
+  unrealizedPct: number | null
+  bestSol: number | null
+  worstSol: number | null
 }
 
 export type LearningView = {
@@ -408,6 +431,82 @@ function toClosedTrades(trades: Trade[]): ClosedTradeView[] {
   return items
 }
 
+
+export function emptyOpenStats(): OpenStatsView {
+  return { count: 0, inPlaySol: null, unrealizedSol: null, unrealizedPct: null, bestSol: null, worstSol: null }
+}
+
+function flag(value: unknown): boolean {
+  return value === true || value === 1 || value === 'true' || value === '1' || value === 'yes'
+}
+
+function parseAnyTime(value: string | null, clock: Clock): number | null {
+  if (!value) return null
+  if (/T|\d{4}-\d{2}-\d{2}/.test(value)) {
+    const ms = Date.parse(value)
+    if (Number.isFinite(ms)) return ms
+  }
+  return parseViennaLabel(value, clock)
+}
+
+export function openPnlFromRow(row: Record<string, unknown>): { size: number | null; pct: number | null; sol: number | null } {
+  const size = num(row.size_sol_remaining) ?? num(row.size_sol_original) ?? num(row.size_sol)
+  let pct = num(row.last_gross_pct)
+  if (pct == null) {
+    const last = num(row.last_price_usd) ?? num(row.last_price)
+    const entry = num(row.entry_price_usd) ?? num(row.entry_price)
+    if (last != null && entry != null && entry !== 0) pct = ((last - entry) / entry) * 100
+  }
+  const sol = size != null && pct != null ? (size * pct) / 100 : null
+  return { size, pct, sol }
+}
+
+function readOpenPosition(value: unknown, clock: Clock, index: number): OpenPositionView | null {
+  const row = obj(value)
+  if (!row) return null
+  const token = str(row.token) ?? str(row.symbol)
+  if (!token) return null
+  const pnl = openPnlFromRow(row)
+  const entryLabel = str(row.entry_vienna)
+  const entryAt =
+    parseAnyTime(str(row.entry_ts) ?? str(row.entry_at) ?? str(row.opened_at), clock) ?? parseViennaLabel(entryLabel, clock)
+  return {
+    id: `open-${token}-${entryAt ?? index}`,
+    token,
+    sizeSol: pnl.size,
+    pnlPct: pnl.pct,
+    pnlSol: pnl.sol,
+    entryLabel,
+    entryAt,
+    tp1Done: flag(row.tp1_done),
+    rulesVersion: str(row.rules_version),
+  }
+}
+
+export function toOpenPositions(rows: unknown[], clock: Clock): OpenPositionView[] {
+  const items = rows.flatMap((item, index) => {
+    const row = readOpenPosition(item, clock, index)
+    return row ? [row] : []
+  })
+  items.sort((a, b) => (b.entryAt ?? 0) - (a.entryAt ?? 0))
+  return items
+}
+
+export function statsFromOpenPositions(positions: OpenPositionView[]): OpenStatsView {
+  const sizes = positions.map((row) => row.sizeSol).filter((value): value is number => value != null && Number.isFinite(value))
+  const pnls = positions.map((row) => row.pnlSol).filter((value): value is number => value != null && Number.isFinite(value))
+  const inPlaySol = sizes.length ? sizes.reduce((sum, value) => sum + value, 0) : null
+  const unrealizedSol = pnls.length ? pnls.reduce((sum, value) => sum + value, 0) : null
+  return {
+    count: positions.length,
+    inPlaySol,
+    unrealizedSol,
+    unrealizedPct: inPlaySol != null && inPlaySol !== 0 && unrealizedSol != null ? (unrealizedSol / inPlaySol) * 100 : null,
+    bestSol: pnls.length ? Math.max(...pnls) : null,
+    worstSol: pnls.length ? Math.min(...pnls) : null,
+  }
+}
+
 function readActivity(value: unknown, clock: Clock): Activity | null {
   const row = obj(value)
   if (!row) return null
@@ -506,6 +605,8 @@ function emptyBook(): BookView {
     leverageRules: [],
     closedTrades: [],
     closedStats: emptyClosedStats(),
+    openPositions: [],
+    openStats: emptyOpenStats(),
   }
 }
 
@@ -725,6 +826,8 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
   const { agents, lastScanLabel } = buildAgents(activity, trades, openCount)
   const closedTrades = toClosedTrades(trades)
   const closedStats = readClosedStats(raw.closed_stats, closedTrades)
+  const openPositions = toOpenPositions(opens, clock)
+  const openStats = statsFromOpenPositions(openPositions)
 
   return {
     live: trading || anyNumber || budget.length > 0,
@@ -752,6 +855,8 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
     leverageRules: strings(raw.leverage_rules),
     closedTrades,
     closedStats,
+    openPositions,
+    openStats,
   }
 }
 

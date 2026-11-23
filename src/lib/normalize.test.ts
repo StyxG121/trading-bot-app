@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import snapshot from './fixtures/shipped-snapshot.json'
 import { formatSol, formatViennaClock } from './format.ts'
-import { defaultRange, exitCodeFromReason, normalizeSnapshot, pointsInRange } from './normalize.ts'
+import { defaultRange, exitCodeFromReason, normalizeSnapshot, pointsInRange, statsFromOpenPositions } from './normalize.ts'
 
 describe('shipped snapshot', () => {
   const view = normalizeSnapshot(snapshot)
@@ -18,6 +18,9 @@ describe('shipped snapshot', () => {
     expect(view.paper.losses).toBe(1)
     expect(view.paper.winRatePct).toBe(0)
     expect(view.paper.openCount).toBe(0)
+    expect(view.paper.openPositions).toEqual([])
+    expect(view.paper.openStats.count).toBe(0)
+    expect(view.paper.openStats.inPlaySol).toBeNull()
     expect(view.paper.daysLeft).toBeCloseTo(6.8, 1)
     expect(view.paper.weekEnd).toBe('Sun 29 Nov 2026, 20:00')
     expect(view.paper.equity).toHaveLength(2)
@@ -104,6 +107,8 @@ describe('missing fields', () => {
     expect(view.paper.wins).toBeNull()
     expect(view.real.balanceSol).toBeNull()
     expect(view.learning.rules).toEqual([])
+    expect(view.paper.openPositions).toEqual([])
+    expect(view.paper.openStats.count).toBe(0)
   })
 
   it('keeps a real zero', () => {
@@ -214,3 +219,75 @@ describe('trade history', () => {
   })
 })
 
+describe('open trades', () => {
+  it('lists newest first and computes unrealized P/L from last_gross_pct', () => {
+    const view = normalizeSnapshot({
+      as_of_iso: '2026-11-23T14:53:00+01:00',
+      paper: {
+        start_bankroll_sol: 10,
+        bankroll_sol: 9.8,
+        open_count: 2,
+        open: [
+          {
+            token: 'OLD',
+            entry_ts: '2026-11-23T11:33:19+00:00',
+            size_sol_remaining: 0.3,
+            last_gross_pct: -10,
+            tp1_done: false,
+            rules_version: 'v4',
+          },
+          {
+            token: 'NEW',
+            entry_ts: '2026-11-23T13:00:00+00:00',
+            size_sol_remaining: 0.2,
+            last_gross_pct: 20,
+            tp1_done: true,
+            rules_version: 'v4',
+          },
+        ],
+      },
+    })
+    expect(view.paper.openPositions.map((row) => row.token)).toEqual(['NEW', 'OLD'])
+    expect(view.paper.openPositions[0]?.tp1Done).toBe(true)
+    expect(view.paper.openPositions[0]?.pnlSol).toBeCloseTo(0.04, 6)
+    expect(view.paper.openPositions[0]?.pnlPct).toBeCloseTo(20, 6)
+    expect(view.paper.openPositions[0]?.rulesVersion).toBe('v4')
+    expect(view.paper.openPositions[1]?.tp1Done).toBe(false)
+    expect(view.paper.openPositions[1]?.pnlSol).toBeCloseTo(-0.03, 6)
+    expect(view.paper.openPositions[1]?.entryAt).toBe(Date.parse('2026-11-23T11:33:19+00:00'))
+    expect(view.paper.openStats.count).toBe(2)
+    expect(view.paper.openStats.inPlaySol).toBeCloseTo(0.5, 6)
+    expect(view.paper.openStats.unrealizedSol).toBeCloseTo(0.01, 6)
+    expect(view.paper.openStats.unrealizedPct).toBeCloseTo(2, 6)
+    expect(view.paper.openStats.bestSol).toBeCloseTo(0.04, 6)
+    expect(view.paper.openStats.worstSol).toBeCloseTo(-0.03, 6)
+  })
+
+  it('falls back to last and entry prices when last_gross_pct is missing', () => {
+    const view = normalizeSnapshot({
+      paper: {
+        open: [
+          { token: 'PX', size_sol_original: 0.5, entry_price_usd: 2, last_price_usd: 2.5 },
+        ],
+      },
+    })
+    expect(view.paper.openPositions).toHaveLength(1)
+    expect(view.paper.openPositions[0]?.sizeSol).toBeCloseTo(0.5, 6)
+    expect(view.paper.openPositions[0]?.pnlPct).toBeCloseTo(25, 6)
+    expect(view.paper.openPositions[0]?.pnlSol).toBeCloseTo(0.125, 6)
+  })
+
+  it('skips garbage rows and has an empty state with no opens', () => {
+    const empty = normalizeSnapshot({ paper: { bankroll_sol: 10, start_bankroll_sol: 10 } })
+    expect(empty.paper.openPositions).toEqual([])
+    expect(empty.paper.openStats).toEqual(statsFromOpenPositions([]))
+    expect(empty.paper.openStats.count).toBe(0)
+
+    const dirty = normalizeSnapshot({
+      paper: { open: [null, { token: '' }, { last_gross_pct: 5 }, { token: 'OK', size_sol: 0.1, last_gross_pct: 10 }] },
+    })
+    expect(dirty.paper.openPositions.map((row) => row.token)).toEqual(['OK'])
+    expect(dirty.paper.openPositions[0]?.pnlSol).toBeCloseTo(0.01, 6)
+    expect(dirty.paper.openStats.count).toBe(1)
+  })
+})

@@ -1,6 +1,7 @@
 import { ActivityList } from '../components/ActivityList.tsx'
 import { AgentScroller } from '../components/AgentCards.tsx'
 import { EquityChart } from '../components/EquityChart.tsx'
+import { OpenTrades } from '../components/OpenTrades.tsx'
 import { TradeHistory } from '../components/TradeHistory.tsx'
 import {
   formatMultiple,
@@ -76,7 +77,11 @@ export function HomeScreen({
         emptyLabel={book.equity.length === 0 ? 'No equity yet' : undefined}
       />
 
-      <TradeHistory trades={book.closedTrades} stats={book.closedStats} />
+      <div className="mt-2 space-y-2 px-4">
+        <OpenTrades positions={book.openPositions} stats={book.openStats} asOfMs={anchor} />
+        <TradeHistory trades={book.closedTrades} stats={book.closedStats} />
+      </div>
+
 
       <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 px-4 text-xs text-[#9aa59b]">
         {book.wins != null ? <span className={book.wins > 0 ? 'text-[#3dff7a]' : ''}>{book.wins}W</span> : null}

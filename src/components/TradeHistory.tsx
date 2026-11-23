@@ -8,7 +8,7 @@ export function TradeHistory({ trades, stats }: { trades: ClosedTradeView[]; sta
   const panelId = useId()
 
   return (
-    <div className="mt-2 px-4">
+    <div>
       <button
         type="button"
         aria-expanded={open}
