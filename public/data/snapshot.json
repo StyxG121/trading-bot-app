@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "24 Nov 2026, 11:05",
-  "as_of_iso": "2026-11-24T11:05:23+01:00",
+  "as_of_vienna": "24 Nov 2026, 11:06",
+  "as_of_iso": "2026-11-24T11:06:03+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -10,7 +10,7 @@
     "wins": 5,
     "losses": 13,
     "win_rate_pct": 27.77777777777778,
-    "open_count": 6,
+    "open_count": 7,
     "open": [
       {
         "token": "CLAUDIA",
@@ -30,7 +30,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.008626,
         "last_gross_pct": -13.4023,
-        "last_checked_at": "2026-11-24T10:05:22.888786+00:00",
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
         "rules_version": "v4"
       },
       {
@@ -51,7 +51,7 @@
         "entry_buy_impact_pct": 1.607321,
         "last_price_usd": 0.002396,
         "last_gross_pct": -9.2424,
-        "last_checked_at": "2026-11-24T10:05:22.888786+00:00",
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
         "rules_version": "v4"
       },
       {
@@ -72,7 +72,7 @@
         "entry_buy_impact_pct": 1.998741,
         "last_price_usd": 0.0007143,
         "last_gross_pct": 23.1552,
-        "last_checked_at": "2026-11-24T10:05:22.888786+00:00",
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
         "rules_version": "v5"
       },
       {
@@ -93,7 +93,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.004385,
         "last_gross_pct": 1.882,
-        "last_checked_at": "2026-11-24T10:05:22.888786+00:00",
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -115,7 +115,7 @@
         "entry_buy_impact_pct": 1.726612,
         "last_price_usd": 0.0002608,
         "last_gross_pct": -2.2122,
-        "last_checked_at": "2026-11-24T10:05:22.888786+00:00",
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -152,7 +152,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.004178,
         "last_gross_pct": 5.9868,
-        "last_checked_at": "2026-11-24T10:05:22.888786+00:00",
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
         "rules_version": "v5.1",
         "override_reason": "bent: 1h buy/sell 0.82 (standard 0.85\u20134, window 0.75\u20134.5). compensated by: score 68.1 (>= 65; required because BSR is bent); volume trend 9.73x hourly avg (>= 0.8). 3% size",
         "pattern": {
@@ -161,6 +161,54 @@
           "pattern_p_dex": 0.1214,
           "pattern_ev": -1.98,
           "pattern_pass": false,
+          "pattern_thr": 0.1736,
+          "pattern_model": "logit_dex@2026-11-24T08:20",
+          "pattern_used": "logit_dex",
+          "pattern_mode": "shadow"
+        }
+      },
+      {
+        "token": "Scamsem",
+        "mint": "5JWeGmA9z6yHd5F9P6B23A8wthho8BpZuDmQv5DfLoat",
+        "entry_ts": "2026-11-24T10:03:22.433037+00:00",
+        "entry_price_usd": 0.000122,
+        "size_sol_original": 0.281457,
+        "size_sol_remaining": 0.281457,
+        "score": 74.2,
+        "score_pre_bonus": 74.2,
+        "copy_bonus": 0,
+        "copy_wallets": [],
+        "stop_pct": -15.0,
+        "tp1_done": false,
+        "exit_rules": "v5.2",
+        "exit_params": {
+          "enabled": true,
+          "applies_to": "positions opened after 23 Nov 2026 ~22:00 Vienna (older positions keep v5.1 exits)",
+          "sl_pct": -15.0,
+          "tp0_pct": 20.0,
+          "tp0_frac": 0.33,
+          "trail_activate_pct": 20.0,
+          "trail_pct": 15.0,
+          "tp1_frac": 0.5,
+          "fade_after_h": 4.0,
+          "fade_below_pct": 0.0,
+          "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
+        },
+        "peak_gross_pct": 0.0,
+        "verdict": "WARN",
+        "entry_reason": "WARN admitted by v5.1 override; age 0.89h liq61444; bent: age 0.89h (standard 1\u20131440h, window 0.75\u20131584h). compensated by: score 74.2 (>= 65); buy pressure BSR 1.38 (>= 1.05); volume trend 24.00x hourly avg (>= 0.8). 3% size; rules_version=v5.1",
+        "entry_buy_impact_pct": 1.0,
+        "last_price_usd": 0.000122,
+        "last_gross_pct": 0.0,
+        "last_checked_at": "2026-11-24T10:03:22.433037+00:00",
+        "rules_version": "v5.1",
+        "override_reason": "bent: age 0.89h (standard 1\u20131440h, window 0.75\u20131584h). compensated by: score 74.2 (>= 65); buy pressure BSR 1.38 (>= 1.05); volume trend 24.00x hourly avg (>= 0.8). 3% size",
+        "pattern": {
+          "pattern_score": 0.3399,
+          "pattern_p": 0.3399,
+          "pattern_p_dex": 0.3399,
+          "pattern_ev": -5.49,
+          "pattern_pass": true,
           "pattern_thr": 0.1736,
           "pattern_model": "logit_dex@2026-11-24T08:20",
           "pattern_used": "logit_dex",
@@ -355,7 +403,7 @@
       {
         "label": "now",
         "value": 9.364202,
-        "t": "2026-11-24T11:05:23+01:00",
+        "t": "2026-11-24T11:06:03+01:00",
         "kind": "now"
       }
     ],
@@ -1160,6 +1208,15 @@
     ],
     "activity": [
       {
+        "time_vienna": "24 Nov 2026, 11:03",
+        "raw": "scanned 35 | PASS 2 WARN 9 FAIL 24 | entries 1 (Scamsem 74.2) | exits 0 | open CLAUDIA -13.4%, Rings -9.2%, HOGE +23.2%, CBUCKS +1.9%, SIDOOR -2.2%, FLOAT +6.0%, Scamsem +0.0% | DCTY 64.6 qualified but blocked: exited by exit 0.9h ago (<2h re-entry block) | copy bonus no | AI monitor paused; exit loop alive",
+        "scanned": "35",
+        "verdicts": "2 / 9 / 24",
+        "entries": "Scamsem 74.2",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
         "time_vienna": "24 Nov 2026, 11:05",
         "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.4%, Rings -9.2%, HOGE +23.2%, CBUCKS +1.9%, SIDOOR -2.2%, FLOAT +6.0% | closest FIONA 70.9 (dumping), MCAT 70.8 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
@@ -1234,15 +1291,6 @@
       {
         "time_vienna": "24 Nov 2026, 10:38",
         "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.6%, Rings -2.2%, HOGE +25.1%, CBUCKS +0.3%, SIDOOR -2.2%, FLOAT +5.5% | closest FIONA 70.9 (dumping), MCAT 70.8 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 10:37",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.6%, Rings -2.4%, HOGE +27.7%, CBUCKS +0.3%, SIDOOR -2.2%, FLOAT +4.6% | closest FIONA 70.9 (dumping), MCAT 70.8 (organic) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
