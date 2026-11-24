@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "24 Nov 2026, 20:24",
-  "as_of_iso": "2026-11-24T20:24:24+01:00",
+  "as_of_vienna": "24 Nov 2026, 20:28",
+  "as_of_iso": "2026-11-24T20:28:37+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -30,7 +30,7 @@
         "entry_buy_impact_pct": 1.998741,
         "last_price_usd": 0.0007194,
         "last_gross_pct": 24.0345,
-        "last_checked_at": "2026-11-24T19:24:23.637318+00:00",
+        "last_checked_at": "2026-11-24T19:28:28.381554+00:00",
         "rules_version": "v5",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -54,7 +54,7 @@
           "trail_eff": 15.0,
           "late_init": true,
           "init_at": "2026-11-24T15:34:59.106791+00:00",
-          "bucket": 285,
+          "bucket": 286,
           "state": {
             "rem": 0.1699982390087733,
             "realized": 31.202068965517235,
@@ -112,7 +112,8 @@
               26.482758620689673,
               27.689655172413797,
               24.189655172413783,
-              21.62068965517241
+              21.62068965517241,
+              21.362068965517246
             ],
             "last": 24.0344827586207
           },
@@ -151,9 +152,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 853.48h liq171653; rules_version=v6.1; volat1h 1.46%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001281,
-        "last_gross_pct": -1.3097,
-        "last_checked_at": "2026-11-24T19:24:23.637318+00:00",
+        "last_price_usd": 0.001284,
+        "last_gross_pct": -1.0786,
+        "last_checked_at": "2026-11-24T19:28:28.381554+00:00",
         "rules_version": "v6.1",
         "override_reason": "",
         "entry_source": "scan",
@@ -308,9 +309,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 721.42h liq288318; rules_version=v6.2; volat1h 2.22%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005767,
-        "last_gross_pct": 2.8352,
-        "last_checked_at": "2026-11-24T19:24:23.637318+00:00",
+        "last_price_usd": 0.005721,
+        "last_gross_pct": 2.015,
+        "last_checked_at": "2026-11-24T19:28:28.381554+00:00",
         "rules_version": "v6.2",
         "override_reason": "",
         "entry_source": "scan",
@@ -384,7 +385,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-24T18:06:59.202505+00:00",
-          "bucket": 15,
+          "bucket": 16,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -405,9 +406,10 @@
               0.4101283880171058,
               0.8380884450784665,
               1.8366619115549154,
-              2.9243937232525052
+              2.9243937232525052,
+              2.139800285306692
             ],
-            "last": 2.8352353780313866
+            "last": 2.0149786019971527
           },
           "signal": "hold (virtual stop -10.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -719,8 +721,8 @@
       },
       {
         "label": "now",
-        "value": 8.760442,
-        "t": "2026-11-24T20:24:24+01:00",
+        "value": 8.757616,
+        "t": "2026-11-24T20:28:37+01:00",
         "kind": "now"
       }
     ],
@@ -2018,6 +2020,51 @@
     ],
     "activity": [
       {
+        "time_vienna": "24 Nov 2026, 20:28",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.0%, DCTY -1.1%, mihao +2.0% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 20:27",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.0%, DCTY -1.8%, mihao +2.1% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 20:27",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.0%, DCTY -1.8%, mihao +2.1% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 20:26",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +21.4%, DCTY -1.1%, mihao +2.1% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 20:25",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +21.4%, DCTY -1.1%, mihao +2.0% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
         "time_vienna": "24 Nov 2026, 20:24",
         "raw": "monitor | entries 0 | exits 0 | open HOGE +24.0%, DCTY -1.3%, mihao +2.8% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
@@ -2061,61 +2108,16 @@
         "entries": "0",
         "miss": "\u2014",
         "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 20:19",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.2%, DCTY -0.3%, mihao +1.8% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 20:10",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +27.3%, DCTY -2.1%, mihao +1.7% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 20:09",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.9%, DCTY -1.2%, mihao +1.0% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 20:08",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +27.8%, DCTY -1.2%, mihao +3.5% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 20:07",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +27.7%, DCTY -1.5%, mihao +0.8% | closest mihao 66 (bsr,no-compensate), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
       }
     ],
-    "rules_version": "v6.2",
+    "rules_version": "v6.3-copy",
     "rules_date": "24 Nov 2026",
     "helpers_status": "Helpers: ON",
     "team": {
       "enabled": true,
       "risk_manager": "up-only sizer (3% base / 2% liq-bent floor, up to 6% on strong checks)",
       "news_checker": "advisory (confirmed rug/scam RSS veto only)",
-      "scout": "watchlist merge + auto-approve qualified (entry_source=scout_auto) else pending_authorization",
+      "scout": "watchlist merge + auto-approve qualified (entry_source=scout_auto); top-trader copy candidates auto paper-copied (entry_source=copy, v6.3-copy)",
       "pattern_checker": "shadow: scores every coin, logs pattern_check; never blocks or sizes",
       "entry_timer": "shadow: enter now / wait / skip logged per entry; real entry unchanged",
       "exit_manager": "shadow: virtual dynamic exits vs v5.2 per position; real exits unchanged"
@@ -2130,10 +2132,11 @@
       "Pool age 1\u20131440h; socials required if the token is under 7 days old",
       "24h volume \u2265 $50,000, 1h volume \u2265 $5,000, 1h buy/sell ratio 0.85\u20134",
       "Organic and copycat filters auto-FAIL; mint/freeze/honeypot/RugCheck danger still hard-FAIL",
-      "Re-entry cooldown 2h after a full exit (paper, rules v6.2)",
+      "Re-entry cooldown 2h after a full exit (paper, rules v6.3-copy)",
       "v5.1 override: at most 2 soft gates may miss within margin (liq \u2265 $15,000, vol24 \u2265 $35,000, vol1h \u2265 $3,000, age 0.75\u20131584h, BSR 0.75\u20134.5, score \u2265 45) if score \u2265 65 (or \u2265 60 plus a quality top-trader/copy signal still held). PASS required when liquidity is bent; size 2% then. Hard safety and the $15k floor never bend.",
-      "v6 Helpers: Risk Manager up-only sizer (base 3% / 2% liq-bent floor, scales up to 6% on strong checks), News Checker advisory (+confirmed-rug RSS veto), Scout watchlist + auto-approve if v5/v5.1 qualified (entry_source=scout_auto; else pending_authorization)",
+      "v6 Helpers: Risk Manager up-only sizer (base 3% / 2% liq-bent floor, scales up to 6% on strong checks), News Checker advisory (+confirmed-rug RSS veto), Scout watchlist + auto-approve if v5/v5.1 qualified (entry_source=scout_auto)",
       "Shadow helpers (log only, never change trades): Entry Timer (enter now / wait / skip) and Exit Manager (dynamic stops, partial TPs, trailing, time and momentum cuts vs the v5.2 exits)",
+      "v6.3-copy: a copyable top-trader buy or 2+ watched wallets buying (still holding, < 6h) is paper-copied automatically (entry_source=copy) if hard safety passes and liquidity \u2265 $15k; size 3% (2% under $20k liquidity) plus the Risk Manager tiers; v5 soft gates are bypassed for copies",
       "v6.1 volatility gate: skip a qualified coin if its last-hour 5m-bar volatility is \u2265 3% (fail-open if it can't be measured)"
     ],
     "lessons": [
