@@ -1,16 +1,16 @@
 {
-  "as_of_vienna": "24 Nov 2026, 14:40",
-  "as_of_iso": "2026-11-24T14:40:47+01:00",
+  "as_of_vienna": "24 Nov 2026, 15:10",
+  "as_of_iso": "2026-11-24T15:10:53+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
-    "bankroll_sol": 9.225617,
-    "gross_pnl_sol": -0.613869,
-    "net_pnl_sol": -0.774383,
-    "wins": 5,
-    "losses": 16,
-    "win_rate_pct": 23.809523809523807,
-    "open_count": 8,
+    "bankroll_sol": 9.186383,
+    "gross_pnl_sol": -0.644103,
+    "net_pnl_sol": -0.813617,
+    "wins": 6,
+    "losses": 17,
+    "win_rate_pct": 26.08695652173913,
+    "open_count": 6,
     "open": [
       {
         "token": "CLAUDIA",
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.008555,
-        "last_gross_pct": -14.115,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
+        "last_price_usd": 0.008579,
+        "last_gross_pct": -13.8741,
+        "last_checked_at": "2026-11-24T14:10:52.909760+00:00",
         "rules_version": "v4"
       },
       {
@@ -49,9 +49,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 309.48h liq157627; rules_version=v4",
         "entry_buy_impact_pct": 1.607321,
-        "last_price_usd": 0.002325,
-        "last_gross_pct": -11.9318,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
+        "last_price_usd": 0.002016,
+        "last_gross_pct": -23.6364,
+        "last_checked_at": "2026-11-24T14:10:52.909760+00:00",
         "rules_version": "v4"
       },
       {
@@ -70,9 +70,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.0006838,
-        "last_gross_pct": 17.8966,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
+        "last_price_usd": 0.0007107,
+        "last_gross_pct": 22.5345,
+        "last_checked_at": "2026-11-24T14:10:52.909760+00:00",
         "rules_version": "v5"
       },
       {
@@ -91,9 +91,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1153.69h liq232258; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004598,
-        "last_gross_pct": 6.8309,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
+        "last_price_usd": 0.00449,
+        "last_gross_pct": 4.3216,
+        "last_checked_at": "2026-11-24T14:10:52.909760+00:00",
         "rules_version": "v5",
         "override_reason": ""
       },
@@ -113,59 +113,11 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 47.41h liq40387; rules_version=v5",
         "entry_buy_impact_pct": 1.726612,
-        "last_price_usd": 0.0003114,
-        "last_gross_pct": 16.7604,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
+        "last_price_usd": 0.0002932,
+        "last_gross_pct": 9.9363,
+        "last_checked_at": "2026-11-24T14:10:52.909760+00:00",
         "rules_version": "v5",
         "override_reason": ""
-      },
-      {
-        "token": "DCTY",
-        "mint": "9hjBLBrc7WZW2H8UQvBAvG5WiTZotXUv2Bdcn4f4pump",
-        "entry_ts": "2026-11-24T11:35:08.574104+00:00",
-        "entry_price_usd": 0.001543,
-        "size_sol_original": 0.28051,
-        "size_sol_remaining": 0.28051,
-        "score": 66.6,
-        "score_pre_bonus": 66.6,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -15.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "positions opened after 23 Nov 2026 ~22:00 Vienna (older positions keep v5.1 exits)",
-          "sl_pct": -15.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
-        },
-        "peak_gross_pct": 0.0,
-        "verdict": "WARN",
-        "entry_reason": "WARN passed all entry filters; age 848.56h liq181700; rules_version=v5",
-        "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001353,
-        "last_gross_pct": -12.3137,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
-        "rules_version": "v5",
-        "override_reason": "",
-        "pattern": {
-          "pattern_score": 0.1599,
-          "pattern_p": 0.1599,
-          "pattern_p_dex": 0.1599,
-          "pattern_ev": -3.36,
-          "pattern_pass": false,
-          "pattern_thr": 0.1736,
-          "pattern_model": "logit_dex@2026-11-24T08:20",
-          "pattern_used": "logit_dex",
-          "pattern_mode": "shadow"
-        }
       },
       {
         "token": "mihao",
@@ -198,9 +150,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 714.88h liq296063; rules_version=v5",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005271,
-        "last_gross_pct": -10.8273,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
+        "last_price_usd": 0.005251,
+        "last_gross_pct": -11.1656,
+        "last_checked_at": "2026-11-24T14:10:52.909760+00:00",
         "rules_version": "v5",
         "override_reason": "",
         "pattern": {
@@ -214,55 +166,6 @@
           "pattern_used": "logit_dex",
           "pattern_mode": "shadow"
         }
-      },
-      {
-        "token": "FIONA",
-        "mint": "B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump",
-        "entry_ts": "2026-11-24T11:35:08.574104+00:00",
-        "entry_price_usd": 0.00301,
-        "size_sol_original": 0.28051,
-        "size_sol_remaining": 0.187942,
-        "score": 61.5,
-        "score_pre_bonus": 61.5,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -15.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "positions opened after 23 Nov 2026 ~22:00 Vienna (older positions keep v5.1 exits)",
-          "sl_pct": -15.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
-        },
-        "peak_gross_pct": 25.6478,
-        "verdict": "WARN",
-        "entry_reason": "WARN passed all entry filters; age 110.71h liq184980; rules_version=v5",
-        "entry_buy_impact_pct": 1.131552,
-        "last_price_usd": 0.003246,
-        "last_gross_pct": 7.8405,
-        "last_checked_at": "2026-11-24T13:40:47.090918+00:00",
-        "rules_version": "v5",
-        "override_reason": "",
-        "pattern": {
-          "pattern_score": 0.1831,
-          "pattern_p": 0.1831,
-          "pattern_p_dex": 0.1831,
-          "pattern_ev": -3.36,
-          "pattern_pass": true,
-          "pattern_thr": 0.1736,
-          "pattern_model": "logit_dex@2026-11-24T08:20",
-          "pattern_used": "logit_dex",
-          "pattern_mode": "shadow"
-        },
-        "tp0_done": true
       }
     ],
     "days_left": 5.2,
@@ -479,19 +382,71 @@
       },
       {
         "label": "24 Nov 14:35",
-        "value": 9.225617,
+        "value": 9.2256,
         "t": "2026-11-24T14:35:02+01:00",
         "kind": "close",
         "token": "FLOAT"
       },
       {
+        "label": "24 Nov 14:42",
+        "value": 9.2338,
+        "t": "2026-11-24T14:42:45+01:00",
+        "kind": "close",
+        "token": "FIONA"
+      },
+      {
+        "label": "24 Nov 15:07",
+        "value": 9.186383,
+        "t": "2026-11-24T15:07:07+01:00",
+        "kind": "close",
+        "token": "DCTY"
+      },
+      {
         "label": "now",
-        "value": 9.167614,
-        "t": "2026-11-24T14:40:47+01:00",
+        "value": 9.103695,
+        "t": "2026-11-24T15:10:53+01:00",
         "kind": "now"
       }
     ],
     "closed_trades": [
+      {
+        "token": "DCTY",
+        "entry_price": 0.001543,
+        "exit_price": 0.001308,
+        "entry_vienna": "24 Nov 2026, 12:35",
+        "exit_vienna": "24 Nov 2026, 15:07",
+        "exit_iso": "2026-11-24T15:07:07+01:00",
+        "size_sol": 0.28051,
+        "score": "66.6",
+        "gross_pct": -15.23,
+        "net_pct": -16.92,
+        "net_sol": -0.0475,
+        "reason": "SL -15.0% hit (price -15.23%, peak +0.0%",
+        "entry_reason": "WARN passed all entry filters; age 848.56h liq181700; rules_version=v5",
+        "rules_version": "v5",
+        "override_reason": null,
+        "exit_code": "SL",
+        "kind": "full"
+      },
+      {
+        "token": "FIONA",
+        "entry_price": 0.00301,
+        "exit_price": 0.00321,
+        "entry_vienna": "24 Nov 2026, 12:35",
+        "exit_vienna": "24 Nov 2026, 14:42",
+        "exit_iso": "2026-11-24T14:42:45+01:00",
+        "size_sol": 0.187942,
+        "score": "61.5",
+        "gross_pct": 6.64,
+        "net_pct": 4.38,
+        "net_sol": 0.0082,
+        "reason": "TRAIL +6.8% hit (price +6.64%, peak +25.6%",
+        "entry_reason": "WARN passed all entry filters; age 110.71h liq184980; rules_version=v5",
+        "rules_version": "v5",
+        "override_reason": null,
+        "exit_code": "trail",
+        "kind": "full"
+      },
       {
         "token": "FLOAT",
         "entry_price": 0.003942,
@@ -1064,14 +1019,14 @@
       }
     ],
     "closed_stats": {
-      "count": 30,
-      "wins": 14,
-      "losses": 16,
-      "win_rate_pct": 46.666666666666664,
-      "net_sol": -0.7744,
+      "count": 32,
+      "wins": 15,
+      "losses": 17,
+      "win_rate_pct": 46.875,
+      "net_sol": -0.8137,
       "best_net_sol": 0.142,
       "worst_net_sol": -0.144,
-      "avg_net_sol": -0.025813
+      "avg_net_sol": -0.025428
     },
     "daily_pnl": [
       {
@@ -1196,11 +1151,11 @@
       },
       {
         "date": "2026-11-24",
-        "net_sol": -0.2248,
-        "net_pct": -2.248,
-        "trades": 20,
-        "wins": 12,
-        "losses": 8,
+        "net_sol": -0.2641,
+        "net_pct": -2.641,
+        "trades": 22,
+        "wins": 13,
+        "losses": 9,
         "items": [
           {
             "token": "HUSS",
@@ -1401,6 +1356,26 @@
             "rules_version": "v5.1",
             "exit_vienna": "24 Nov 2026, 14:35",
             "size_sol": 0.281457
+          },
+          {
+            "token": "FIONA",
+            "net_sol": 0.0082,
+            "net_pct": 4.38,
+            "exit_code": "trail",
+            "kind": "full",
+            "rules_version": "v5",
+            "exit_vienna": "24 Nov 2026, 14:42",
+            "size_sol": 0.187942
+          },
+          {
+            "token": "DCTY",
+            "net_sol": -0.0475,
+            "net_pct": -16.92,
+            "exit_code": "SL",
+            "kind": "full",
+            "rules_version": "v5",
+            "exit_vienna": "24 Nov 2026, 15:07",
+            "size_sol": 0.28051
           }
         ]
       }
@@ -1409,36 +1384,36 @@
       {
         "bankroll_sol": 1,
         "size_sol": 0.05,
-        "gross_pct": -10.02,
-        "net_pct": -11.83,
-        "net_sol": -0.0059
+        "gross_pct": -15.23,
+        "net_pct": -16.94,
+        "net_sol": -0.0085
       },
       {
         "bankroll_sol": 3,
         "size_sol": 0.15,
-        "gross_pct": -10.02,
-        "net_pct": -11.82,
-        "net_sol": -0.0177
+        "gross_pct": -15.23,
+        "net_pct": -16.92,
+        "net_sol": -0.0254
       },
       {
         "bankroll_sol": 10,
         "size_sol": 0.5,
-        "gross_pct": -10.02,
-        "net_pct": -12.13,
-        "net_sol": -0.0607
+        "gross_pct": -15.23,
+        "net_pct": -16.92,
+        "net_sol": -0.0846
       },
       {
         "bankroll_sol": 50,
         "size_sol": 2.5,
-        "gross_pct": -10.02,
-        "net_pct": -12.63,
-        "net_sol": -0.3159
+        "gross_pct": -15.23,
+        "net_pct": -17.04,
+        "net_sol": -0.426
       }
     ],
     "activity": [
       {
-        "time_vienna": "24 Nov 2026, 14:40",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.1%, Rings -11.9%, HOGE +17.9%, CBUCKS +6.8%, SIDOOR +16.8%, DCTY -12.3%, mihao -10.8%, FIONA +7.8% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:10",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.6%, HOGE +22.5%, CBUCKS +4.3%, SIDOOR +9.9%, mihao -11.2% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1446,8 +1421,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:40",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.6%, Rings -11.2%, HOGE +17.9%, CBUCKS +8.6%, SIDOOR +16.8%, DCTY -12.3%, mihao -11.0%, FIONA +7.8% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:10",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.5%, HOGE +22.5%, CBUCKS +2.7%, SIDOOR +9.9%, mihao -11.7% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1455,8 +1430,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:40",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.6%, Rings -11.2%, HOGE +17.9%, CBUCKS +8.6%, SIDOOR +16.8%, DCTY -12.3%, mihao -11.0%, FIONA +7.8% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:10",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.5%, HOGE +22.5%, CBUCKS +2.7%, SIDOOR +9.9%, mihao -11.7% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1464,8 +1439,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:40",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.2%, Rings -9.9%, HOGE +16.0%, CBUCKS +8.6%, SIDOOR +16.7%, DCTY -12.3%, mihao -10.3%, FIONA +8.5% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:10",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.5%, HOGE +22.5%, CBUCKS +2.7%, SIDOOR +9.9%, mihao -11.7% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1473,8 +1448,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:39",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.2%, Rings -9.9%, HOGE +16.0%, CBUCKS +8.6%, SIDOOR +16.7%, DCTY -12.3%, mihao -10.3%, FIONA +8.5% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:09",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.8%, HOGE +20.1%, CBUCKS +4.7%, SIDOOR +9.9%, mihao -11.9% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1482,8 +1457,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:39",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.1%, Rings -9.9%, HOGE +19.7%, CBUCKS +6.7%, SIDOOR +16.7%, DCTY -13.3%, mihao -10.3%, FIONA +8.1% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:09",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.8%, HOGE +20.1%, CBUCKS +4.7%, SIDOOR +9.9%, mihao -11.9% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1491,8 +1466,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:39",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.1%, Rings -9.9%, HOGE +19.7%, CBUCKS +6.7%, SIDOOR +16.7%, DCTY -13.3%, mihao -10.3%, FIONA +8.1% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:09",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -13.9%, Rings -23.8%, HOGE +20.1%, CBUCKS +4.7%, SIDOOR +9.9%, mihao -11.9% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1500,8 +1475,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:39",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.1%, Rings -9.9%, HOGE +19.7%, CBUCKS +6.7%, SIDOOR +16.7%, DCTY -13.3%, mihao -10.3%, FIONA +8.1% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "24 Nov 2026, 15:09",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.0%, Rings -24.0%, HOGE +20.1%, CBUCKS +3.0%, SIDOOR +9.9%, mihao -11.0% | closest TROLL 71.9 (age), CATE 58.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -1509,22 +1484,22 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "24 Nov 2026, 14:38",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.6%, Rings -10.1%, HOGE +18.6%, CBUCKS +6.7%, SIDOOR +16.7%, DCTY -13.3%, mihao -10.2%, FIONA +8.0% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 14:38",
-        "raw": "scanner | first run status=error: watch_new.py timed out after 100s. Treated as transient API/timeout; re-ran scan_cycle.py once. Retry status=quiet, entries 0, exits 0, open 8 (CLAUDIA, Rings, HOGE, CBUCKS, SIDOOR, DCTY, mihao, FIONA), exit_loop_alive=true, no canvas update. AI monitor left paused.",
-        "scanned": "\u2014",
-        "verdicts": "\u2014",
+        "time_vienna": "24 Nov 2026, 15:07",
+        "raw": "scanned 35 | PASS 1 WARN 10 FAIL 24 | entries 0 | exits 0 | open CLAUDIA -14.0%, Rings -24.0%, HOGE +20.1%, CBUCKS +3.0%, SIDOOR +9.9%, mihao -10.3% | FIONA 57.8 qualified but blocked: exited by exit 0.4h ago (<2h re-entry block) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "35",
+        "verdicts": "1 / 10 / 24",
         "entries": "0",
         "miss": "\u2014",
         "kind": "scan"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 15:08",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -14.0%, Rings -24.0%, HOGE +20.1%, CBUCKS +3.0%, SIDOOR +9.9%, mihao -11.0% | closest CRIME 71.8 (vol24,margin), CATE 65.2 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
       }
     ],
     "rules_version": "v5.2",
