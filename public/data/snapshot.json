@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "24 Nov 2026, 16:39",
-  "as_of_iso": "2026-11-24T16:39:49+01:00",
+  "as_of_vienna": "24 Nov 2026, 16:41",
+  "as_of_iso": "2026-11-24T16:41:14+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1137.84h liq461698; rules_version=v4",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.008179,
-        "last_gross_pct": -17.8898,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_price_usd": 0.008187,
+        "last_gross_pct": -17.8095,
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v4",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -98,7 +98,7 @@
         "entry_buy_impact_pct": 1.607321,
         "last_price_usd": 0.002063,
         "last_gross_pct": -21.8561,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v4",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -164,9 +164,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.0006519,
-        "last_gross_pct": 12.3966,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_price_usd": 0.000639,
+        "last_gross_pct": 10.1724,
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v5",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -190,7 +190,7 @@
           "trail_eff": 15.0,
           "late_init": true,
           "init_at": "2026-11-24T15:34:59.106791+00:00",
-          "bucket": 240,
+          "bucket": 241,
           "state": {
             "rem": 0.4999982390087733,
             "realized": 23.595,
@@ -202,9 +202,10 @@
             "reason": null,
             "legs": [],
             "closes": [
-              9.620689655172399
+              9.620689655172399,
+              10.172413793103452
             ],
-            "last": 12.396551724137916
+            "last": 10.172413793103452
           },
           "signal": "hold (virtual stop +0.0%, rem 0.50)",
           "params_status": "candidate_not_validated"
@@ -228,7 +229,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.00457,
         "last_gross_pct": 6.1803,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v5",
         "override_reason": "",
         "exit_mgr": {
@@ -289,9 +290,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 47.41h liq40387; rules_version=v5",
         "entry_buy_impact_pct": 1.726612,
-        "last_price_usd": 0.0002856,
-        "last_gross_pct": 7.0866,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_price_usd": 0.0002897,
+        "last_gross_pct": 8.6239,
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v5",
         "override_reason": "",
         "exit_mgr": {
@@ -330,7 +331,7 @@
             "closes": [
               7.086614173228356
             ],
-            "last": 7.086614173228356
+            "last": 8.623922009748796
           },
           "signal": "hold (virtual stop +0.0%, rem 0.50)",
           "params_status": "candidate_not_validated"
@@ -367,9 +368,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 90.97h liq36618; rules_version=v6",
         "entry_buy_impact_pct": 1.009647,
-        "last_price_usd": 0.0001752,
-        "last_gross_pct": 2.5161,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_price_usd": 0.0001751,
+        "last_gross_pct": 2.4576,
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v6",
         "override_reason": "",
         "entry_source": "scan",
@@ -438,7 +439,7 @@
             "closes": [
               0.8191925102398967
             ],
-            "last": 2.5160912814511383
+            "last": 2.4575775307197123
           },
           "signal": "hold (virtual stop -15.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -475,9 +476,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1.42h liq20544; rules_version=v6",
         "entry_buy_impact_pct": 1.95402,
-        "last_price_usd": 0.0001121,
-        "last_gross_pct": 22.2065,
-        "last_checked_at": "2026-11-24T15:39:44.089987+00:00",
+        "last_price_usd": 0.0001144,
+        "last_gross_pct": 24.7138,
+        "last_checked_at": "2026-11-24T15:41:14.082642+00:00",
         "rules_version": "v6",
         "override_reason": "",
         "entry_source": "scout_auto",
@@ -548,7 +549,7 @@
             "closes": [
               36.814564482721
             ],
-            "last": 22.20647552600021
+            "last": 24.713834078273187
           },
           "signal": "hold (virtual stop +18.9%, rem 0.67)",
           "params_status": "candidate_not_validated"
@@ -804,8 +805,8 @@
       },
       {
         "label": "now",
-        "value": 9.144175,
-        "t": "2026-11-24T16:39:49+01:00",
+        "value": 9.149034,
+        "t": "2026-11-24T16:41:14+01:00",
         "kind": "now"
       }
     ],
@@ -1871,6 +1872,69 @@
     ],
     "activity": [
       {
+        "time_vienna": "24 Nov 2026, 16:41",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.8%, Rings -21.9%, HOGE +10.2%, CBUCKS +6.2%, SIDOOR +8.6%, Singularity +2.5%, SCAMSEM +24.7% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 16:40",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.8%, Rings -21.9%, HOGE +10.2%, CBUCKS +6.2%, SIDOOR +8.6%, Singularity +2.5%, SCAMSEM +24.7% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 16:40",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.8%, Rings -21.9%, HOGE +10.2%, CBUCKS +6.2%, SIDOOR +8.6%, Singularity +2.5%, SCAMSEM +24.7% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 16:40",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.9%, Rings -21.9%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.3%, Singularity +2.5%, SCAMSEM +21.2% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 16:40",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.9%, Rings -21.9%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.3%, Singularity +2.5%, SCAMSEM +21.2% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 16:40",
+        "raw": "team | Entry Timer + Exit Manager helpers added in SHADOW mode (team/entry_timer.py, team/exit_manager.py, learning/exec_sim.py); journal columns entry_signal/entry_wait_result/exit_mgr_signal/exit_mgr_would_pnl/exit_mgr_actual_pnl; retrained in train_cycle; Tracks T/X in team/backtest_report.md; app agent cards. Real entries/exits unchanged (v6.1 + v5.2).",
+        "scanned": "\u2014",
+        "verdicts": "\u2014",
+        "entries": "\u2014",
+        "miss": "\u2014",
+        "kind": "scan"
+      },
+      {
+        "time_vienna": "24 Nov 2026, 16:39",
+        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.9%, Rings -21.9%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.3%, Singularity +2.5%, SCAMSEM +21.2% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
         "time_vienna": "24 Nov 2026, 16:39",
         "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.9%, Rings -21.9%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.1%, Singularity +2.5%, SCAMSEM +22.2% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
@@ -1891,69 +1955,6 @@
       {
         "time_vienna": "24 Nov 2026, 16:39",
         "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -17.9%, Rings -21.9%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.1%, Singularity +2.5%, SCAMSEM +22.2% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -18.7%, Rings -21.4%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.2%, Singularity +4.7%, SCAMSEM +20.6% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -18.7%, Rings -21.4%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.2%, Singularity +4.7%, SCAMSEM +20.6% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -18.7%, Rings -21.4%, HOGE +12.4%, CBUCKS +6.2%, SIDOOR +7.2%, Singularity +4.7%, SCAMSEM +20.6% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -16.3%, Rings -21.4%, HOGE +12.1%, CBUCKS +6.2%, SIDOOR +12.9%, Singularity +3.7%, SCAMSEM +36.8% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -16.3%, Rings -21.4%, HOGE +12.1%, CBUCKS +6.2%, SIDOOR +12.9%, Singularity +3.7%, SCAMSEM +36.8% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -16.3%, Rings -21.4%, HOGE +12.1%, CBUCKS +6.2%, SIDOOR +12.9%, Singularity +3.7%, SCAMSEM +36.8% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "24 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open CLAUDIA -18.3%, Rings -21.4%, HOGE +12.1%, CBUCKS +6.2%, SIDOOR +20.0%, Singularity +4.6%, SCAMSEM +39.9% | closest JIMMY 67.5 (overextended), CATE 61.7 (age) | copy bonus no | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
