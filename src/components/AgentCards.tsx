@@ -1,4 +1,4 @@
-import { Binoculars, Gauge, Newspaper, Radar, Shield } from 'lucide-react'
+import { Binoculars, Gauge, Newspaper, Radar, Shield, Waypoints } from 'lucide-react'
 import type { AgentView } from '../lib/normalize.ts'
 
 const ICONS = {
@@ -7,6 +7,7 @@ const ICONS = {
   risk: Shield,
   news: Newspaper,
   scout: Binoculars,
+  pattern: Waypoints,
 }
 
 export function AgentScroller({

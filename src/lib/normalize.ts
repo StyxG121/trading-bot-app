@@ -31,7 +31,7 @@ export type Miss = {
   reason: string | null
 }
 
-export type AgentId = 'scanner' | 'analyst' | 'risk' | 'news' | 'scout'
+export type AgentId = 'scanner' | 'analyst' | 'risk' | 'news' | 'scout' | 'pattern'
 
 export type LogLine = {
   time: string | null
@@ -207,6 +207,7 @@ const AGENT_ORDER: { id: AgentId; name: string }[] = [
   { id: 'risk', name: 'Risk Manager' },
   { id: 'news', name: 'News' },
   { id: 'scout', name: 'Scout' },
+  { id: 'pattern', name: 'Pattern Checker' },
 ]
 
 type Clock = { year: number | null; offset: string }
@@ -743,6 +744,7 @@ function buildAgents(
   activity: Activity[],
   trades: Trade[],
   openCount: number | null,
+  patternLine: string | null = null,
 ): { agents: AgentView[]; lastScanLabel: string | null } {
   const sorted = [...activity].sort((a, b) => (b.at ?? 0) - (a.at ?? 0))
   const latestScan = sorted.find((row) => row.kind === 'scan' || row.kind == null)
@@ -812,6 +814,9 @@ function buildAgents(
     }
     if (agent.id === 'risk') {
       return { ...base, line: openCount != null ? `${openCount} open` : null }
+    }
+    if (agent.id === 'pattern') {
+      return { ...base, line: patternLine }
     }
     return base
   })
@@ -889,7 +894,7 @@ function buildBook(raw: Record<string, unknown> | null, clock: Clock): BookView 
   const openCount = num(raw.open_count)
   const trading = equity.length > 0 || trades.length > 0 || activity.length > 0 || opens.some((item) => obj(item))
   const anyNumber = [balance, start, gross, net, wins, losses, num(raw.days_left)].some((value) => value != null)
-  const { agents, lastScanLabel } = buildAgents(activity, trades, openCount)
+  const { agents, lastScanLabel } = buildAgents(activity, trades, openCount, str(raw.pattern_checker_line) ?? str(raw.pattern_model_status))
   const closedTrades = toClosedTrades(trades)
   const closedStats = readClosedStats(raw.closed_stats, closedTrades)
   const openPositions = toOpenPositions(opens, clock)
