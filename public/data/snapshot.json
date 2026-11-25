@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "25 Nov 2026, 15:37",
-  "as_of_iso": "2026-11-25T15:37:58+01:00",
+  "as_of_vienna": "25 Nov 2026, 15:38",
+  "as_of_iso": "2026-11-25T15:38:22+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -45,7 +45,7 @@
         "entry_buy_impact_pct": 2.478387,
         "last_price_usd": 7.476e-05,
         "last_gross_pct": -2.9217,
-        "last_checked_at": "2026-11-25T14:37:52.099804+00:00",
+        "last_checked_at": "2026-11-25T14:38:22.107222+00:00",
         "rules_version": "v6.4",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-23.5%), LIQ<20000, SCORE<50 (44.4); size 2%",
         "entry_source": "copy",
@@ -193,7 +193,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.0002614,
         "last_gross_pct": 9.053,
-        "last_checked_at": "2026-11-25T14:37:52.099804+00:00",
+        "last_checked_at": "2026-11-25T14:38:22.107222+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -323,7 +323,7 @@
         "entry_buy_impact_pct": 2.192108,
         "last_price_usd": 0.0002505,
         "last_gross_pct": 17.7715,
-        "last_checked_at": "2026-11-25T14:37:52.099804+00:00",
+        "last_checked_at": "2026-11-25T14:38:22.107222+00:00",
         "rules_version": "v6.4",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+656%), LOW_ORGANIC_VOL (2.7%), SCORE<50 (47.1); size 3%",
         "entry_source": "copy",
@@ -470,7 +470,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.000118,
         "last_gross_pct": 9.3605,
-        "last_checked_at": "2026-11-25T14:37:52.099804+00:00",
+        "last_checked_at": "2026-11-25T14:38:22.107222+00:00",
         "rules_version": "v6.4",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-19.6%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (45.2); size 3%",
         "entry_source": "copy",
@@ -603,13 +603,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
         },
-        "peak_gross_pct": 0.0,
+        "peak_gross_pct": 0.8898,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 741.9h liq257126; rules_version=v6.4; volat1h 1.30%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004608,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-25T14:37:52.099804+00:00",
+        "last_price_usd": 0.004649,
+        "last_gross_pct": 0.8898,
+        "last_checked_at": "2026-11-25T14:38:22.107222+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -689,14 +689,14 @@
             "rem": 1.0,
             "realized": 0.0,
             "stop": -8.0,
-            "peak": 0.0,
+            "peak": 0.889756944444442,
             "tp0": false,
             "tp1": false,
             "closed": false,
             "reason": null,
             "legs": [],
             "closes": [],
-            "last": 0.0
+            "last": 0.889756944444442
           },
           "signal": "hold (virtual stop -8.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -735,7 +735,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.0009263,
         "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-25T14:37:52.099804+00:00",
+        "last_checked_at": "2026-11-25T14:38:22.107222+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -1540,8 +1540,8 @@
       },
       {
         "label": "now",
-        "value": 8.385369,
-        "t": "2026-11-25T15:37:58+01:00",
+        "value": 8.389247,
+        "t": "2026-11-25T15:38:22+01:00",
         "kind": "now"
       }
     ],
@@ -4531,6 +4531,24 @@
     ],
     "activity": [
       {
+        "time_vienna": "25 Nov 2026, 15:38",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter -2.9%, Christmax +9.1%, PERRO +17.8%, Mogmas +9.4%, mihao +0.9%, DCTY +0.0% | closest CATE 65.3 (age), FLOAT 61.6 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "25 Nov 2026, 15:38",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter -2.9%, Christmax +9.1%, PERRO +17.8%, Mogmas +9.4%, mihao +0.9%, DCTY +0.0% | closest CATE 65.3 (age), FLOAT 61.6 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
         "time_vienna": "25 Nov 2026, 15:37",
         "raw": "monitor | entries 0 | exits 0 | open Jupiter -2.9%, Christmax +9.1%, PERRO +17.8%, Mogmas +9.4%, mihao +0.0%, DCTY +0.0% | closest CATE 65.3 (age), FLOAT 61.6 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
@@ -4596,24 +4614,6 @@
       {
         "time_vienna": "25 Nov 2026, 15:36",
         "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.0%, Christmax +2.6%, PERRO +21.3%, Mogmas +9.0% | closest BASKET 66.7 (overextended), 4CHAN 59.9 (overextended,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "25 Nov 2026, 15:36",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.0%, Christmax +2.6%, PERRO +21.3%, Mogmas +9.0% | closest BASKET 66.7 (overextended), 4CHAN 59.9 (overextended,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "25 Nov 2026, 15:35",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter -1.1%, Christmax +0.6%, PERRO +16.8%, Mogmas +11.6% | closest BASKET 66.7 (overextended), 4CHAN 59.9 (overextended,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
