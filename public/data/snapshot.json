@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "25 Nov 2026, 10:32",
-  "as_of_iso": "2026-11-25T10:32:52+01:00",
+  "as_of_vienna": "25 Nov 2026, 10:35",
+  "as_of_iso": "2026-11-25T10:35:29+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.0007266,
-        "last_gross_pct": 25.2759,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.0007071,
+        "last_gross_pct": 21.9138,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v5",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -182,9 +182,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 655.93h liq284145; rules_version=v6.3-copy; volat1h 2.03%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.002931,
-        "last_gross_pct": 4.9785,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.002903,
+        "last_gross_pct": 3.9756,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "",
         "entry_source": "scan",
@@ -259,7 +259,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T06:09:55.318475+00:00",
-          "bucket": 40,
+          "bucket": 41,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -301,9 +301,10 @@
               2.5071633237822244,
               3.617478510028649,
               2.005730659025784,
-              5.121776504297992
+              5.121776504297992,
+              3.9756446991404015
             ],
-            "last": 4.978510028653282
+            "last": 3.9756446991404015
           },
           "signal": "hold (virtual stop -12.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -340,9 +341,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 131.38h liq171338; rules_version=v6.4; volat1h 2.15%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.002836,
-        "last_gross_pct": 9.245,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.002818,
+        "last_gross_pct": 8.5516,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -417,7 +418,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T08:12:22.835774+00:00",
-          "bucket": 15,
+          "bucket": 16,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -442,9 +443,10 @@
               13.636363636363647,
               14.291217257318966,
               9.630200308166415,
-              7.588597842835143
+              7.588597842835143,
+              7.935285053929131
             ],
-            "last": 9.244992295839772
+            "last": 8.551617873651796
           },
           "signal": "hold (virtual stop +4.5%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -481,9 +483,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 735.55h liq263601; rules_version=v6.4; volat1h 1.18%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004835,
-        "last_gross_pct": 1.299,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.004886,
+        "last_gross_pct": 2.3675,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -558,7 +560,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T08:12:22.835774+00:00",
-          "bucket": 15,
+          "bucket": 16,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -583,9 +585,10 @@
               1.3827781269641681,
               1.5084852294154683,
               0.8380473496752305,
+              1.2989733919966273,
               1.2989733919966273
             ],
-            "last": 1.2989733919966273
+            "last": 2.3674837628325784
           },
           "signal": "hold (virtual stop -12.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -622,9 +625,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 35.45h liq89611; rules_version=v6.4; volat1h 2.90%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001198,
-        "last_gross_pct": 3.9029,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.001194,
+        "last_gross_pct": 3.5559,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scout_auto",
@@ -760,13 +763,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
         },
-        "peak_gross_pct": 1.9095,
+        "peak_gross_pct": 2.9477,
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1190.62h liq261031; rules_version=v6.4; volat1h 0.97%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005413,
-        "last_gross_pct": 0.3522,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.005553,
+        "last_gross_pct": 2.9477,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -841,12 +844,12 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T09:05:26.900918+00:00",
-          "bucket": 5,
+          "bucket": 6,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
             "stop": -12.0,
-            "peak": 1.9095291064145314,
+            "peak": 2.947719688542816,
             "tp0": false,
             "tp1": false,
             "closed": false,
@@ -855,9 +858,10 @@
             "closes": [
               1.5943641082684312,
               0.16685205784203738,
-              0.3522432332220937
+              0.3522432332220937,
+              2.947719688542816
             ],
-            "last": 0.3522432332220937
+            "last": 2.947719688542816
           },
           "signal": "hold (virtual stop -12.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -894,9 +898,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 2.27h liq27487; copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+364%), DUMPING_1H (-40.9%), LOW_ORGANIC_VOL (2.3%), SCORE<50 (38.5); size 3%; rules_version=v6.4; volat1h 12.48%",
         "entry_buy_impact_pct": 2.65158,
-        "last_price_usd": 0.0001456,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-25T09:30:43.179559+00:00",
+        "last_price_usd": 0.0001413,
+        "last_gross_pct": -2.9533,
+        "last_checked_at": "2026-11-25T09:35:29.185086+00:00",
         "rules_version": "v6.4",
         "override_reason": "copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+364%), DUMPING_1H (-40.9%), LOW_ORGANIC_VOL (2.3%), SCORE<50 (38.5); size 3%",
         "entry_source": "copy",
@@ -993,9 +997,9 @@
             "reason": null,
             "legs": [],
             "closes": [],
-            "last": 0.0
+            "last": -2.953296703296704
           },
-          "signal": "hold",
+          "signal": "hold (virtual stop -12.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
         }
       }
@@ -1571,8 +1575,8 @@
       },
       {
         "label": "now",
-        "value": 8.268857,
-        "t": "2026-11-25T10:32:52+01:00",
+        "value": 8.262262,
+        "t": "2026-11-25T10:35:29+01:00",
         "kind": "now"
       }
     ],
@@ -3982,17 +3986,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "25 Nov 2026, 10:30",
-        "raw": "scanned 35 | PASS 1 WARN 16 FAIL 18 | entries 1 (JaoJiu 38.5 COPY) | exits 0 | open HOGE +25.3%, FLOAT +5.0%, FIONA +9.2%, mihao +1.3%, JIMMY +3.9%, CBUCKS +0.4%, JaoJiu +0.0% | copy bonus no | copy entries 1 | AI monitor paused; exit loop alive",
-        "scanned": "35",
-        "verdicts": "1 / 16 / 18",
-        "entries": "JaoJiu 38.5 COPY",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "25 Nov 2026, 10:32",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.7%, FLOAT +5.0%, FIONA +7.6%, mihao +1.3%, JIMMY +3.7%, CBUCKS +0.4% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:35",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +21.9%, FLOAT +4.0%, FIONA +8.6%, mihao +2.4%, JIMMY +3.6%, CBUCKS +2.9%, JaoJiu -3.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4000,8 +3995,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:32",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.7%, FLOAT +5.0%, FIONA +7.6%, mihao +1.3%, JIMMY +3.7%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:35",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +21.9%, FLOAT +4.0%, FIONA +8.6%, mihao +2.4%, JIMMY +3.6%, CBUCKS +2.9%, JaoJiu -3.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4009,8 +4004,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:32",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.7%, FLOAT +5.0%, FIONA +7.6%, mihao +1.3%, JIMMY +3.7%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:34",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.2%, FLOAT +4.0%, FIONA +8.0%, mihao +1.3%, JIMMY +6.5%, CBUCKS +2.4%, JaoJiu -5.2% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4018,8 +4013,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:31",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +23.0%, FLOAT +5.0%, FIONA +8.3%, mihao +0.5%, JIMMY +5.1%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:34",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.2%, FLOAT +4.0%, FIONA +8.0%, mihao +1.3%, JIMMY +6.5%, CBUCKS +2.4%, JaoJiu -5.2% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4027,8 +4022,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:31",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +23.0%, FLOAT +5.0%, FIONA +8.3%, mihao +0.5%, JIMMY +5.1%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:34",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.2%, FLOAT +4.0%, FIONA +8.0%, mihao +1.3%, JIMMY +6.5%, CBUCKS +2.4%, JaoJiu -5.2% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4036,8 +4031,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:31",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +23.0%, FLOAT +5.0%, FIONA +8.3%, mihao +0.5%, JIMMY +5.1%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:34",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.4%, FLOAT +4.0%, FIONA +6.4%, mihao +1.1%, JIMMY +4.9%, CBUCKS +1.9%, JaoJiu -1.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4045,8 +4040,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:31",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +25.6%, FLOAT +5.1%, FIONA +9.6%, mihao +0.8%, JIMMY +7.6%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:33",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.4%, FLOAT +4.0%, FIONA +6.4%, mihao +1.1%, JIMMY +4.9%, CBUCKS +1.9%, JaoJiu -1.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4054,8 +4049,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:30",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +25.6%, FLOAT +5.1%, FIONA +9.6%, mihao +0.8%, JIMMY +7.6%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:33",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.4%, FLOAT +4.0%, FIONA +6.4%, mihao +1.1%, JIMMY +4.9%, CBUCKS +1.9%, JaoJiu -1.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4063,8 +4058,17 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 10:30",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +25.6%, FLOAT +5.1%, FIONA +9.6%, mihao +0.8%, JIMMY +7.6%, CBUCKS +0.4% | closest FLOAT 70.5 (BSR), BP 65 (safety,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 10:33",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.4%, FLOAT +5.0%, FIONA +7.9%, mihao +1.3%, JIMMY +3.0%, CBUCKS +1.9%, JaoJiu -1.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "25 Nov 2026, 10:33",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +22.4%, FLOAT +5.0%, FIONA +7.9%, mihao +1.3%, JIMMY +3.0%, CBUCKS +1.9%, JaoJiu -1.0% | closest FLOAT 70.7 (BSR), CATE 64.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
