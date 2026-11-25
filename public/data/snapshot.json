@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "25 Nov 2026, 01:04",
-  "as_of_iso": "2026-11-25T01:04:21+01:00",
+  "as_of_vienna": "25 Nov 2026, 01:10",
+  "as_of_iso": "2026-11-25T01:10:04+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.000734,
-        "last_gross_pct": 26.5517,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 0.0007237,
+        "last_gross_pct": 24.7759,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v5",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -54,7 +54,7 @@
           "trail_eff": 15.0,
           "late_init": true,
           "init_at": "2026-11-24T15:34:59.106791+00:00",
-          "bucket": 341,
+          "bucket": 342,
           "state": {
             "rem": 0.1699982390087733,
             "realized": 31.202068965517235,
@@ -73,7 +73,6 @@
               }
             ],
             "closes": [
-              25.93103448275862,
               24.086206896551722,
               29.551724137931036,
               30.41379310344827,
@@ -136,9 +135,10 @@
               29.568965517241374,
               28.41379310344827,
               27.706896551724135,
-              24.879310344827577
+              24.879310344827577,
+              26.655172413793093
             ],
-            "last": 26.551724137931032
+            "last": 24.775862068965516
           },
           "signal": "hold (virtual stop +12.4%, rem 0.17)",
           "params_status": "candidate_not_validated"
@@ -171,13 +171,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
         },
-        "peak_gross_pct": 46.533,
+        "peak_gross_pct": 46.9122,
         "verdict": "PASS",
         "entry_reason": "PASS admitted by v5.1 override; age 338.42h liq129252; bent: 1h volume $4,304 (standard $5,000, floor $3,000). compensated by: score 70.1 (>= 65); buy pressure BSR 1.59 (>= 1.05). 3% size; rules_version=v6.3-copy; volat1h 0.90%",
         "entry_buy_impact_pct": 1.481486,
-        "last_price_usd": 0.0027,
-        "last_gross_pct": 46.2622,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 0.002709,
+        "last_gross_pct": 46.7497,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "bent: 1h volume $4,304 (standard $5,000, floor $3,000). compensated by: score 70.1 (>= 65); buy pressure BSR 1.59 (>= 1.05). 3% size",
         "entry_source": "scan",
@@ -252,12 +252,12 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-24T21:31:04.424549+00:00",
-          "bucket": 30,
+          "bucket": 31,
           "state": {
             "rem": 0.16999999999999993,
             "realized": 30.5184182015168,
-            "stop": 31.879739978331536,
-            "peak": 46.53304442036836,
+            "stop": 32.22101841820153,
+            "peak": 46.91224268689058,
             "tp0": true,
             "tp1": true,
             "closed": false,
@@ -298,11 +298,12 @@
               33.044420368364015,
               32.93607800650054,
               32.8819068255688,
-              45.341278439869996
+              45.341278439869996,
+              44.853737811484294
             ],
-            "last": 46.262188515709646
+            "last": 46.74972914409534
           },
-          "signal": "hold (virtual stop +31.9%, rem 0.17)",
+          "signal": "hold (virtual stop +32.2%, rem 0.17)",
           "params_status": "candidate_not_validated"
         },
         "tp0_done": true
@@ -338,9 +339,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 1171.82h liq416830; rules_version=v6.3-copy; volat1h 0.76%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.007996,
-        "last_gross_pct": -4.6961,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 0.00806,
+        "last_gross_pct": -3.9333,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "",
         "entry_source": "scan",
@@ -415,7 +416,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-24T21:31:04.424549+00:00",
-          "bucket": 30,
+          "bucket": 31,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -448,9 +449,10 @@
               -3.1942789034564822,
               -3.551847437425504,
               -4.421930870083434,
-              -4.6722288438617365
+              -4.6722288438617365,
+              -4.827175208581636
             ],
-            "last": -4.696066746126348
+            "last": -3.933253873659126
           },
           "signal": "hold (virtual stop -10.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -487,9 +489,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 102.36h liq24338; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-27.1%); size 3%; rules_version=v6.3-copy; volat1h 8.31%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 9.962e-05,
-        "last_gross_pct": 5.5408,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 9.791e-05,
+        "last_gross_pct": 3.7292,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-27.1%); size 3%",
         "entry_source": "copy",
@@ -573,17 +575,24 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-24T22:30:38.322958+00:00",
-          "bucket": 18,
+          "bucket": 19,
           "state": {
-            "rem": 1.0,
-            "realized": 0.0,
+            "rem": 0.0,
+            "realized": 4.714482466362968,
             "stop": 4.883991948299626,
             "peak": 16.537768831444023,
             "tp0": false,
             "tp1": false,
-            "closed": false,
-            "reason": null,
-            "legs": [],
+            "closed": true,
+            "reason": "TRAIL",
+            "legs": [
+              {
+                "kind": "TRAIL",
+                "frac": 1.0,
+                "gross_pct": 4.714,
+                "h": 1.624
+              }
+            ],
             "closes": [
               1.5149909948087847,
               0.5509058162941116,
@@ -595,12 +604,14 @@
               0.30723593601016397,
               16.537768831444023,
               11.982201504396661,
-              7.638521029770118
+              7.638521029770118,
+              5.456086449835795
             ],
-            "last": 5.540841190804113
+            "last": 5.456086449835795
           },
-          "signal": "hold (virtual stop +4.9%, rem 1.00)",
-          "params_status": "candidate_not_validated"
+          "signal": "would exit TRAIL +4.7% @ 1.6h",
+          "params_status": "candidate_not_validated",
+          "closed_at": "2026-11-25T00:08:03.799117+00:00"
         }
       },
       {
@@ -630,13 +641,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
         },
-        "peak_gross_pct": 1.3524,
+        "peak_gross_pct": 2.5545,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 860.63h liq173317; rules_version=v6.3-copy; volat1h 1.56%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001342,
-        "last_gross_pct": 0.8264,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 0.001349,
+        "last_gross_pct": 1.3524,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "",
         "entry_source": "scan",
@@ -711,12 +722,12 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-24T23:40:03.124116+00:00",
-          "bucket": 4,
+          "bucket": 6,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
             "stop": -10.0,
-            "peak": 1.3523666416228375,
+            "peak": 2.554470323065372,
             "tp0": false,
             "tp1": false,
             "closed": false,
@@ -725,9 +736,11 @@
             "closes": [
               0.07513148009017367,
               -0.15026296018030294,
-              0.6761833208114298
+              0.6761833208114298,
+              0.826446280991755,
+              1.3523666416228375
             ],
-            "last": 0.826446280991755
+            "last": 1.3523666416228375
           },
           "signal": "hold (virtual stop -10.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -760,13 +773,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
         },
-        "peak_gross_pct": 0.0,
+        "peak_gross_pct": 1.5964,
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1181.56h liq243056; rules_version=v6.3-copy; volat1h 1.96%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004698,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 0.004773,
+        "last_gross_pct": 1.5964,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "",
         "entry_source": "scan",
@@ -841,21 +854,23 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T00:02:02.559422+00:00",
-          "bucket": 0,
+          "bucket": 1,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
             "stop": -10.0,
-            "peak": 0.0,
+            "peak": 1.5964240102171123,
             "tp0": false,
             "tp1": false,
             "closed": false,
             "reason": null,
             "legs": [],
-            "closes": [],
-            "last": 0.0
+            "closes": [
+              1.5964240102171123
+            ],
+            "last": 1.5964240102171123
           },
-          "signal": "hold",
+          "signal": "hold (virtual stop -10.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
         }
       },
@@ -890,9 +905,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 6.56h liq22418; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (1.9%); size 3%; rules_version=v6.3-copy; volat1h 4.68%",
         "entry_buy_impact_pct": 2.434708,
-        "last_price_usd": 9.773e-05,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 9.297e-05,
+        "last_gross_pct": -4.8706,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (1.9%); size 3%",
         "entry_source": "copy",
@@ -976,7 +991,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T00:02:02.559422+00:00",
-          "bucket": 0,
+          "bucket": 1,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -987,10 +1002,12 @@
             "closed": false,
             "reason": null,
             "legs": [],
-            "closes": [],
-            "last": 0.0
+            "closes": [
+              -2.619461782461885
+            ],
+            "last": -4.870561751765068
           },
-          "signal": "hold",
+          "signal": "hold (virtual stop -10.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
         }
       },
@@ -1021,13 +1038,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
         },
-        "peak_gross_pct": 0.0,
+        "peak_gross_pct": 6.9438,
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 43.41h liq21105; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+435%), SCORE<50 (49.0); size 3%; rules_version=v6.3-copy; volat1h 6.91%",
         "entry_buy_impact_pct": 2.500358,
-        "last_price_usd": 9.26e-05,
-        "last_gross_pct": 0.0,
-        "last_checked_at": "2026-11-25T00:02:02.559422+00:00",
+        "last_price_usd": 9.297e-05,
+        "last_gross_pct": 0.3996,
+        "last_checked_at": "2026-11-25T00:10:03.805410+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+435%), SCORE<50 (49.0); size 3%",
         "entry_source": "copy",
@@ -1111,21 +1128,23 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T00:02:02.559422+00:00",
-          "bucket": 0,
+          "bucket": 1,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
             "stop": -10.0,
-            "peak": 0.0,
+            "peak": 6.9438444924406095,
             "tp0": false,
             "tp1": false,
             "closed": false,
             "reason": null,
             "legs": [],
-            "closes": [],
-            "last": 0.0
+            "closes": [
+              -5.237580993520519
+            ],
+            "last": 0.39956803455722945
           },
-          "signal": "hold",
+          "signal": "hold (virtual stop -10.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
         }
       }
@@ -1526,8 +1545,8 @@
       },
       {
         "label": "now",
-        "value": 8.677724,
-        "t": "2026-11-25T01:04:21+01:00",
+        "value": 8.671982,
+        "t": "2026-11-25T01:10:04+01:00",
         "kind": "now"
       }
     ],
@@ -3212,17 +3231,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "25 Nov 2026, 01:02",
-        "raw": "scanned 35 | PASS 1 WARN 9 FAIL 25 | entries 3 (CBUCKS 68.3, CHRISTMAS 52.3 COPY, P 49.0 COPY) | exits 0 | open HOGE +26.6%, Rings +46.3%, CLAUDIA -4.7%, HUSS +5.5%, DCTY +0.8%, CBUCKS +0.0%, CHRISTMAS +0.0%, P +0.0% | mihao 62.8 qualified but blocked: exited by exit 1.9h ago (<2h re-entry block) | copy bonus no | copy entries 2 | AI monitor paused; exit loop alive",
-        "scanned": "35",
-        "verdicts": "1 / 9 / 25",
-        "entries": "CBUCKS 68.3, CHRISTMAS 52.3 COPY, P 49.0 COPY",
-        "miss": "\u2014",
-        "kind": "scan"
-      },
-      {
-        "time_vienna": "25 Nov 2026, 01:04",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +25.0%, Rings +46.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.8% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:10",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.7%, CLAUDIA -3.9%, HUSS +3.7%, DCTY +1.4%, CBUCKS +1.6%, CHRISTMAS -4.9%, P +0.4% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3230,8 +3240,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:03",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +25.0%, Rings +46.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.8% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:09",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.7%, CLAUDIA -3.9%, HUSS +3.7%, DCTY +1.4%, CBUCKS +1.6%, CHRISTMAS -4.9%, P +0.4% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3239,8 +3249,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:03",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +25.0%, Rings +46.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.8% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:09",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.7%, CLAUDIA -3.9%, HUSS +3.7%, DCTY +1.4%, CBUCKS +1.6%, CHRISTMAS -4.9%, P +0.4% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3248,8 +3258,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:03",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +26.6%, Rings +46.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.8% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:09",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.5%, CLAUDIA -3.3%, HUSS +3.9%, DCTY +2.6%, CBUCKS +1.6%, CHRISTMAS -2.2%, P +6.9% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3257,8 +3267,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:03",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +26.6%, Rings +46.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.8% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:09",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.5%, CLAUDIA -3.3%, HUSS +3.9%, DCTY +2.6%, CBUCKS +1.6%, CHRISTMAS -2.2%, P +6.9% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3266,8 +3276,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:02",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +26.6%, Rings +46.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.8% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:08",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.5%, CLAUDIA -3.3%, HUSS +3.9%, DCTY +2.6%, CBUCKS +1.6%, CHRISTMAS -2.2%, P +6.9% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3275,8 +3285,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:02",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.9%, Rings +46.5%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.7% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:08",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.6%, CLAUDIA -3.3%, HUSS +4.7%, DCTY +2.3%, CBUCKS +1.6%, CHRISTMAS -3.4%, P +5.2% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3284,8 +3294,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:02",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.9%, Rings +46.5%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.7% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:08",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.6%, CLAUDIA -3.3%, HUSS +4.7%, DCTY +2.3%, CBUCKS +1.6%, CHRISTMAS -3.4%, P +5.2% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3293,11 +3303,20 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 01:02",
-        "raw": "monitor | entries 0 | exits 2 (FIONA FADE -4.54%, Rings TP1 +45.34%) | open HOGE +24.9%, Rings +45.3%, CLAUDIA -4.7%, HUSS +7.6%, DCTY +0.7% | closest CATE 69.3 (age), USELESS 58.8 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 01:08",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +24.8%, Rings +46.6%, CLAUDIA -3.3%, HUSS +4.7%, DCTY +2.3%, CBUCKS +1.6%, CHRISTMAS -3.4%, P +5.2% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
-        "entries": "0; out FIONA SL",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "25 Nov 2026, 01:07",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +28.5%, Rings +46.9%, CLAUDIA -3.9%, HUSS +5.5%, DCTY +1.8%, CBUCKS +1.6%, CHRISTMAS -2.4%, P -2.3% | closest CATE 65.3 (age), CARDS 62.7 (safety,age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
         "miss": "\u2014",
         "kind": "monitor"
       }
