@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "25 Nov 2026, 08:10",
-  "as_of_iso": "2026-11-25T08:10:04+01:00",
+  "as_of_vienna": "25 Nov 2026, 08:15",
+  "as_of_iso": "2026-11-25T08:15:34+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -28,9 +28,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 204.7h liq96008; rules_version=v5",
         "entry_buy_impact_pct": 1.998741,
-        "last_price_usd": 0.0006577,
-        "last_gross_pct": 13.3966,
-        "last_checked_at": "2026-11-25T07:10:04.039777+00:00",
+        "last_price_usd": 0.0006562,
+        "last_gross_pct": 13.1379,
+        "last_checked_at": "2026-11-25T07:15:19.045064+00:00",
         "rules_version": "v5",
         "exit_mgr": {
           "policy": "fade_2h_0",
@@ -182,9 +182,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 47.02h liq27122; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+725%), DUMPING_1H (-23.5%), SCORE<50 (41.2); size 3%; rules_version=v6.3-copy; volat1h 4.56%",
         "entry_buy_impact_pct": 2.205739,
-        "last_price_usd": 0.0001745,
-        "last_gross_pct": 16.4109,
-        "last_checked_at": "2026-11-25T07:10:04.039777+00:00",
+        "last_price_usd": 0.000171,
+        "last_gross_pct": 14.0761,
+        "last_checked_at": "2026-11-25T07:15:19.045064+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+725%), DUMPING_1H (-23.5%), SCORE<50 (41.2); size 3%",
         "entry_source": "copy",
@@ -328,13 +328,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/analysis_latest.json 23 Nov 21:45: 174 spaced v5-like entries on 241 coins; test (newer 35%, n=61) exp -8.5%/trade vs -14.6% current, max DD 14.6% vs 24.6%; train +1.4% vs -5.9%; better in both halves and on dense (n=154) and snapshot-only (n=25) checks"
         },
-        "peak_gross_pct": 4.4316,
+        "peak_gross_pct": 13.7765,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 865.62h liq153157; rules_version=v6.3-copy; volat1h 1.17%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.001036,
-        "last_gross_pct": -0.1927,
-        "last_checked_at": "2026-11-25T07:10:04.039777+00:00",
+        "last_price_usd": 0.00117,
+        "last_gross_pct": 12.7168,
+        "last_checked_at": "2026-11-25T07:15:19.045064+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "",
         "entry_source": "scan",
@@ -409,12 +409,12 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T04:38:53.547538+00:00",
-          "bucket": 30,
+          "bucket": 31,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
-            "stop": -12.0,
-            "peak": 4.431599229287064,
+            "stop": 2.39884393063583,
+            "peak": 13.776493256262023,
             "tp0": false,
             "tp1": false,
             "closed": false,
@@ -442,11 +442,12 @@
               -2.7938342967244845,
               -2.9865125240847723,
               -2.9865125240847723,
-              -0.19267822736031004
+              -0.19267822736031004,
+              10.500963391136796
             ],
-            "last": -0.19267822736031004
+            "last": 12.71676300578035
           },
-          "signal": "hold (virtual stop -12.0%, rem 1.00)",
+          "signal": "hold (virtual stop +2.4%, rem 1.00)",
           "params_status": "candidate_not_validated"
         }
       },
@@ -483,7 +484,7 @@
         "entry_buy_impact_pct": 1.0,
         "last_price_usd": 0.002776,
         "last_gross_pct": -0.5731,
-        "last_checked_at": "2026-11-25T07:10:04.039777+00:00",
+        "last_checked_at": "2026-11-25T07:15:19.045064+00:00",
         "rules_version": "v6.3-copy",
         "override_reason": "",
         "entry_source": "scan",
@@ -558,7 +559,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T06:09:55.318475+00:00",
-          "bucket": 12,
+          "bucket": 13,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -580,6 +581,7 @@
               -0.9312320916905592,
               0.3939828080229191,
               -0.6446991404011504,
+              -0.5730659025788065,
               -0.5730659025788065
             ],
             "last": -0.5730659025788065
@@ -1139,8 +1141,8 @@
       },
       {
         "label": "now",
-        "value": 8.274301,
-        "t": "2026-11-25T08:10:04+01:00",
+        "value": 8.318481,
+        "t": "2026-11-25T08:15:34+01:00",
         "kind": "now"
       }
     ],
@@ -3463,8 +3465,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "25 Nov 2026, 08:10",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.4%, P +16.4%, DCTY -0.2%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:15",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +14.1%, DCTY +12.7%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3472,8 +3474,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:09",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.4%, P +16.4%, DCTY -0.2%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:15",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +14.1%, DCTY +12.7%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3481,8 +3483,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:09",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.4%, P +15.3%, DCTY -0.2%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:14",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +14.1%, DCTY +12.7%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3490,8 +3492,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:09",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.4%, P +15.3%, DCTY -0.2%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:14",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +10.5%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3499,8 +3501,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:09",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.4%, P +15.3%, DCTY -0.2%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:14",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +10.5%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3508,8 +3510,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:08",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +15.2%, P +14.2%, DCTY +0.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:14",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +10.5%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3517,8 +3519,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:08",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +15.2%, P +14.2%, DCTY +0.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:13",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +11.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3526,8 +3528,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:08",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +15.2%, P +14.2%, DCTY +0.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:13",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +11.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3535,8 +3537,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:08",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +15.2%, P +21.3%, DCTY +0.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:13",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +13.8%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3544,8 +3546,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 08:07",
-        "raw": "monitor | entries 0 | exits 0 | open HOGE +15.2%, P +21.3%, DCTY +0.0%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 08:13",
+        "raw": "monitor | entries 0 | exits 0 | open HOGE +13.1%, P +16.5%, DCTY +13.8%, FLOAT -0.6% | closest VINE 72.7 (bsr,margin), FIONA 70.1 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -3553,8 +3555,8 @@
         "kind": "monitor"
       }
     ],
-    "rules_version": "v6.3-copy",
-    "rules_date": "24 Nov 2026",
+    "rules_version": "v6.4",
+    "rules_date": "25 Nov 2026",
     "helpers_status": "Helpers: ON",
     "team": {
       "enabled": true,
@@ -3563,7 +3565,7 @@
       "scout": "watchlist merge + auto-approve qualified (entry_source=scout_auto); top-trader copy candidates auto paper-copied (entry_source=copy, v6.3-copy)",
       "pattern_checker": "shadow: scores every coin, logs pattern_check; never blocks or sizes",
       "entry_timer": "shadow: enter now / wait / skip logged per entry; real entry unchanged",
-      "exit_manager": "shadow: virtual dynamic exits vs v5.2 per position; real exits unchanged"
+      "exit_manager": "shadow: virtual dynamic exits vs live exits (v6.4 SL -8%) per position; already-open positions keep their baked stops"
     },
     "pattern_checker_line": "Shadow \u00b7 live pass 31 avg -6.4% vs fail 5 avg -16.3%",
     "entry_timer_line": "Shadow \u00b7 skip_offhigh1h_10 \u00b7 live 27 closed: would -3.4% vs real -7.9% \u00b7 3-month history test -7.7% vs -6.4% (n=49)",
@@ -3571,18 +3573,19 @@
     "key_rules": [
       "Liquidity \u2265 $20k and score \u2265 50",
       "3% per trade, max 12 positions, daily loss limit \u221220%",
-      "v5.2 exits (new trades): SL -15%, TP0 +20% sells a third, trailing stop 15% below the peak after +20%, TP1 +40% sells half + breakeven, TP2 +100%, cut after 4h if still below 0%, 48h time stop (older trades keep SL -25% / TP1 / TP2)",
+      "v6.4 exits (new trades): SL -8%, TP0 +20% sells a third, trailing stop 15% below the peak after +20%, TP1 +40% sells half + breakeven, TP2 +100%, cut after 4h if still below 0%, 48h time stop (open v5.2 positions keep their baked stop, typically \u221215%; pre-v5.2 keep SL -25% / TP1 / TP2)",
       "Pool age 1\u20131440h; socials required if the token is under 7 days old",
       "24h volume \u2265 $50,000, 1h volume \u2265 $5,000, 1h buy/sell ratio 0.85\u20134",
       "Organic and copycat filters auto-FAIL; mint/freeze/honeypot/RugCheck danger still hard-FAIL",
-      "Re-entry cooldown 2h after a full exit (paper, rules v6.3-copy)",
+      "Re-entry cooldown 2h after a full exit (paper, rules v6.4)",
       "v5.1 override: at most 2 soft gates may miss within margin (liq \u2265 $15,000, vol24 \u2265 $35,000, vol1h \u2265 $3,000, age 0.75\u20131584h, BSR 0.75\u20134.5, score \u2265 45) if score \u2265 65 (or \u2265 60 plus a quality top-trader/copy signal still held). PASS required when liquidity is bent; size 2% then. Hard safety and the $15k floor never bend.",
       "v6 Helpers: Risk Manager up-only sizer (base 3% / 2% liq-bent floor, scales up to 6% on strong checks), News Checker advisory (+confirmed-rug RSS veto), Scout watchlist + auto-approve if v5/v5.1 qualified (entry_source=scout_auto)",
-      "Shadow helpers (log only, never change trades): Entry Timer (enter now / wait / skip) and Exit Manager (dynamic stops, partial TPs, trailing, time and momentum cuts vs the v5.2 exits)",
+      "Shadow helpers (log only, never change trades): Entry Timer (enter now / wait / skip) and Exit Manager (dynamic stops, partial TPs, trailing, time and momentum cuts vs the live exits, v6.4 SL \u22128%)",
       "v6.3-copy: a copyable top-trader buy or 2+ watched wallets buying (still holding, < 6h) is paper-copied automatically (entry_source=copy) if hard safety passes and liquidity \u2265 $15k; size 3% (2% under $20k liquidity) plus the Risk Manager tiers; v5 soft gates are bypassed for copies",
       "v6.1 volatility gate: skip a qualified coin if its last-hour 5m-bar volatility is \u2265 3% (fail-open if it can't be measured)"
     ],
     "lessons": [
+      "25 Nov ~08:14: v6.4 tightens the hard stop for NEW trades to -8% (was -15%). Open positions keep their baked stops. TP0 +20% sells a third, 15% trail after +20%, TP1, fade and 48h time stop are unchanged. User chose -8% after the sl_sweep: 75% of paper trades that touched -10% hit the -15% SL; backfill SL -8% +0.73%/trade vs -1.98% (4/4 blocks).",
       "24 Nov ~15:35: v6 integrates the three helpers into the paper scanner (Risk Manager up-only conviction sizer: 3% base / 2% liq-bent floor, scales up to 6% cap on strong checks, old vol-shrink logged as would_shrink; News Checker advisory + confirmed rug/scam RSS veto; Scout watchlist + auto-approve qualified picks tagged entry_source=scout_auto, unqualified stay pending_authorization). Also fixed toptraders --refresh-light stall/wipe bug so Lynk & all 65 wallets rotate cleanly.",
       "23 Nov ~22:00: v5.2 changes exits only (entries unchanged). Self-learning on 174 v5-like entries / 241 coins: SL -15, TP0 +20 sells a third, 15% trailing stop after +20, fade cut after 4h below 0. Out-of-sample: -8.5%/trade vs -14.6% with the old exits, drawdown 14.6% vs 24.6%. Older trades keep their v5.1 exits.",
       "23 Nov 20:50: v5.1 adds a strong-signal override. Up to two soft gates may miss within a tight margin if score is 65+ (or 60+ with a quality top-trader/copy buy still held). Hard safety and the $15k liquidity floor never bend. Override fills are tagged v5.1 with override_reason; standard fills stay v5. Size is 2% when liquidity is the bent gate.",
