@@ -1,16 +1,16 @@
 {
-  "as_of_vienna": "25 Nov 2026, 16:38",
-  "as_of_iso": "2026-11-25T16:38:33+01:00",
+  "as_of_vienna": "25 Nov 2026, 17:08",
+  "as_of_iso": "2026-11-25T17:08:34+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
-    "bankroll_sol": 8.334082,
-    "gross_pnl_sol": -1.021349,
-    "net_pnl_sol": -1.665918,
-    "wins": 21,
-    "losses": 53,
-    "win_rate_pct": 28.37837837837838,
-    "open_count": 8,
+    "bankroll_sol": 8.323192,
+    "gross_pnl_sol": -1.011125,
+    "net_pnl_sol": -1.676808,
+    "wins": 22,
+    "losses": 55,
+    "win_rate_pct": 28.57142857142857,
+    "open_count": 5,
     "open": [
       {
         "token": "Jupiter",
@@ -43,9 +43,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 71.16h liq18516; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-23.5%), LIQ<20000, SCORE<50 (44.4); size 2%; rules_version=v6.4; volat1h 3.64%",
         "entry_buy_impact_pct": 2.478387,
-        "last_price_usd": 8.287e-05,
-        "last_gross_pct": 7.6094,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
+        "last_price_usd": 7.783e-05,
+        "last_gross_pct": 1.0648,
+        "last_checked_at": "2026-11-25T16:08:34.103299+00:00",
         "rules_version": "v6.4",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-23.5%), LIQ<20000, SCORE<50 (44.4); size 2%",
         "entry_source": "copy",
@@ -129,17 +129,24 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T13:36:25.164824+00:00",
-          "bucket": 24,
+          "bucket": 29,
           "state": {
-            "rem": 1.0,
-            "realized": 0.0,
+            "rem": 0.0,
+            "realized": 0.8570315543435791,
             "stop": 0.9738994935722722,
             "peak": 12.193221659524745,
             "tp0": false,
             "tp1": false,
-            "closed": false,
-            "reason": null,
-            "legs": [],
+            "closed": true,
+            "reason": "TRAIL",
+            "legs": [
+              {
+                "kind": "TRAIL",
+                "frac": 1.0,
+                "gross_pct": 0.857,
+                "h": 2.429
+              }
+            ],
             "closes": [
               0.0,
               4.700688222308802,
@@ -163,12 +170,16 @@
               1.2595766783534579,
               -1.4803272302298276,
               1.4673419036488777,
-              7.5444747435398085
+              7.5444747435398085,
+              5.310998571614078,
+              7.648357356187518,
+              2.0257109466303103
             ],
-            "last": 7.609401376444613
+            "last": 1.8698870276587565
           },
-          "signal": "hold (virtual stop +1.0%, rem 1.00)",
-          "params_status": "candidate_not_validated"
+          "signal": "would exit TRAIL +0.9% @ 2.4h",
+          "params_status": "candidate_not_validated",
+          "closed_at": "2026-11-25T16:02:08.643336+00:00"
         }
       },
       {
@@ -202,9 +213,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 303.63h liq34828; rules_version=v6.4; volat1h 1.96%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.0002644,
-        "last_gross_pct": 10.3045,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
+        "last_price_usd": 0.0002661,
+        "last_gross_pct": 11.0138,
+        "last_checked_at": "2026-11-25T16:08:34.103299+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -279,7 +290,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T14:05:10.369017+00:00",
-          "bucket": 18,
+          "bucket": 24,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -305,9 +316,14 @@
               13.725490196078427,
               9.970796829370055,
               9.929078014184412,
-              10.012515644555698
+              10.012515644555698,
+              12.22361284939506,
+              10.76345431789738,
+              12.974551522736766,
+              12.724238631622864,
+              10.805173133083024
             ],
-            "last": 10.30454735085522
+            "last": 11.013767209011283
           },
           "signal": "hold (virtual stop +4.7%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -344,9 +360,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 741.9h liq257126; rules_version=v6.4; volat1h 1.30%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.004512,
-        "last_gross_pct": -2.0833,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
+        "last_price_usd": 0.004563,
+        "last_gross_pct": -0.9766,
+        "last_checked_at": "2026-11-25T16:08:34.103299+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -421,7 +437,7 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T14:35:21.054769+00:00",
-          "bucket": 12,
+          "bucket": 18,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
@@ -444,9 +460,14 @@
               -1.5625,
               -2.387152777777779,
               -1.6493055555555691,
-              -1.6493055555555691
+              -1.6493055555555691,
+              -2.126736111111116,
+              -1.909722222222232,
+              -2.473958333333337,
+              -2.278645833333337,
+              -1.692708333333337
             ],
-            "last": -2.083333333333326
+            "last": -0.9765625
           },
           "signal": "hold (virtual stop -8.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -479,13 +500,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
         },
-        "peak_gross_pct": 5.3978,
+        "peak_gross_pct": 9.1439,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 875.57h liq144352; rules_version=v6.4; volat1h 1.91%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.0009078,
-        "last_gross_pct": -1.9972,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
+        "last_price_usd": 0.0009685,
+        "last_gross_pct": 4.5558,
+        "last_checked_at": "2026-11-25T16:08:34.103299+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -560,12 +581,12 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T14:35:21.054769+00:00",
-          "bucket": 12,
+          "bucket": 18,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
             "stop": -8.0,
-            "peak": 5.397819281010463,
+            "peak": 9.143905862031732,
             "tp0": false,
             "tp1": false,
             "closed": false,
@@ -583,142 +604,14 @@
               0.874446723523703,
               -0.010795638562022258,
               -1.6517326999892057,
-              -1.6517326999892057
+              -1.6517326999892057,
+              -4.059160099319881,
+              -2.63413580913312,
+              -0.129547662744256,
+              3.854042966641469,
+              9.143905862031732
             ],
-            "last": -1.9971931339738846
-          },
-          "signal": "hold (virtual stop -8.0%, rem 1.00)",
-          "params_status": "candidate_not_validated"
-        }
-      },
-      {
-        "token": "WASTED",
-        "mint": "GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump",
-        "entry_ts": "2026-11-25T15:04:25.729298+00:00",
-        "entry_price_usd": 0.0009363,
-        "size_sol_original": 0.2497,
-        "size_sol_remaining": 0.2497,
-        "score": 56.3,
-        "score_pre_bonus": 56.3,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -8.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "NEW positions opened after v6.4 (25 Nov 2026, Europe/Vienna). Open positions keep their baked stop_pct / exit_params (v5.2 opens typically SL \u221215%; HOGE already at breakeven after TP1). Pre-v5.2 positions keep v5.1 exits (SL \u221225%). TP0 +20% sells 33%, 15% trail after +20%, TP1 +40% half + BE, TP2 +100%, 4h fade, 48h time stop are unchanged.",
-          "sl_pct": -8.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
-        },
-        "peak_gross_pct": 3.2468,
-        "verdict": "WARN",
-        "entry_reason": "WARN passed all entry filters; age 620.95h liq93031; rules_version=v6.4; volat1h 2.39%",
-        "entry_buy_impact_pct": 1.017463,
-        "last_price_usd": 0.0009196,
-        "last_gross_pct": -1.7836,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
-        "rules_version": "v6.4",
-        "override_reason": "",
-        "entry_source": "scan",
-        "copy_trigger": null,
-        "scout_pick": null,
-        "rm_size": 0.2497,
-        "rm_size_pct": 3.0,
-        "rm_tier": "tier1_plus",
-        "would_shrink": "0.40% (0.0331 SOL; vol=0.64, iv=1.00, dd=0.45, liq=1.00, corr=1.00)",
-        "rm_checks": [
-          "safety_WARN:+0.0",
-          "score_56<58:+0.0",
-          "liq_$93k>=60k:+1.0",
-          "vol_solid:+0.8",
-          "bsr_1.36:+0.5",
-          "news_+0.46:+0.5"
-        ],
-        "rm_reason": "Up-only 0.2497 SOL (3.00% of 8.3246 SOL; tier=tier1_plus, pts=2.8). Base 3% floor, cap 6%; checks=[safety_WARN:+0.0, score_56<58:+0.0, liq_$93k>=60k:+1.0, vol_solid:+0.8, bsr_1.36:+0.5, news_+0.46:+0.5]; would_shrink=0.40%.",
-        "news": {
-          "news_signal": "+0.458 (constructive)",
-          "news_reason": "JUP_VERIFIED(+0.08); JUP_BUYER_INFLOW(+0.12); NO_DS_PROFILE(-0.04); DS_BOOST(+0.06)"
-        },
-        "pattern": {
-          "module": "pattern_checker",
-          "mode": "shadow",
-          "live_allowed": false,
-          "model_status": "wf_selected_not_gate_passed",
-          "pattern_score": 0.1365,
-          "pattern_p": 0.1365,
-          "pattern_p_dex": 0.1365,
-          "pattern_ev": null,
-          "pattern_pass": true,
-          "pattern_thr": 0.1624,
-          "pattern_model": "logit_full@2026-11-25T13:57",
-          "pattern_used": "fallback_logit_dex",
-          "signal": "pass",
-          "rm_shadow_points": 0.0,
-          "why": "walk-forward model, held-out gate not passed (scores are informational)",
-          "elapsed_ms": 2.8,
-          "pattern_mode": "shadow"
-        },
-        "volat_1h": 2.3856,
-        "entry_timer": {
-          "signal": "skip",
-          "why": "off_high_1h -15.92 <= -10",
-          "policy": "skip_offhigh1h_10",
-          "spec": null,
-          "deadline": null,
-          "ref_price": 0.0009363,
-          "status": "done",
-          "result": "skip (would not have traded)"
-        },
-        "exit_mgr": {
-          "policy": "trail_10_10",
-          "pol": {
-            "name": "trail_10_10",
-            "sl": -8.0,
-            "tp0": 20.0,
-            "tp0_frac": 0.33,
-            "tp1": 40.0,
-            "tp1_frac": 0.5,
-            "tp2": 100.0,
-            "trail_act": 10.0,
-            "trail_pct": 10.0,
-            "fade_h": 4.0,
-            "fade_thr": 0.0,
-            "time_stop_h": 48.0,
-            "sl_slip": 2.0,
-            "dynamic": true
-          },
-          "sl_eff": -8.0,
-          "trail_eff": 10.0,
-          "late_init": false,
-          "init_at": "2026-11-25T15:04:25.729298+00:00",
-          "bucket": 6,
-          "state": {
-            "rem": 1.0,
-            "realized": 0.0,
-            "stop": -8.0,
-            "peak": 3.2468225995941458,
-            "tp0": false,
-            "tp1": false,
-            "closed": false,
-            "reason": null,
-            "legs": [],
-            "closes": [
-              3.2468225995941458,
-              3.140019224607493,
-              -1.0466730748691644,
-              -2.0079034497490156,
-              -2.242870874719649,
-              -0.2883691124639598
-            ],
-            "last": -1.7836163622770518
+            "last": 4.555759473172838
           },
           "signal": "hold (virtual stop -8.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -751,13 +644,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
         },
-        "peak_gross_pct": 4.6122,
+        "peak_gross_pct": 4.6735,
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1197.08h liq248816; rules_version=v6.4; volat1h 1.17%",
         "entry_buy_impact_pct": 1.699613,
-        "last_price_usd": 0.005126,
-        "last_gross_pct": 4.6122,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
+        "last_price_usd": 0.005084,
+        "last_gross_pct": 3.7551,
+        "last_checked_at": "2026-11-25T16:08:34.103299+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -832,296 +725,27 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-25T15:33:17.423005+00:00",
-          "bucket": 1,
+          "bucket": 7,
           "state": {
             "rem": 1.0,
             "realized": 0.0,
             "stop": -8.0,
-            "peak": 4.612244897959195,
+            "peak": 4.673469387755103,
             "tp0": false,
             "tp1": false,
             "closed": false,
             "reason": null,
             "legs": [],
             "closes": [
-              4.612244897959195
+              4.612244897959195,
+              2.857142857142869,
+              2.5510204081632626,
+              3.8163265306122574,
+              3.8775510204081653,
+              3.755102040816327,
+              3.755102040816327
             ],
-            "last": 4.612244897959195
-          },
-          "signal": "hold (virtual stop -8.0%, rem 1.00)",
-          "params_status": "candidate_not_validated"
-        }
-      },
-      {
-        "token": "Pompom",
-        "mint": "5EmvWDizkpjAXbcfCcVq69w1id8GaLzi4LLwtuSgpump",
-        "entry_ts": "2026-11-25T15:33:17.423005+00:00",
-        "entry_price_usd": 0.0003341,
-        "size_sol_original": 0.375,
-        "size_sol_remaining": 0.375,
-        "score": 47.6,
-        "score_pre_bonus": 47.6,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -8.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "NEW positions opened after v6.4 (25 Nov 2026, Europe/Vienna). Open positions keep their baked stop_pct / exit_params (v5.2 opens typically SL \u221215%; HOGE already at breakeven after TP1). Pre-v5.2 positions keep v5.1 exits (SL \u221225%). TP0 +20% sells 33%, 15% trail after +20%, TP1 +40% half + BE, TP2 +100%, 4h fade, 48h time stop are unchanged.",
-          "sl_pct": -8.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
-        },
-        "peak_gross_pct": 17.3002,
-        "verdict": "WARN",
-        "entry_reason": "WARN copy entry; age 4.3h liq43690; copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+1131%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (47.6); size 3%; rules_version=v6.4; volat1h 8.81%",
-        "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.0003743,
-        "last_gross_pct": 12.0323,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
-        "rules_version": "v6.4",
-        "override_reason": "copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+1131%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (47.6); size 3%",
-        "entry_source": "copy",
-        "copy_trigger": {
-          "ok": true,
-          "kind": "convergence",
-          "wallets": [
-            "disc_3vKC1m",
-            "disc_72tAZj"
-          ],
-          "why": "2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj"
-        },
-        "scout_pick": "toptrader_pick",
-        "rm_size": 0.375,
-        "rm_size_pct": 4.5,
-        "rm_tier": "tier2_strong",
-        "would_shrink": "0.03% (0.0027 SOL; vol=0.25, iv=0.50, dd=0.45, liq=0.93, corr=1.00)",
-        "rm_checks": [
-          "safety_WARN:+0.0",
-          "score_48<58:+0.0",
-          "liq_$44k>=30k:+0.4",
-          "vol_strong:+1.5",
-          "bsr_1.29_green:+1.0",
-          "toptrader_held:+1.0",
-          "news_+0.07:+0.25",
-          "scout_conf:+0.5"
-        ],
-        "rm_reason": "Up-only 0.3750 SOL (4.50% of 8.3341 SOL; tier=tier2_strong, pts=4.7). Base 3% floor, cap 6%; checks=[safety_WARN:+0.0, score_48<58:+0.0, liq_$44k>=30k:+0.4, vol_strong:+1.5, bsr_1.29_green:+1.0, toptrader_held:+1.0, news_+0.07:+0.25, scout_conf:+0.5]; would_sh",
-        "news": {
-          "news_signal": "+0.068 (neutral)",
-          "news_reason": "JUP_BUYER_INFLOW(+0.12); NO_DS_PROFILE(-0.04); DS_BOOST(+0.06); X_LINK_ONLY(+0.04)"
-        },
-        "pattern": {
-          "module": "pattern_checker",
-          "mode": "shadow",
-          "live_allowed": false,
-          "model_status": "wf_selected_not_gate_passed",
-          "pattern_score": 0.1375,
-          "pattern_p": 0.1375,
-          "pattern_p_dex": 0.1375,
-          "pattern_ev": null,
-          "pattern_pass": true,
-          "pattern_thr": 0.1597,
-          "pattern_model": "logit_full@2026-11-25T15:08",
-          "pattern_used": "fallback_logit_dex",
-          "signal": "pass",
-          "rm_shadow_points": 0.0,
-          "why": "walk-forward model, held-out gate not passed (scores are informational)",
-          "elapsed_ms": 1.3,
-          "pattern_mode": "shadow"
-        },
-        "volat_1h": 8.809,
-        "entry_timer": {
-          "signal": "skip",
-          "why": "off_high_1h -13.58 <= -10",
-          "policy": "skip_offhigh1h_10",
-          "spec": null,
-          "deadline": null,
-          "ref_price": 0.0003341,
-          "status": "done",
-          "result": "skip (would not have traded)"
-        },
-        "exit_mgr": {
-          "policy": "trail_10_10",
-          "pol": {
-            "name": "trail_10_10",
-            "sl": -8.0,
-            "tp0": 20.0,
-            "tp0_frac": 0.33,
-            "tp1": 40.0,
-            "tp1_frac": 0.5,
-            "tp2": 100.0,
-            "trail_act": 10.0,
-            "trail_pct": 10.0,
-            "fade_h": 4.0,
-            "fade_thr": 0.0,
-            "time_stop_h": 48.0,
-            "sl_slip": 2.0,
-            "dynamic": true
-          },
-          "sl_eff": -8.0,
-          "trail_eff": 10.0,
-          "late_init": false,
-          "init_at": "2026-11-25T15:33:17.423005+00:00",
-          "bucket": 1,
-          "state": {
-            "rem": 1.0,
-            "realized": 0.0,
-            "stop": 5.570188566297518,
-            "peak": 17.300209518108357,
-            "tp0": false,
-            "tp1": false,
-            "closed": false,
-            "reason": null,
-            "legs": [],
-            "closes": [
-              12.032325651002695
-            ],
-            "last": 12.032325651002695
-          },
-          "signal": "hold (virtual stop +5.6%, rem 1.00)",
-          "params_status": "candidate_not_validated"
-        }
-      },
-      {
-        "token": "OpenIndex",
-        "mint": "FuKY3dk7QmpbDdQRjzbjB3G6PiCuqKNvN4dAWDpwpump",
-        "entry_ts": "2026-11-25T15:33:17.423005+00:00",
-        "entry_price_usd": 8.046e-05,
-        "size_sol_original": 0.25,
-        "size_sol_remaining": 0.25,
-        "score": 41.9,
-        "score_pre_bonus": 41.9,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -8.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "NEW positions opened after v6.4 (25 Nov 2026, Europe/Vienna). Open positions keep their baked stop_pct / exit_params (v5.2 opens typically SL \u221215%; HOGE already at breakeven after TP1). Pre-v5.2 positions keep v5.1 exits (SL \u221225%). TP0 +20% sells 33%, 15% trail after +20%, TP1 +40% half + BE, TP2 +100%, 4h fade, 48h time stop are unchanged.",
-          "sl_pct": -8.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json 25 Nov 2026, user chose 'Switch new trades to a \u22128% stop' (answer to 'Which stop loss should new trades use?'). Journal (41 closed v5.2-era trades): 75% (21/28) that touched \u221210% hit the \u221215% SL; actual SL fills averaged \u221218.40% gross (median \u221217.19%, net \u221221.70%), ~3.4 pp past the trigger. Backfill cohort volat<3 1m-hybrid n=283: WF OOS sl_8 +0.73%/trade vs v5.2 \u22121.98% (4/4 blocks; held-out n=57 \u22123.73% vs \u22126.43%, DD 7.37% vs 10.71%); coin-grouped bootstrap p_no_gain=0.0015. Live dense volat<3 n=645: 3/4 WF blocks, held-out \u22124.93% vs \u22125.91%, DD 17.45% vs 20.54%. sl_6 scored best on raw metrics but live winner MAE before TP0 has median \u22126.1%, so \u22128% was chosen as the more robust tightening (less 15s-tick overfit risk). TP0/trail/TP1/fade unchanged."
-        },
-        "peak_gross_pct": 1.9886,
-        "verdict": "WARN",
-        "entry_reason": "WARN copy entry; age 70.1h liq21686; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-26.9%), SCORE<50 (41.9); size 3%; rules_version=v6.4; volat1h 3.88%",
-        "entry_buy_impact_pct": 1.22553,
-        "last_price_usd": 7.607e-05,
-        "last_gross_pct": -5.4561,
-        "last_checked_at": "2026-11-25T15:38:33.175579+00:00",
-        "rules_version": "v6.4",
-        "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-26.9%), SCORE<50 (41.9); size 3%",
-        "entry_source": "copy",
-        "copy_trigger": {
-          "ok": true,
-          "kind": "copyable_wallet",
-          "wallets": [
-            "disc_ssssss"
-          ],
-          "why": "copyable top trader bought <6h ago and still holds: disc_ssssss"
-        },
-        "scout_pick": "toptrader_pick",
-        "rm_size": 0.25,
-        "rm_size_pct": 3.0,
-        "rm_tier": "tier1_plus",
-        "would_shrink": "0.06% (0.0052 SOL; vol=0.36, iv=0.71, dd=0.45, liq=0.67, corr=1.00)",
-        "rm_checks": [
-          "safety_WARN:+0.0",
-          "score_42<58:+0.0",
-          "liq_$22k<30k:+0.0",
-          "vol_solid:+0.8",
-          "bsr_1.02:+0.0",
-          "toptrader_held:+1.0",
-          "news_+0.08:+0.25",
-          "scout_conf:+0.5"
-        ],
-        "rm_reason": "Up-only 0.2500 SOL (3.00% of 8.3341 SOL; tier=tier1_plus, pts=2.5). Base 3% floor, cap 6%; checks=[safety_WARN:+0.0, score_42<58:+0.0, liq_$22k<30k:+0.0, vol_solid:+0.8, bsr_1.02:+0.0, toptrader_held:+1.0, news_+0.08:+0.25, scout_conf:+0.5]; would_shrink=0.06%",
-        "news": {
-          "news_signal": "+0.078 (neutral)",
-          "news_reason": "JUP_BUYER_INFLOW(+0.12); NO_DS_PROFILE(-0.04); WEBSITE(+0.07); X_LINK_ONLY(+0.04)"
-        },
-        "pattern": {
-          "module": "pattern_checker",
-          "mode": "shadow",
-          "live_allowed": false,
-          "model_status": "wf_selected_not_gate_passed",
-          "pattern_score": 0.3119,
-          "pattern_p": 0.3119,
-          "pattern_p_dex": 0.3119,
-          "pattern_ev": null,
-          "pattern_pass": true,
-          "pattern_thr": 0.1597,
-          "pattern_model": "logit_full@2026-11-25T15:08",
-          "pattern_used": "fallback_logit_dex",
-          "signal": "pass",
-          "rm_shadow_points": 0.0,
-          "why": "walk-forward model, held-out gate not passed (scores are informational)",
-          "elapsed_ms": 2.6,
-          "pattern_mode": "shadow"
-        },
-        "volat_1h": 3.881,
-        "entry_timer": {
-          "signal": "skip",
-          "why": "off_high_1h -28.80 <= -10",
-          "policy": "skip_offhigh1h_10",
-          "spec": null,
-          "deadline": null,
-          "ref_price": 8.046e-05,
-          "status": "done",
-          "result": "skip (would not have traded)"
-        },
-        "exit_mgr": {
-          "policy": "trail_10_10",
-          "pol": {
-            "name": "trail_10_10",
-            "sl": -8.0,
-            "tp0": 20.0,
-            "tp0_frac": 0.33,
-            "tp1": 40.0,
-            "tp1_frac": 0.5,
-            "tp2": 100.0,
-            "trail_act": 10.0,
-            "trail_pct": 10.0,
-            "fade_h": 4.0,
-            "fade_thr": 0.0,
-            "time_stop_h": 48.0,
-            "sl_slip": 2.0,
-            "dynamic": true
-          },
-          "sl_eff": -8.0,
-          "trail_eff": 10.0,
-          "late_init": false,
-          "init_at": "2026-11-25T15:33:17.423005+00:00",
-          "bucket": 1,
-          "state": {
-            "rem": 1.0,
-            "realized": 0.0,
-            "stop": -8.0,
-            "peak": 1.9885657469550067,
-            "tp0": false,
-            "tp1": false,
-            "closed": false,
-            "reason": null,
-            "legs": [],
-            "closes": [
-              -5.456127268207811
-            ],
-            "last": -5.456127268207811
+            "last": 3.755102040816327
           },
           "signal": "hold (virtual stop -8.0%, rem 1.00)",
           "params_status": "candidate_not_validated"
@@ -1853,19 +1477,123 @@
       },
       {
         "label": "25 Nov 16:19",
-        "value": 8.334082,
+        "value": 8.3334,
         "t": "2026-11-25T16:19:57+01:00",
         "kind": "close",
         "token": "Mogmas"
       },
       {
+        "label": "25 Nov 16:39",
+        "value": 8.3677,
+        "t": "2026-11-25T16:39:33+01:00",
+        "kind": "close",
+        "token": "Pompom"
+      },
+      {
+        "label": "25 Nov 16:39",
+        "value": 8.3314,
+        "t": "2026-11-25T16:39:33+01:00",
+        "kind": "close",
+        "token": "OpenIndex"
+      },
+      {
+        "label": "25 Nov 16:57",
+        "value": 8.2889,
+        "t": "2026-11-25T16:57:43+01:00",
+        "kind": "close",
+        "token": "WASTED"
+      },
+      {
+        "label": "25 Nov 17:03",
+        "value": 8.323192,
+        "t": "2026-11-25T17:03:34+01:00",
+        "kind": "close",
+        "token": "Pompom"
+      },
+      {
         "label": "now",
-        "value": 8.408448,
-        "t": "2026-11-25T16:38:33+01:00",
+        "value": 8.378205,
+        "t": "2026-11-25T17:08:34+01:00",
         "kind": "now"
       }
     ],
     "closed_trades": [
+      {
+        "token": "Pompom",
+        "entry_price": 0.0003341,
+        "exit_price": 0.0003866,
+        "entry_vienna": "25 Nov 2026, 16:33",
+        "exit_vienna": "25 Nov 2026, 17:03",
+        "exit_iso": "2026-11-25T17:03:34+01:00",
+        "size_sol": 0.25125,
+        "score": "47.6",
+        "gross_pct": 15.71,
+        "net_pct": 13.41,
+        "net_sol": 0.0337,
+        "reason": "TRAIL +18.3% hit (price +15.71%, peak +39.1%",
+        "entry_reason": "WARN copy entry; age 4.3h liq43690; copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+1131%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (47.6); size 3%; rules_version=v6.4; volat1h 8.81%",
+        "rules_version": "v6.4",
+        "override_reason": "copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+1131%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (47.6); size 3%",
+        "exit_code": "trail",
+        "kind": "full"
+      },
+      {
+        "token": "WASTED",
+        "entry_price": 0.0009363,
+        "exit_price": 0.0007981,
+        "entry_vienna": "25 Nov 2026, 16:04",
+        "exit_vienna": "25 Nov 2026, 16:57",
+        "exit_iso": "2026-11-25T16:57:43+01:00",
+        "size_sol": 0.2497,
+        "score": "56.3",
+        "gross_pct": -14.76,
+        "net_pct": -17.03,
+        "net_sol": -0.0425,
+        "reason": "SL -8.0% hit (price -14.76%, peak +3.2%",
+        "entry_reason": "WARN passed all entry filters; age 620.95h liq93031; rules_version=v6.4; volat1h 2.39%",
+        "rules_version": "v6.4",
+        "override_reason": null,
+        "exit_code": "SL",
+        "kind": "full"
+      },
+      {
+        "token": "OpenIndex",
+        "entry_price": 8.046e-05,
+        "exit_price": 7.083e-05,
+        "entry_vienna": "25 Nov 2026, 16:33",
+        "exit_vienna": "25 Nov 2026, 16:39",
+        "exit_iso": "2026-11-25T16:39:33+01:00",
+        "size_sol": 0.25,
+        "score": "41.9",
+        "gross_pct": -11.97,
+        "net_pct": -14.54,
+        "net_sol": -0.0363,
+        "reason": "SL -8.0% hit (price -11.97%, peak +2.0%",
+        "entry_reason": "WARN copy entry; age 70.1h liq21686; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-26.9%), SCORE<50 (41.9); size 3%; rules_version=v6.4; volat1h 3.88%",
+        "rules_version": "v6.4",
+        "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: DUMPING_1H (-26.9%), SCORE<50 (41.9); size 3%",
+        "exit_code": "SL",
+        "kind": "full"
+      },
+      {
+        "token": "Pompom",
+        "entry_price": 0.0003341,
+        "exit_price": 0.0004354,
+        "entry_vienna": "25 Nov 2026, 16:33",
+        "exit_vienna": "25 Nov 2026, 16:39",
+        "exit_iso": "2026-11-25T16:39:33+01:00",
+        "size_sol": 0.12375,
+        "score": "47.6",
+        "gross_pct": 30.32,
+        "net_pct": 27.71,
+        "net_sol": 0.0343,
+        "reason": "TP0 +20% hit (price +30.32%)",
+        "entry_reason": "WARN copy entry; age 4.3h liq43690; copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+1131%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (47.6); size 3%; rules_version=v6.4; volat1h 8.81%",
+        "rules_version": "v6.4",
+        "override_reason": "copy (convergence): 2 watched wallets bought <6h ago and still hold: disc_3vKC1m, disc_72tAZj; v5 gates bypassed by copy: OVEREXTENDED_24H (+1131%), LOW_ORGANIC_VOL (3.0%), SCORE<50 (47.6); size 3%",
+        "exit_code": "TP0",
+        "kind": "partial"
+      },
       {
         "token": "Mogmas",
         "entry_price": 0.0001079,
@@ -3825,14 +3553,14 @@
       }
     ],
     "closed_stats": {
-      "count": 103,
-      "wins": 45,
-      "losses": 58,
-      "win_rate_pct": 43.689320388349515,
-      "net_sol": -1.6666,
+      "count": 107,
+      "wins": 47,
+      "losses": 60,
+      "win_rate_pct": 43.925233644859816,
+      "net_sol": -1.6774,
       "best_net_sol": 0.142,
       "worst_net_sol": -0.144,
-      "avg_net_sol": -0.016181
+      "avg_net_sol": -0.015677
     },
     "daily_pnl": [
       {
@@ -4377,11 +4105,11 @@
       },
       {
         "date": "2026-11-25",
-        "net_sol": -0.2744,
-        "net_pct": -2.744,
-        "trades": 52,
-        "wins": 24,
-        "losses": 28,
+        "net_sol": -0.2852,
+        "net_pct": -2.852,
+        "trades": 56,
+        "wins": 26,
+        "losses": 30,
         "items": [
           {
             "token": "MCAT",
@@ -4902,6 +4630,46 @@
             "rules_version": "v6.4",
             "exit_vienna": "25 Nov 2026, 16:19",
             "size_sol": 0.166495
+          },
+          {
+            "token": "Pompom",
+            "net_sol": 0.0343,
+            "net_pct": 27.71,
+            "exit_code": "TP0",
+            "kind": "partial",
+            "rules_version": "v6.4",
+            "exit_vienna": "25 Nov 2026, 16:39",
+            "size_sol": 0.12375
+          },
+          {
+            "token": "OpenIndex",
+            "net_sol": -0.0363,
+            "net_pct": -14.54,
+            "exit_code": "SL",
+            "kind": "full",
+            "rules_version": "v6.4",
+            "exit_vienna": "25 Nov 2026, 16:39",
+            "size_sol": 0.25
+          },
+          {
+            "token": "WASTED",
+            "net_sol": -0.0425,
+            "net_pct": -17.03,
+            "exit_code": "SL",
+            "kind": "full",
+            "rules_version": "v6.4",
+            "exit_vienna": "25 Nov 2026, 16:57",
+            "size_sol": 0.2497
+          },
+          {
+            "token": "Pompom",
+            "net_sol": 0.0337,
+            "net_pct": 13.41,
+            "exit_code": "trail",
+            "kind": "full",
+            "rules_version": "v6.4",
+            "exit_vienna": "25 Nov 2026, 17:03",
+            "size_sol": 0.25125
           }
         ]
       }
@@ -4910,36 +4678,36 @@
       {
         "bankroll_sol": 1,
         "size_sol": 0.05,
-        "gross_pct": 8.53,
-        "net_pct": 5.76,
-        "net_sol": 0.0029
+        "gross_pct": 15.71,
+        "net_pct": 12.91,
+        "net_sol": 0.0065
       },
       {
         "bankroll_sol": 3,
         "size_sol": 0.15,
-        "gross_pct": 8.53,
-        "net_pct": 5.7,
-        "net_sol": 0.0086
+        "gross_pct": 15.71,
+        "net_pct": 12.89,
+        "net_sol": 0.0193
       },
       {
         "bankroll_sol": 10,
         "size_sol": 0.5,
-        "gross_pct": 8.53,
-        "net_pct": 5.5,
-        "net_sol": 0.0275
+        "gross_pct": 15.71,
+        "net_pct": 12.29,
+        "net_sol": 0.0615
       },
       {
         "bankroll_sol": 50,
         "size_sol": 2.5,
-        "gross_pct": 8.53,
-        "net_pct": 3.31,
-        "net_sol": 0.0828
+        "gross_pct": 15.71,
+        "net_pct": 11.66,
+        "net_sol": 0.2914
       }
     ],
     "activity": [
       {
-        "time_vienna": "25 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +7.6%, Christmax +10.3%, mihao -2.1%, DCTY -2.0%, WASTED -1.8%, CBUCKS +4.6%, Pompom +12.0%, OpenIndex -5.5% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:08",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +1.1%, Christmax +11.0%, mihao -1.0%, DCTY +4.6%, CBUCKS +3.8% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4947,8 +4715,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +7.6%, Christmax +10.3%, mihao -2.1%, DCTY -2.0%, WASTED -1.8%, CBUCKS +4.6%, Pompom +12.0%, OpenIndex -5.5% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:08",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +1.1%, Christmax +11.0%, mihao -1.0%, DCTY +4.6%, CBUCKS +3.8% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4956,8 +4724,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:38",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +7.6%, Christmax +10.3%, mihao -2.1%, DCTY -2.0%, WASTED -1.8%, CBUCKS +4.6%, Pompom +12.0%, OpenIndex -5.5% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:08",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.7%, Christmax +11.0%, mihao -0.1%, DCTY +4.7%, CBUCKS +3.8% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4965,8 +4733,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +6.7%, Christmax +10.4%, mihao -2.5%, DCTY -2.6%, WASTED -1.1%, CBUCKS +3.6%, Pompom +11.4%, OpenIndex -3.9% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:07",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.7%, Christmax +11.0%, mihao -0.1%, DCTY +4.7%, CBUCKS +3.8% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4974,8 +4742,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +6.7%, Christmax +10.4%, mihao -2.5%, DCTY -2.6%, WASTED -1.1%, CBUCKS +3.6%, Pompom +11.4%, OpenIndex -3.9% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:07",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.7%, Christmax +11.0%, mihao -0.1%, DCTY +4.7%, CBUCKS +3.8% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4983,8 +4751,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +6.7%, Christmax +10.7%, mihao -1.7%, DCTY -2.7%, WASTED -3.3%, CBUCKS +3.1%, Pompom +17.3%, OpenIndex -1.7% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:07",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.5%, Christmax +10.3%, mihao -1.0%, DCTY +4.7%, CBUCKS +2.1% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -4992,8 +4760,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:37",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +6.7%, Christmax +10.7%, mihao -1.7%, DCTY -2.7%, WASTED -3.3%, CBUCKS +3.1%, Pompom +17.3%, OpenIndex -1.7% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:07",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.5%, Christmax +10.3%, mihao -1.0%, DCTY +4.7%, CBUCKS +2.1% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5001,8 +4769,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:36",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +6.7%, Christmax +10.7%, mihao -1.7%, DCTY -2.7%, WASTED -3.3%, CBUCKS +3.1%, Pompom +17.3%, OpenIndex -1.7% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:06",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +0.5%, Christmax +10.3%, mihao -1.0%, DCTY +4.7%, CBUCKS +2.1% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5010,8 +4778,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:36",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +7.5%, Christmax +10.1%, mihao -0.6%, DCTY -2.7%, WASTED -1.0%, CBUCKS +3.5%, Pompom -6.7%, OpenIndex +2.0% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:06",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +1.9%, Christmax +10.5%, mihao +0.4%, DCTY +4.7%, CBUCKS +2.1% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5019,8 +4787,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "25 Nov 2026, 16:36",
-        "raw": "monitor | entries 0 | exits 0 | open Jupiter +7.5%, Christmax +10.1%, mihao -0.6%, DCTY -2.7%, WASTED -1.0%, CBUCKS +3.5%, Pompom -6.7%, OpenIndex +2.0% | closest JIMMY 66.5 (dumping), FIONA 59.3 (BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "25 Nov 2026, 17:06",
+        "raw": "monitor | entries 0 | exits 0 | open Jupiter +1.9%, Christmax +10.5%, mihao +0.4%, DCTY +4.7%, CBUCKS +2.1% | closest JIMMY 67.4 (dumping), FIONA 61 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
