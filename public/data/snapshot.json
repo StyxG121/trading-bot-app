@@ -1,12 +1,12 @@
 {
-  "as_of_vienna": "26 Nov 2026, 13:56",
-  "as_of_iso": "2026-11-26T13:56:24+01:00",
+  "as_of_vienna": "26 Nov 2026, 16:51",
+  "as_of_iso": "2026-11-26T16:51:29+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
-    "bankroll_sol": 8.024175,
-    "gross_pnl_sol": -1.184791,
-    "net_pnl_sol": -1.975825,
+    "bankroll_sol": 8.072716,
+    "gross_pnl_sol": -1.132803,
+    "net_pnl_sol": -1.927284,
     "wins": 25,
     "losses": 68,
     "win_rate_pct": 26.881720430107524,
@@ -43,9 +43,9 @@
         "verdict": "PASS",
         "entry_reason": "PASS passed all entry filters; age 1197.08h liq248816; rules_version=v6.4; volat1h 1.17%",
         "entry_buy_impact_pct": 1.699613,
-        "last_price_usd": 0.006129534003703424,
-        "last_gross_pct": 25.0925,
-        "last_checked_at": "2026-11-26T12:56:24.232514+00:00",
+        "last_price_usd": 0.006194059174849258,
+        "last_gross_pct": 26.4094,
+        "last_checked_at": "2026-11-26T15:51:28.808089+00:00",
         "rules_version": "v6.4",
         "override_reason": "",
         "entry_source": "scan",
@@ -212,13 +212,13 @@
         "entry_ts": "2026-11-26T11:16:28.932728+00:00",
         "entry_price_usd": 0.000768,
         "size_sol_original": 0.2417,
-        "size_sol_remaining": 0.2417,
+        "size_sol_remaining": 0.12085,
         "score": 57.7,
         "score_pre_bonus": 57.7,
         "copy_bonus": 0,
         "copy_wallets": [],
-        "stop_pct": -7.0,
-        "tp1_done": false,
+        "stop_pct": 0.0,
+        "tp1_done": true,
         "exit_rules": "v5.2",
         "exit_params": {
           "enabled": true,
@@ -233,13 +233,13 @@
           "fade_below_pct": 0.0,
           "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json (25 Nov 2026 v6.6): 11 live SL exits since v6.4 averaged -11.15% gross (-13.6% net) due to DexScreener 10-30s price lag, subprocess re-pricing delay, 10-30m container pauses, and 2-4.4% RT slippage/impact. v6.6 adds Jupiter-first fast-poll (tokens/v2 batch at 4s + real-time swap/v1/quote mid at 1s within 3pp of stop), immediate --price-overrides exit execution, and parallel exit quoting, plus SL -7.0% for NEW trades. Walk-forward sl_7 beats sl_8 on ALL 6 datasets + exec_sim_split: live_coh_v3 OOS -4.437% vs -4.790% (p=0.041, DD 12.57 vs 13.43), live_dense_v3 -6.542% vs -6.969% (4/4 blks, p=0.000), bf_coh_v3_1m +0.955% vs +0.732% (DD 9.51 vs 10.38), bf_dense_v3_1m +4.642% vs +4.381% (p=0.049), comb_coh_v3_5m -1.930% vs -2.251%, exec_sim hold_trad -6.245% vs -6.406%; sl_6 failed walk-forward on live_coh_v3 (-5.122% vs -4.790%) and hold_trad (-6.862% vs -6.406%). With 1s Jupiter fast-poll (sl_slip~0.5-1.0%), -7.0% trigger targets ~-7.5% to -8.0% realized gross fills."
         },
-        "peak_gross_pct": 14.0864,
+        "peak_gross_pct": 43.0189,
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 62.11h liq77767; rules_version=v6.6; volat1h 1.41%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.0007661467787065187,
-        "last_gross_pct": -0.2413,
-        "last_checked_at": "2026-11-26T12:56:24.232514+00:00",
+        "last_price_usd": 0.0010983853891049044,
+        "last_gross_pct": 43.0189,
+        "last_checked_at": "2026-11-26T15:51:28.808089+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -354,7 +354,7 @@
         }
       }
     ],
-    "days_left": 3.3,
+    "days_left": 3.1,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -1247,19 +1247,45 @@
       },
       {
         "label": "26 Nov 13:11",
-        "value": 8.024175,
+        "value": 8.0236,
         "t": "2026-11-26T13:11:03+01:00",
         "kind": "close",
         "token": "BASKET"
       },
       {
+        "label": "26 Nov 16:51",
+        "value": 8.072716,
+        "t": "2026-11-26T16:51:28+01:00",
+        "kind": "close",
+        "token": "JIMMY"
+      },
+      {
         "label": "now",
-        "value": 8.107652,
-        "t": "2026-11-26T13:56:24+01:00",
+        "value": 8.213176,
+        "t": "2026-11-26T16:51:29+01:00",
         "kind": "now"
       }
     ],
     "closed_trades": [
+      {
+        "token": "JIMMY",
+        "entry_price": 0.000768,
+        "exit_price": 0.0010983853891049044,
+        "entry_vienna": "26 Nov 2026, 12:16",
+        "exit_vienna": "26 Nov 2026, 16:51",
+        "exit_iso": "2026-11-26T16:51:28+01:00",
+        "size_sol": 0.12085,
+        "score": "57.7",
+        "gross_pct": 43.02,
+        "net_pct": 40.17,
+        "net_sol": 0.0485,
+        "reason": "TP1 +40% hit (price +43.02%)",
+        "entry_reason": "WARN passed all entry filters; age 62.11h liq77767; rules_version=v6.6; volat1h 1.41%",
+        "rules_version": "v6.6",
+        "override_reason": null,
+        "exit_code": "TP1",
+        "kind": "partial"
+      },
       {
         "token": "BASKET",
         "entry_price": 0.0008426,
@@ -3675,14 +3701,14 @@
       }
     ],
     "closed_stats": {
-      "count": 127,
-      "wins": 52,
+      "count": 128,
+      "wins": 53,
       "losses": 75,
-      "win_rate_pct": 40.94488188976378,
-      "net_sol": -1.9764,
+      "win_rate_pct": 41.40625,
+      "net_sol": -1.9279,
       "best_net_sol": 0.142,
       "worst_net_sol": -0.144,
-      "avg_net_sol": -0.015562
+      "avg_net_sol": -0.015062
     },
     "daily_pnl": [
       {
@@ -4927,10 +4953,10 @@
       },
       {
         "date": "2026-11-26",
-        "net_sol": -0.1446,
-        "net_pct": -1.446,
-        "trades": 7,
-        "wins": 0,
+        "net_sol": -0.0961,
+        "net_pct": -0.961,
+        "trades": 8,
+        "wins": 1,
         "losses": 7,
         "items": [
           {
@@ -5002,6 +5028,16 @@
             "rules_version": "v6.6",
             "exit_vienna": "26 Nov 2026, 13:11",
             "size_sol": 0.3626
+          },
+          {
+            "token": "JIMMY",
+            "net_sol": 0.0485,
+            "net_pct": 40.17,
+            "exit_code": "TP1",
+            "kind": "partial",
+            "rules_version": "v6.6",
+            "exit_vienna": "26 Nov 2026, 16:51",
+            "size_sol": 0.12085
           }
         ]
       }
@@ -5038,89 +5074,89 @@
     ],
     "activity": [
       {
+        "time_vienna": "26 Nov 2026, 16:51",
+        "raw": "monitor | entries 0 | exits 1 (JIMMY TP1 +43.02%) | open CBUCKS +26.4%, JIMMY +43.0% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0; out 1 (JIMMY TP1 +43.02%)",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:58",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY +0.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:58",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY +0.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:57",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY +0.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:57",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY -1.2% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:57",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY -0.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:57",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY -0.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:56",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY -0.4% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "26 Nov 2026, 13:56",
+        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +27.0%, JIMMY +1.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
         "time_vienna": "26 Nov 2026, 13:56",
         "raw": "monitor | entries 0 | exits 0 | open CBUCKS +25.1%, JIMMY -0.2% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:29",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +3.9% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:29",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +2.3% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:29",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +4.3% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:29",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +4.3% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:28",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +4.3% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:28",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +4.3% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:28",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +3.5% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:28",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +2.6% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "26 Nov 2026, 13:27",
-        "raw": "monitor | entries 0 | exits 0 | open CBUCKS +28.4%, JIMMY +3.6% | closest CATE 69.7 (bsr,margin), mihao 63.8 (bsr,no-compensate) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
