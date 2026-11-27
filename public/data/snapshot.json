@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "27 Nov 2026, 23:14",
-  "as_of_iso": "2026-11-27T23:14:29+01:00",
+  "as_of_vienna": "27 Nov 2026, 23:44",
+  "as_of_iso": "2026-11-27T23:44:36+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -43,9 +43,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 767.16h liq273099; rules_version=v6.6; volat1h 1.15%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005376047309712509,
-        "last_gross_pct": 10.7778,
-        "last_checked_at": "2026-11-27T22:14:28.867234+00:00",
+        "last_price_usd": 0.005439547762913612,
+        "last_gross_pct": 12.0863,
+        "last_checked_at": "2026-11-27T22:44:35.649057+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -191,9 +191,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 188.45h liq108069; rules_version=v6.6; volat1h 1.64%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.0013545139469884955,
-        "last_gross_pct": 46.3865,
-        "last_checked_at": "2026-11-27T22:14:28.867234+00:00",
+        "last_price_usd": 0.0013196004095407132,
+        "last_gross_pct": 42.6133,
+        "last_checked_at": "2026-11-27T22:44:35.649057+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -325,7 +325,7 @@
         }
       }
     ],
-    "days_left": 1.9,
+    "days_left": 1.8,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -1351,8 +1351,8 @@
       },
       {
         "label": "now",
-        "value": 8.383508,
-        "t": "2026-11-27T23:14:29+01:00",
+        "value": 8.380371,
+        "t": "2026-11-27T23:44:36+01:00",
         "kind": "now"
       }
     ],
@@ -5667,8 +5667,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "27 Nov 2026, 23:14",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +10.8%, FIONA +46.4% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:44",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +12.1%, FIONA +42.6% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5676,8 +5676,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 23:14",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +10.7%, FIONA +46.1% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:44",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +12.0%, FIONA +42.5% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5685,8 +5685,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.3%, FIONA +65.2% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:44",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +12.0%, FIONA +42.6% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5694,8 +5694,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.3%, FIONA +65.0% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:43",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +12.0%, FIONA +42.6% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5703,8 +5703,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.3%, FIONA +64.6% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:43",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +12.0%, FIONA +42.8% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5712,8 +5712,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:44",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.3%, FIONA +64.6% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +10.8%, FIONA +44.8% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5721,8 +5721,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.2%, FIONA +66.3% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +10.8%, FIONA +45.5% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5730,8 +5730,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +12.8%, FIONA +63.6% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +10.8%, FIONA +45.1% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5739,8 +5739,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.2%, FIONA +63.9% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +10.7%, FIONA +45.5% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5748,8 +5748,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 22:43",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +13.2%, FIONA +65.4% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 23:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +10.7%, FIONA +45.5% | closest Rings 71 (BSR), STONK 69.4 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
