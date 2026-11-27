@@ -1,16 +1,16 @@
 {
-  "as_of_vienna": "27 Nov 2026, 14:51",
-  "as_of_iso": "2026-11-27T14:51:27+01:00",
+  "as_of_vienna": "27 Nov 2026, 15:42",
+  "as_of_iso": "2026-11-27T15:42:44+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
-    "bankroll_sol": 8.079067,
-    "gross_pnl_sol": -1.085429,
-    "net_pnl_sol": -1.920933,
-    "wins": 27,
+    "bankroll_sol": 8.070121,
+    "gross_pnl_sol": -1.090732,
+    "net_pnl_sol": -1.929879,
+    "wins": 28,
     "losses": 71,
-    "win_rate_pct": 27.55102040816326,
-    "open_count": 2,
+    "win_rate_pct": 28.28282828282828,
+    "open_count": 1,
     "open": [
       {
         "token": "mihao",
@@ -43,9 +43,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 767.16h liq273099; rules_version=v6.6; volat1h 1.15%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005910521205618523,
-        "last_gross_pct": 21.7911,
-        "last_checked_at": "2026-11-27T13:51:27.465765+00:00",
+        "last_price_usd": 0.005636280140857913,
+        "last_gross_pct": 16.1401,
+        "last_checked_at": "2026-11-27T14:42:43.798587+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -157,153 +157,6 @@
           "signal": "would exit TRAIL +10.5% @ 3.5h",
           "params_status": "candidate_not_validated",
           "closed_at": "2026-11-26T16:26:24.891170+00:00"
-        },
-        "tp0_done": true
-      },
-      {
-        "token": "Santa",
-        "mint": "CcpN5RXTEjbRqbtuHoxyiMZorzsghbfpeyYQjSvTgS27",
-        "entry_ts": "2026-11-26T16:26:24.891170+00:00",
-        "entry_price_usd": 0.0001804,
-        "size_sol_original": 0.2474,
-        "size_sol_remaining": 0.165758,
-        "score": 50.8,
-        "score_pre_bonus": 50.8,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -7.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "NEW positions opened after v6.6 (25 Nov 2026 ~22:20 Vienna). Open positions keep their baked stop_pct / exit_params (v6.4/v6.5 opens keep SL -8%; older v5.2 opens -15%; pre-v5.2 -25%). TP0 +20% sells 33%, 15% trail after +20%, TP1 +40% half + BE, TP2 +100%, 4h fade, 48h time stop are unchanged.",
-          "sl_pct": -7.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json (25 Nov 2026 v6.6): 11 live SL exits since v6.4 averaged -11.15% gross (-13.6% net) due to DexScreener 10-30s price lag, subprocess re-pricing delay, 10-30m container pauses, and 2-4.4% RT slippage/impact. v6.6 adds Jupiter-first fast-poll (tokens/v2 batch at 4s + real-time swap/v1/quote mid at 1s within 3pp of stop), immediate --price-overrides exit execution, and parallel exit quoting, plus SL -7.0% for NEW trades. Walk-forward sl_7 beats sl_8 on ALL 6 datasets + exec_sim_split: live_coh_v3 OOS -4.437% vs -4.790% (p=0.041, DD 12.57 vs 13.43), live_dense_v3 -6.542% vs -6.969% (4/4 blks, p=0.000), bf_coh_v3_1m +0.955% vs +0.732% (DD 9.51 vs 10.38), bf_dense_v3_1m +4.642% vs +4.381% (p=0.049), comb_coh_v3_5m -1.930% vs -2.251%, exec_sim hold_trad -6.245% vs -6.406%; sl_6 failed walk-forward on live_coh_v3 (-5.122% vs -4.790%) and hold_trad (-6.862% vs -6.406%). With 1s Jupiter fast-poll (sl_slip~0.5-1.0%), -7.0% trigger targets ~-7.5% to -8.0% realized gross fills."
-        },
-        "peak_gross_pct": 25.3362,
-        "verdict": "WARN",
-        "entry_reason": "WARN passed all entry filters; age 61.97h liq24492; rules_version=v6.6; volat1h 1.48%",
-        "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.000202967387327657,
-        "last_gross_pct": 12.5096,
-        "last_checked_at": "2026-11-27T13:51:27.465765+00:00",
-        "rules_version": "v6.6",
-        "override_reason": "",
-        "entry_source": "scout_auto",
-        "copy_trigger": null,
-        "scout_pick": "scout_shortlist",
-        "rm_size": 0.2474,
-        "rm_size_pct": 3.0,
-        "rm_tier": "base",
-        "would_shrink": "0.21% (0.0174 SOL; vol=0.44, iv=1.00, dd=0.45, liq=0.70, corr=1.00)",
-        "rm_checks": [
-          "safety_WARN:+0.0",
-          "score_51<58:+0.0",
-          "liq_$24k<30k:+0.0",
-          "vol_solid:+0.8",
-          "bsr_1.88:+0.5",
-          "news_-0.21:+0.0",
-          "scout_conf:+0.5"
-        ],
-        "rm_reason": "Up-only 0.2474 SOL (3.00% of 8.2467 SOL; tier=base, pts=1.8). Base 3% floor, cap 6%; checks=[safety_WARN:+0.0, score_51<58:+0.0, liq_$24k<30k:+0.0, vol_solid:+0.8, bsr_1.88:+0.5, news_-0.21:+0.0, scout_conf:+0.5]; would_shrink=0.21%.",
-        "news": {
-          "news_signal": "-0.210 (neutral)",
-          "news_reason": "CLONE_TICKER_HIGH(-0.20); NO_DS_PROFILE(-0.04); WEBSITE(+0.07); TELEGRAM(+0.04)"
-        },
-        "pattern": {
-          "module": "pattern_checker",
-          "mode": "shadow",
-          "live_allowed": false,
-          "model_status": "wf_selected_not_gate_passed",
-          "pattern_score": 0.3092,
-          "pattern_p": 0.3092,
-          "pattern_p_dex": 0.3092,
-          "pattern_ev": null,
-          "pattern_pass": true,
-          "pattern_thr": -0.1689,
-          "pattern_model": "ens_full@2026-11-26T02:58",
-          "pattern_used": "fallback_logit_dex",
-          "signal": "pass",
-          "rm_shadow_points": 0.0,
-          "why": "walk-forward model, held-out gate not passed (scores are informational)",
-          "elapsed_ms": 1.7,
-          "pattern_mode": "shadow"
-        },
-        "volat_1h": 1.4771,
-        "entry_timer": {
-          "signal": "enter_now",
-          "why": "off_high_1h ok",
-          "policy": "skip_offhigh1h_10",
-          "spec": null,
-          "deadline": null,
-          "ref_price": 0.0001804,
-          "status": "done",
-          "result": "enter_now (same as actual) px +0.00%"
-        },
-        "exit_mgr": {
-          "policy": "trail_10_10",
-          "pol": {
-            "name": "trail_10_10",
-            "sl": -7.0,
-            "tp0": 20.0,
-            "tp0_frac": 0.33,
-            "tp1": 40.0,
-            "tp1_frac": 0.5,
-            "tp2": 100.0,
-            "trail_act": 10.0,
-            "trail_pct": 10.0,
-            "fade_h": 4.0,
-            "fade_thr": 0.0,
-            "time_stop_h": 48.0,
-            "sl_slip": 2.0,
-            "dynamic": true
-          },
-          "sl_eff": -7.0,
-          "trail_eff": 10.0,
-          "late_init": false,
-          "init_at": "2026-11-26T16:26:24.891170+00:00",
-          "bucket": 257,
-          "state": {
-            "rem": 0.0,
-            "realized": 16.74239618100112,
-            "stop": 12.802559767681675,
-            "peak": 25.3361775196463,
-            "tp0": true,
-            "tp1": false,
-            "closed": true,
-            "reason": "TRAIL",
-            "legs": [
-              {
-                "kind": "TP0",
-                "frac": 0.33,
-                "gross_pct": 25.336,
-                "h": 19.179
-              },
-              {
-                "kind": "TRAIL",
-                "frac": 0.67,
-                "gross_pct": 12.51,
-                "h": 21.417
-              }
-            ],
-            "closes": [
-              0.0,
-              25.3361775196463,
-              17.197815654515857,
-              18.15334455083033
-            ],
-            "last": 18.15334455083033
-          },
-          "signal": "would exit TRAIL +12.5% @ 21.4h",
-          "params_status": "candidate_not_validated",
-          "closed_at": "2026-11-27T13:51:27.465765+00:00"
         },
         "tp0_done": true
       }
@@ -1264,19 +1117,45 @@
       },
       {
         "label": "27 Nov 12:37",
-        "value": 8.079067,
+        "value": 8.0785,
         "t": "2026-11-27T12:37:07+01:00",
         "kind": "close",
         "token": "Santa"
       },
       {
+        "label": "27 Nov 15:42",
+        "value": 8.070121,
+        "t": "2026-11-27T15:42:43+01:00",
+        "kind": "close",
+        "token": "Santa"
+      },
+      {
         "label": "now",
-        "value": 8.161678,
-        "t": "2026-11-27T14:51:27+01:00",
+        "value": 8.11595,
+        "t": "2026-11-27T15:42:44+01:00",
         "kind": "now"
       }
     ],
     "closed_trades": [
+      {
+        "token": "Santa",
+        "entry_price": 0.0001804,
+        "exit_price": 0.00017462898980897076,
+        "entry_vienna": "26 Nov 2026, 17:26",
+        "exit_vienna": "27 Nov 2026, 15:42",
+        "exit_iso": "2026-11-27T15:42:43+01:00",
+        "size_sol": 0.165758,
+        "score": "50.8",
+        "gross_pct": -3.2,
+        "net_pct": -5.4,
+        "net_sol": -0.0089,
+        "reason": "TRAIL +6.5% hit (price -3.20%, peak +25.3%",
+        "entry_reason": "WARN passed all entry filters; age 61.97h liq24492; rules_version=v6.6; volat1h 1.48%",
+        "rules_version": "v6.6",
+        "override_reason": null,
+        "exit_code": "trail",
+        "kind": "full"
+      },
       {
         "token": "Santa",
         "entry_price": 0.0001804,
@@ -3863,14 +3742,14 @@
       }
     ],
     "closed_stats": {
-      "count": 136,
+      "count": 137,
       "wins": 58,
-      "losses": 78,
-      "win_rate_pct": 42.64705882352941,
-      "net_sol": -1.9215,
+      "losses": 79,
+      "win_rate_pct": 42.33576642335766,
+      "net_sol": -1.9304,
       "best_net_sol": 0.142,
       "worst_net_sol": -0.144,
-      "avg_net_sol": -0.014129
+      "avg_net_sol": -0.014091
     },
     "daily_pnl": [
       {
@@ -5225,11 +5104,11 @@
       },
       {
         "date": "2026-11-27",
-        "net_sol": -0.0347,
-        "net_pct": -0.347,
-        "trades": 6,
+        "net_sol": -0.0436,
+        "net_pct": -0.436,
+        "trades": 7,
         "wins": 3,
-        "losses": 3,
+        "losses": 4,
         "items": [
           {
             "token": "CBUCKS",
@@ -5290,6 +5169,16 @@
             "rules_version": "v6.6",
             "exit_vienna": "27 Nov 2026, 12:37",
             "size_sol": 0.081642
+          },
+          {
+            "token": "Santa",
+            "net_sol": -0.0089,
+            "net_pct": -5.4,
+            "exit_code": "trail",
+            "kind": "full",
+            "rules_version": "v6.6",
+            "exit_vienna": "27 Nov 2026, 15:42",
+            "size_sol": 0.165758
           }
         ]
       }
@@ -5298,36 +5187,45 @@
       {
         "bankroll_sol": 1,
         "size_sol": 0.05,
-        "gross_pct": -3.23,
-        "net_pct": -5.17,
-        "net_sol": -0.0026
+        "gross_pct": -3.2,
+        "net_pct": -5.36,
+        "net_sol": -0.0027
       },
       {
         "bankroll_sol": 3,
         "size_sol": 0.15,
-        "gross_pct": -3.23,
-        "net_pct": -5.16,
-        "net_sol": -0.0077
+        "gross_pct": -3.2,
+        "net_pct": -5.4,
+        "net_sol": -0.0081
       },
       {
         "bankroll_sol": 10,
         "size_sol": 0.5,
-        "gross_pct": -3.23,
-        "net_pct": -5.16,
-        "net_sol": -0.0258
+        "gross_pct": -3.2,
+        "net_pct": -5.59,
+        "net_sol": -0.0279
       },
       {
         "bankroll_sol": 50,
         "size_sol": 2.5,
-        "gross_pct": -3.23,
-        "net_pct": -5.15,
-        "net_sol": -0.1289
+        "gross_pct": -3.2,
+        "net_pct": -6.65,
+        "net_sol": -0.1663
       }
     ],
     "activity": [
       {
-        "time_vienna": "27 Nov 2026, 14:51",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +21.8%, Santa +12.5% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:42",
+        "raw": "monitor | entries 0 | exits 1 (Santa TRAIL -3.20%) | open mihao +16.1% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0; out 1 (Santa TRAIL -3.20%)",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 15:18",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.2%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5335,8 +5233,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:13",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +22.3%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:18",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.9%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5344,8 +5242,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:11",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +21.4%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:18",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.2%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5353,8 +5251,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:11",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +21.4%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:17",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.7%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5362,8 +5260,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:11",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +18.6%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:17",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.7%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5371,8 +5269,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:10",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +18.2%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:17",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.7%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5380,8 +5278,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:10",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +18.2%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:17",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.7%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5389,8 +5287,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:10",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +17.7%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.3%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5398,17 +5296,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "27 Nov 2026, 13:10",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +18.5%, Santa +17.6% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 13:09",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +17.7%, Santa +17.6% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "27 Nov 2026, 15:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.2%, Santa +13.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
