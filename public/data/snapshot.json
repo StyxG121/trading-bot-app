@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "27 Nov 2026, 13:09",
-  "as_of_iso": "2026-11-27T13:09:42+01:00",
+  "as_of_vienna": "27 Nov 2026, 14:51",
+  "as_of_iso": "2026-11-27T14:51:27+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -43,9 +43,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 767.16h liq273099; rules_version=v6.6; volat1h 1.15%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005762095235616397,
-        "last_gross_pct": 18.7326,
-        "last_checked_at": "2026-11-27T12:09:42.509960+00:00",
+        "last_price_usd": 0.005910521205618523,
+        "last_gross_pct": 21.7911,
+        "last_checked_at": "2026-11-27T13:51:27.465765+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -191,9 +191,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 61.97h liq24492; rules_version=v6.6; volat1h 1.48%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.00021142485944074658,
-        "last_gross_pct": 17.1978,
-        "last_checked_at": "2026-11-27T12:09:42.509960+00:00",
+        "last_price_usd": 0.000202967387327657,
+        "last_gross_pct": 12.5096,
+        "last_checked_at": "2026-11-27T13:51:27.465765+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scout_auto",
@@ -269,38 +269,46 @@
           "trail_eff": 10.0,
           "late_init": false,
           "init_at": "2026-11-26T16:26:24.891170+00:00",
-          "bucket": 236,
+          "bucket": 257,
           "state": {
-            "rem": 0.6699999999999999,
-            "realized": 8.360938581483278,
+            "rem": 0.0,
+            "realized": 16.74239618100112,
             "stop": 12.802559767681675,
             "peak": 25.3361775196463,
             "tp0": true,
             "tp1": false,
-            "closed": false,
-            "reason": null,
+            "closed": true,
+            "reason": "TRAIL",
             "legs": [
               {
                 "kind": "TP0",
                 "frac": 0.33,
                 "gross_pct": 25.336,
                 "h": 19.179
+              },
+              {
+                "kind": "TRAIL",
+                "frac": 0.67,
+                "gross_pct": 12.51,
+                "h": 21.417
               }
             ],
             "closes": [
               0.0,
               25.3361775196463,
-              17.197815654515857
+              17.197815654515857,
+              18.15334455083033
             ],
-            "last": 17.197815654515857
+            "last": 18.15334455083033
           },
-          "signal": "hold (virtual stop +12.8%, rem 0.67)",
-          "params_status": "candidate_not_validated"
+          "signal": "would exit TRAIL +12.5% @ 21.4h",
+          "params_status": "candidate_not_validated",
+          "closed_at": "2026-11-27T13:51:27.465765+00:00"
         },
         "tp0_done": true
       }
     ],
-    "days_left": 2.3,
+    "days_left": 2.2,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -1263,8 +1271,8 @@
       },
       {
         "label": "now",
-        "value": 8.160764,
-        "t": "2026-11-27T13:09:42+01:00",
+        "value": 8.161678,
+        "t": "2026-11-27T14:51:27+01:00",
         "kind": "now"
       }
     ],
@@ -5318,92 +5326,92 @@
     ],
     "activity": [
       {
+        "time_vienna": "27 Nov 2026, 14:51",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.8%, Santa +12.5% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:13",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.3%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:11",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.4%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:11",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.4%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:11",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.6%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:10",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.2%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:10",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.2%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:10",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +17.7%, Santa +18.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "27 Nov 2026, 13:10",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.5%, Santa +17.6% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
         "time_vienna": "27 Nov 2026, 13:09",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +18.7%, Santa +17.2% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +17.7%, Santa +17.6% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:39",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +27.4%, Santa +21.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:38",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +27.6%, Santa +21.8% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:38",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +27.4%, Santa +23.3% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:38",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +26.7%, Santa +24.1% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:38",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +25.9%, Santa +24.1% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:37",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +25.9%, Santa +24.1% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:37",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +25.9%, Santa +24.1% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:37",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +25.9%, Santa +25.3% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "27 Nov 2026, 12:37",
-        "raw": "monitor | entries 0 | exits 2 (CLAUDIA FADE -3.23%, Santa TP0 +25.34%) | open mihao +26.8%, Santa +25.3% | closest JIMMY 66.9 (dumping), TROLL 65.3 (age,BSR) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0; out 2 (CLAUDIA FADE -3.23%, Santa TP0 +25.34%)",
         "miss": "\u2014",
         "kind": "monitor"
       }
