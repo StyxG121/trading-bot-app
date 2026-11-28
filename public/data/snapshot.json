@@ -1,6 +1,6 @@
 {
-  "as_of_vienna": "28 Nov 2026, 03:48",
-  "as_of_iso": "2026-11-28T03:48:57+01:00",
+  "as_of_vienna": "28 Nov 2026, 04:50",
+  "as_of_iso": "2026-11-28T04:50:49+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
@@ -43,9 +43,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 767.16h liq273099; rules_version=v6.6; volat1h 1.15%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005822304464973961,
-        "last_gross_pct": 19.9733,
-        "last_checked_at": "2026-11-28T02:48:57.098015+00:00",
+        "last_price_usd": 0.005638347585695948,
+        "last_gross_pct": 16.1827,
+        "last_checked_at": "2026-11-28T03:50:48.622280+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -191,9 +191,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN copy entry; age 41.68h liq22114; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: BSR_1H (0.68), SCORE<50 (44.6); size 3%; rules_version=v6.6; volat1h 3.70%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 9.459512610207424e-05,
-        "last_gross_pct": 19.8013,
-        "last_checked_at": "2026-11-28T02:48:57.098015+00:00",
+        "last_price_usd": 8.700805010545771e-05,
+        "last_gross_pct": 10.1926,
+        "last_checked_at": "2026-11-28T03:50:48.622280+00:00",
         "rules_version": "v6.6",
         "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: BSR_1H (0.68), SCORE<50 (44.6); size 3%",
         "entry_source": "copy",
@@ -323,7 +323,7 @@
         "tp0_done": true
       }
     ],
-    "days_left": 1.7,
+    "days_left": 1.6,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -1377,8 +1377,8 @@
       },
       {
         "label": "now",
-        "value": 8.365359,
-        "t": "2026-11-28T03:48:57+01:00",
+        "value": 8.338624,
+        "t": "2026-11-28T04:50:49+01:00",
         "kind": "now"
       }
     ],
@@ -5819,8 +5819,8 @@
     ],
     "activity": [
       {
-        "time_vienna": "28 Nov 2026, 03:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +20.0%, Elonmas +19.8% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:50",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +16.2%, Elonmas +10.2% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5828,8 +5828,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +21.1%, Elonmas +19.8% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:17",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +17.7%, Elonmas +18.1% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5837,8 +5837,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +21.5%, Elonmas +19.8% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.3%, Elonmas +18.1% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5846,8 +5846,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +20.5%, Elonmas +19.8% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +17.3%, Elonmas +18.1% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5855,8 +5855,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:47",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +20.5%, Elonmas +22.7% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +17.3%, Elonmas +18.1% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5864,8 +5864,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:20",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +19.5%, Elonmas +4.3% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:16",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.0%, Elonmas +18.1% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5873,8 +5873,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:20",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +19.5%, Elonmas +4.5% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.0%, Elonmas +15.3% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5882,8 +5882,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:20",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +19.1%, Elonmas +5.5% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.3%, Elonmas +15.3% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5891,8 +5891,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:20",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +19.5%, Elonmas +5.6% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.0%, Elonmas +15.3% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5900,8 +5900,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 03:19",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +20.0%, Elonmas +5.6% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 04:15",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +18.0%, Elonmas +15.3% | closest CBUCKS 64.9 (VOL1H), CATE 63.9 (age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
