@@ -1,16 +1,16 @@
 {
-  "as_of_vienna": "28 Nov 2026, 07:50",
-  "as_of_iso": "2026-11-28T07:50:20+01:00",
+  "as_of_vienna": "28 Nov 2026, 13:20",
+  "as_of_iso": "2026-11-28T13:20:20+01:00",
   "zone": "Europe/Vienna (CET, UTC+1)",
   "paper": {
     "start_bankroll_sol": 10.0,
-    "bankroll_sol": 8.200487,
-    "gross_pnl_sol": -0.86484,
-    "net_pnl_sol": -1.799513,
-    "wins": 32,
-    "losses": 77,
-    "win_rate_pct": 29.357798165137616,
-    "open_count": 2,
+    "bankroll_sol": 8.328844,
+    "gross_pnl_sol": -0.702027,
+    "net_pnl_sol": -1.671156,
+    "wins": 34,
+    "losses": 78,
+    "win_rate_pct": 30.357142857142854,
+    "open_count": 1,
     "open": [
       {
         "token": "mihao",
@@ -43,9 +43,9 @@
         "verdict": "WARN",
         "entry_reason": "WARN passed all entry filters; age 767.16h liq273099; rules_version=v6.6; volat1h 1.15%",
         "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.005408731583517441,
-        "last_gross_pct": 11.4513,
-        "last_checked_at": "2026-11-28T06:50:19.893852+00:00",
+        "last_price_usd": 0.005817155561394115,
+        "last_gross_pct": 19.8672,
+        "last_checked_at": "2026-11-28T12:20:18.622769+00:00",
         "rules_version": "v6.6",
         "override_reason": "",
         "entry_source": "scan",
@@ -159,156 +159,9 @@
           "closed_at": "2026-11-26T16:26:24.891170+00:00"
         },
         "tp0_done": true
-      },
-      {
-        "token": "Snowball",
-        "mint": "9TKbd3VFaMSXsEAicD9JVQWpWwAoLi4fSgWmZL2cpump",
-        "entry_ts": "2026-11-28T03:15:29.332410+00:00",
-        "entry_price_usd": 0.0002992,
-        "size_sol_original": 0.4345,
-        "size_sol_remaining": 0.291115,
-        "score": 66.8,
-        "score_pre_bonus": 66.8,
-        "copy_bonus": 0,
-        "copy_wallets": [],
-        "stop_pct": -7.0,
-        "tp1_done": false,
-        "exit_rules": "v5.2",
-        "exit_params": {
-          "enabled": true,
-          "applies_to": "NEW positions opened after v6.6 (25 Nov 2026 ~22:20 Vienna). Open positions keep their baked stop_pct / exit_params (v6.4/v6.5 opens keep SL -8%; older v5.2 opens -15%; pre-v5.2 -25%). TP0 +20% sells 33%, 15% trail after +20%, TP1 +40% half + BE, TP2 +100%, 4h fade, 48h time stop are unchanged.",
-          "sl_pct": -7.0,
-          "tp0_pct": 20.0,
-          "tp0_frac": 0.33,
-          "trail_activate_pct": 20.0,
-          "trail_pct": 15.0,
-          "tp1_frac": 0.5,
-          "fade_after_h": 4.0,
-          "fade_below_pct": 0.0,
-          "evidence": "learning/experiments/sl_sweep/sl_sweep_wf.json (25 Nov 2026 v6.6): 11 live SL exits since v6.4 averaged -11.15% gross (-13.6% net) due to DexScreener 10-30s price lag, subprocess re-pricing delay, 10-30m container pauses, and 2-4.4% RT slippage/impact. v6.6 adds Jupiter-first fast-poll (tokens/v2 batch at 4s + real-time swap/v1/quote mid at 1s within 3pp of stop), immediate --price-overrides exit execution, and parallel exit quoting, plus SL -7.0% for NEW trades. Walk-forward sl_7 beats sl_8 on ALL 6 datasets + exec_sim_split: live_coh_v3 OOS -4.437% vs -4.790% (p=0.041, DD 12.57 vs 13.43), live_dense_v3 -6.542% vs -6.969% (4/4 blks, p=0.000), bf_coh_v3_1m +0.955% vs +0.732% (DD 9.51 vs 10.38), bf_dense_v3_1m +4.642% vs +4.381% (p=0.049), comb_coh_v3_5m -1.930% vs -2.251%, exec_sim hold_trad -6.245% vs -6.406%; sl_6 failed walk-forward on live_coh_v3 (-5.122% vs -4.790%) and hold_trad (-6.862% vs -6.406%). With 1s Jupiter fast-poll (sl_slip~0.5-1.0%), -7.0% trigger targets ~-7.5% to -8.0% realized gross fills."
-        },
-        "peak_gross_pct": 37.4539,
-        "verdict": "WARN",
-        "entry_reason": "WARN passed all entry filters; age 57.48h liq44705; rules_version=v6.6; volat1h 2.25%",
-        "entry_buy_impact_pct": 1.0,
-        "last_price_usd": 0.00038757459630829995,
-        "last_gross_pct": 29.537,
-        "last_checked_at": "2026-11-28T06:50:19.893852+00:00",
-        "rules_version": "v6.6",
-        "override_reason": "",
-        "entry_source": "scout_auto",
-        "copy_trigger": null,
-        "scout_pick": "scout_shortlist",
-        "rm_size": 0.4345,
-        "rm_size_pct": 5.25,
-        "rm_tier": "tier3_high",
-        "would_shrink": "0.12% (0.0102 SOL; vol=0.43, iv=1.00, dd=0.45, liq=0.94, corr=1.00)",
-        "rm_checks": [
-          "safety_WARN:+0.0",
-          "score_67>=65:+1.2",
-          "liq_$45k>=30k:+0.4",
-          "vol_strong:+1.5",
-          "bsr_1.16_green:+1.0",
-          "news_+0.13:+0.5",
-          "scout_conf:+0.5"
-        ],
-        "rm_reason": "Up-only 0.4345 SOL (5.25% of 8.2757 SOL; tier=tier3_high, pts=5.1). Base 3% floor, cap 6%; checks=[safety_WARN:+0.0, score_67>=65:+1.2, liq_$45k>=30k:+0.4, vol_strong:+1.5, bsr_1.16_green:+1.0, news_+0.13:+0.5, scout_conf:+0.5]; would_shrink=0.12%.",
-        "news": {
-          "news_signal": "+0.130 (neutral)",
-          "news_reason": "CLONE_TICKER_HIGH(-0.20); JUP_BUYER_INFLOW(+0.12); NO_DS_PROFILE(-0.04); DS_BOOST(+0.06)"
-        },
-        "pattern": {
-          "module": "pattern_checker",
-          "mode": "shadow",
-          "live_allowed": false,
-          "model_status": "wf_selected_not_gate_passed",
-          "pattern_score": 0.2412,
-          "pattern_p": 0.2412,
-          "pattern_p_dex": 0.2412,
-          "pattern_ev": null,
-          "pattern_pass": true,
-          "pattern_thr": -0.1689,
-          "pattern_model": "ens_full@2026-11-26T02:58",
-          "pattern_used": "fallback_logit_dex",
-          "signal": "pass",
-          "rm_shadow_points": 0.0,
-          "why": "walk-forward model, held-out gate not passed (scores are informational)",
-          "elapsed_ms": 87.1,
-          "pattern_mode": "shadow"
-        },
-        "volat_1h": 2.2538,
-        "entry_timer": {
-          "signal": "enter_now",
-          "why": "off_high_1h ok",
-          "policy": "skip_offhigh1h_10",
-          "spec": null,
-          "deadline": null,
-          "ref_price": 0.0002992,
-          "status": "done",
-          "result": "enter_now (same as actual) px +0.00%"
-        },
-        "exit_mgr": {
-          "policy": "trail_10_10",
-          "pol": {
-            "name": "trail_10_10",
-            "sl": -7.0,
-            "tp0": 20.0,
-            "tp0_frac": 0.33,
-            "tp1": 40.0,
-            "tp1_frac": 0.5,
-            "tp2": 100.0,
-            "trail_act": 10.0,
-            "trail_pct": 10.0,
-            "fade_h": 4.0,
-            "fade_thr": 0.0,
-            "time_stop_h": 48.0,
-            "sl_slip": 2.0,
-            "dynamic": true
-          },
-          "sl_eff": -7.0,
-          "trail_eff": 10.0,
-          "late_init": false,
-          "init_at": "2026-11-28T03:15:29.332410+00:00",
-          "bucket": 42,
-          "state": {
-            "rem": 0.6699999999999999,
-            "realized": 6.7920116738174,
-            "stop": 23.708503664459755,
-            "peak": 37.45389296051083,
-            "tp0": true,
-            "tp1": false,
-            "closed": false,
-            "reason": null,
-            "legs": [
-              {
-                "kind": "TP0",
-                "frac": 0.33,
-                "gross_pct": 20.582,
-                "h": 2.555
-              }
-            ],
-            "closes": [
-              9.805073971446433,
-              10.93061727997171,
-              12.778801117599148,
-              18.750531626223065,
-              15.591456984329689,
-              7.207874654264557,
-              19.073005947276055,
-              19.024503583087004,
-              33.9367053528971,
-              34.6678089462749,
-              28.945691055674104
-            ],
-            "last": 29.53696400678474
-          },
-          "signal": "hold (virtual stop +23.7%, rem 0.67)",
-          "params_status": "candidate_not_validated"
-        },
-        "tp0_done": true
       }
     ],
-    "days_left": 1.5,
+    "days_left": 1.3,
     "week_end": "Sun 29 Nov 2026, 20:00",
     "equity": [
       {
@@ -1390,19 +1243,149 @@
       },
       {
         "label": "28 Nov 06:48",
-        "value": 8.200487,
+        "value": 8.1999,
         "t": "2026-11-28T06:48:47+01:00",
         "kind": "close",
         "token": "Snowball"
       },
       {
+        "label": "28 Nov 08:46",
+        "value": 8.2257,
+        "t": "2026-11-28T08:46:01+01:00",
+        "kind": "close",
+        "token": "Snowball"
+      },
+      {
+        "label": "28 Nov 11:49",
+        "value": 8.2587,
+        "t": "2026-11-28T11:49:23+01:00",
+        "kind": "close",
+        "token": "SPSC"
+      },
+      {
+        "label": "28 Nov 12:12",
+        "value": 8.3388,
+        "t": "2026-11-28T12:12:00+01:00",
+        "kind": "close",
+        "token": "SPSC"
+      },
+      {
+        "label": "28 Nov 12:14",
+        "value": 8.3127,
+        "t": "2026-11-28T12:14:03+01:00",
+        "kind": "close",
+        "token": "Zhaki"
+      },
+      {
+        "label": "28 Nov 13:19",
+        "value": 8.328844,
+        "t": "2026-11-28T13:19:33+01:00",
+        "kind": "close",
+        "token": "SPSC"
+      },
+      {
         "label": "now",
-        "value": 8.318989,
-        "t": "2026-11-28T07:50:20+01:00",
+        "value": 8.385256,
+        "t": "2026-11-28T13:20:20+01:00",
         "kind": "now"
       }
     ],
     "closed_trades": [
+      {
+        "token": "SPSC",
+        "entry_price": 0.0001035,
+        "exit_price": 0.00013483405642006587,
+        "entry_vienna": "28 Nov 2026, 10:49",
+        "exit_vienna": "28 Nov 2026, 13:19",
+        "exit_iso": "2026-11-28T13:19:33+01:00",
+        "size_sol": 0.062934,
+        "score": "48.4",
+        "gross_pct": 30.27,
+        "net_pct": 24.7,
+        "net_sol": 0.0155,
+        "reason": "TRAIL +42.6% hit (price +30.27%, peak +67.8%",
+        "entry_reason": "WARN copy entry; age 4.32h liq22546; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (2.6%), SCORE<50 (48.4); size 3%; rules_version=v6.6; volat1h 7.98%",
+        "rules_version": "v6.6",
+        "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (2.6%), SCORE<50 (48.4); size 3%",
+        "exit_code": "trail",
+        "kind": "full"
+      },
+      {
+        "token": "Zhaki",
+        "entry_price": 0.0002527,
+        "exit_price": 0.00023314975672831178,
+        "entry_vienna": "28 Nov 2026, 10:49",
+        "exit_vienna": "28 Nov 2026, 12:14",
+        "exit_iso": "2026-11-28T12:14:03+01:00",
+        "size_sol": 0.2468,
+        "score": "46.0",
+        "gross_pct": -7.74,
+        "net_pct": -10.58,
+        "net_sol": -0.0261,
+        "reason": "SL -7.0% hit (price -7.74%, peak +2.7%",
+        "entry_reason": "WARN copy entry; age 21.39h liq38729; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+734%), SCORE<50 (46.0); size 3%; rules_version=v6.6; volat1h 3.32%",
+        "rules_version": "v6.6",
+        "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: OVEREXTENDED_24H (+734%), SCORE<50 (46.0); size 3%",
+        "exit_code": "SL",
+        "kind": "full"
+      },
+      {
+        "token": "SPSC",
+        "entry_price": 0.0001035,
+        "exit_price": 0.00015369987738478465,
+        "entry_vienna": "28 Nov 2026, 10:49",
+        "exit_vienna": "28 Nov 2026, 12:12",
+        "exit_iso": "2026-11-28T12:12:00+01:00",
+        "size_sol": 0.1851,
+        "score": "48.4",
+        "gross_pct": 48.5,
+        "net_pct": 43.29,
+        "net_sol": 0.0801,
+        "reason": "TP1 +40% hit (price +48.50%)",
+        "entry_reason": "WARN copy entry; age 4.32h liq22546; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (2.6%), SCORE<50 (48.4); size 3%; rules_version=v6.6; volat1h 7.98%",
+        "rules_version": "v6.6",
+        "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (2.6%), SCORE<50 (48.4); size 3%",
+        "exit_code": "TP1",
+        "kind": "partial"
+      },
+      {
+        "token": "SPSC",
+        "entry_price": 0.0001035,
+        "exit_price": 0.0001375272122487816,
+        "entry_vienna": "28 Nov 2026, 10:49",
+        "exit_vienna": "28 Nov 2026, 11:49",
+        "exit_iso": "2026-11-28T11:49:23+01:00",
+        "size_sol": 0.122166,
+        "score": "48.4",
+        "gross_pct": 32.88,
+        "net_pct": 27.01,
+        "net_sol": 0.033,
+        "reason": "TP0 +20% hit (price +32.88%)",
+        "entry_reason": "WARN copy entry; age 4.32h liq22546; copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (2.6%), SCORE<50 (48.4); size 3%; rules_version=v6.6; volat1h 7.98%",
+        "rules_version": "v6.6",
+        "override_reason": "copy (copyable_wallet): copyable top trader bought <6h ago and still holds: disc_ssssss; v5 gates bypassed by copy: LOW_ORGANIC_VOL (2.6%), SCORE<50 (48.4); size 3%",
+        "exit_code": "TP0",
+        "kind": "partial"
+      },
+      {
+        "token": "Snowball",
+        "entry_price": 0.0002992,
+        "exit_price": 0.0003330262575263421,
+        "entry_vienna": "28 Nov 2026, 04:15",
+        "exit_vienna": "28 Nov 2026, 08:46",
+        "exit_iso": "2026-11-28T08:46:01+01:00",
+        "size_sol": 0.291115,
+        "score": "66.8",
+        "gross_pct": 11.31,
+        "net_pct": 8.86,
+        "net_sol": 0.0258,
+        "reason": "TRAIL +16.8% hit (price +11.31%, peak +37.5%",
+        "entry_reason": "WARN passed all entry filters; age 57.48h liq44705; rules_version=v6.6; volat1h 2.25%",
+        "rules_version": "v6.6",
+        "override_reason": null,
+        "exit_code": "trail",
+        "kind": "full"
+      },
       {
         "token": "Snowball",
         "entry_price": 0.0002992,
@@ -4331,14 +4314,14 @@
       }
     ],
     "closed_stats": {
-      "count": 154,
-      "wins": 69,
-      "losses": 85,
-      "win_rate_pct": 44.8051948051948,
-      "net_sol": -1.8001,
+      "count": 159,
+      "wins": 73,
+      "losses": 86,
+      "win_rate_pct": 45.911949685534594,
+      "net_sol": -1.6718,
       "best_net_sol": 0.142,
       "worst_net_sol": -0.144,
-      "avg_net_sol": -0.011689
+      "avg_net_sol": -0.010514
     },
     "daily_pnl": [
       {
@@ -5853,11 +5836,11 @@
       },
       {
         "date": "2026-11-28",
-        "net_sol": -0.0682,
-        "net_pct": -0.682,
-        "trades": 9,
-        "wins": 4,
-        "losses": 5,
+        "net_sol": 0.0601,
+        "net_pct": 0.601,
+        "trades": 14,
+        "wins": 8,
+        "losses": 6,
         "items": [
           {
             "token": "FIONA",
@@ -5948,6 +5931,56 @@
             "rules_version": "v6.6",
             "exit_vienna": "28 Nov 2026, 06:48",
             "size_sol": 0.143385
+          },
+          {
+            "token": "Snowball",
+            "net_sol": 0.0258,
+            "net_pct": 8.86,
+            "exit_code": "trail",
+            "kind": "full",
+            "rules_version": "v6.6",
+            "exit_vienna": "28 Nov 2026, 08:46",
+            "size_sol": 0.291115
+          },
+          {
+            "token": "SPSC",
+            "net_sol": 0.033,
+            "net_pct": 27.01,
+            "exit_code": "TP0",
+            "kind": "partial",
+            "rules_version": "v6.6",
+            "exit_vienna": "28 Nov 2026, 11:49",
+            "size_sol": 0.122166
+          },
+          {
+            "token": "SPSC",
+            "net_sol": 0.0801,
+            "net_pct": 43.29,
+            "exit_code": "TP1",
+            "kind": "partial",
+            "rules_version": "v6.6",
+            "exit_vienna": "28 Nov 2026, 12:12",
+            "size_sol": 0.1851
+          },
+          {
+            "token": "Zhaki",
+            "net_sol": -0.0261,
+            "net_pct": -10.58,
+            "exit_code": "SL",
+            "kind": "full",
+            "rules_version": "v6.6",
+            "exit_vienna": "28 Nov 2026, 12:14",
+            "size_sol": 0.2468
+          },
+          {
+            "token": "SPSC",
+            "net_sol": 0.0155,
+            "net_pct": 24.7,
+            "exit_code": "trail",
+            "kind": "full",
+            "rules_version": "v6.6",
+            "exit_vienna": "28 Nov 2026, 13:19",
+            "size_sol": 0.062934
           }
         ]
       }
@@ -5956,36 +5989,36 @@
       {
         "bankroll_sol": 1,
         "size_sol": 0.05,
-        "gross_pct": 9.45,
-        "net_pct": 5.82,
-        "net_sol": 0.0029
+        "gross_pct": 30.27,
+        "net_pct": 26.1,
+        "net_sol": 0.013
       },
       {
         "bankroll_sol": 3,
         "size_sol": 0.15,
-        "gross_pct": 9.45,
-        "net_pct": 5.7,
-        "net_sol": 0.0086
+        "gross_pct": 30.27,
+        "net_pct": 26.05,
+        "net_sol": 0.0391
       },
       {
         "bankroll_sol": 10,
         "size_sol": 0.5,
-        "gross_pct": 9.45,
-        "net_pct": 5.49,
-        "net_sol": 0.0275
+        "gross_pct": 30.27,
+        "net_pct": 25.82,
+        "net_sol": 0.1291
       },
       {
         "bankroll_sol": 50,
         "size_sol": 2.5,
-        "gross_pct": 9.45,
-        "net_pct": 3.86,
-        "net_sol": 0.0964
+        "gross_pct": 30.27,
+        "net_pct": 24.1,
+        "net_sol": 0.6025
       }
     ],
     "activity": [
       {
-        "time_vienna": "28 Nov 2026, 07:50",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.5%, Snowball +29.5% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 13:20",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +19.9% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -5993,8 +6026,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:50",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.4%, Snowball +29.1% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 13:20",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +19.0% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6002,8 +6035,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:49",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.5%, Snowball +30.1% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 13:19",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +19.4% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6011,8 +6044,17 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:49",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.6%, Snowball +30.1% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 13:19",
+        "raw": "monitor | entries 0 | exits 1 (SPSC TRAIL +30.27%) | open mihao +19.4% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "scanned": "monitor",
+        "verdicts": "\u2014",
+        "entries": "0; out 1 (SPSC TRAIL +30.27%)",
+        "miss": "\u2014",
+        "kind": "monitor"
+      },
+      {
+        "time_vienna": "28 Nov 2026, 12:48",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.7%, SPSC +53.0% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6020,8 +6062,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:49",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.5%, Snowball +29.5% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 12:48",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.7%, SPSC +53.0% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6029,8 +6071,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:49",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.5%, Snowball +29.5% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 12:48",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.7%, SPSC +52.8% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6038,8 +6080,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.5%, Snowball +28.3% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 12:47",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +22.0%, SPSC +48.1% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6047,8 +6089,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.5%, Snowball +30.0% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 12:47",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.4%, SPSC +48.1% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
@@ -6056,17 +6098,8 @@
         "kind": "monitor"
       },
       {
-        "time_vienna": "28 Nov 2026, 07:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.6%, Snowball +30.0% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
-        "scanned": "monitor",
-        "verdicts": "\u2014",
-        "entries": "0",
-        "miss": "\u2014",
-        "kind": "monitor"
-      },
-      {
-        "time_vienna": "28 Nov 2026, 07:48",
-        "raw": "monitor | entries 0 | exits 0 | open mihao +11.6%, Snowball +28.4% | closest Huss 70.4 (BSR), baton 55.7 (VOL1H,age) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
+        "time_vienna": "28 Nov 2026, 12:47",
+        "raw": "monitor | entries 0 | exits 0 | open mihao +21.4%, SPSC +52.3% | closest MoonBoy 61.8 (overextended), JOB 57.4 (safety,organic) | copy bonus no | copy entries 0 | AI monitor paused; exit loop alive | costs_samples not refreshed",
         "scanned": "monitor",
         "verdicts": "\u2014",
         "entries": "0",
